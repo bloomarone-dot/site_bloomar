@@ -42,12 +42,23 @@ export default function Navbar({ onOpenModal }: Props) {
       <div style={{
         maxWidth: 1200, margin: '0 auto',
         padding: `0 clamp(16px,4vw,40px)`,
-        height: 'clamp(60px,8vw,80px)',
+        height: 'clamp(70px,9vw,90px)', // Légèrement agrandi pour donner de l'espace au grand logo
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
-        {/* Logo */}
-        <Link to="/" style={{ cursor: 'pointer', textDecoration: 'none' }}>
-          <BloLogo size="md" />
+        {/* Logo - Agrandi et parfaitement intégré au fond */}
+        <Link to="/" style={{ 
+          cursor: 'pointer', 
+          textDecoration: 'none',
+          display: 'flex',
+          alignItems: 'center',
+          height: '100%',
+          transition: 'transform 0.2s ease'
+        }}
+        onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.03)')}
+        onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+        >
+          {/* Passage de size="md" à size="lg" pour répondre à la demande de ton patron */}
+          <BloLogo size="lg" />
         </Link>
 
         {/* Nav desktop */}

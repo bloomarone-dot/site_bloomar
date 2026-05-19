@@ -11,7 +11,9 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="flex flex-col gap-4 lg:col-span-1">
-            <BloLogo size="lg" />
+            {/* ✅ Ici : On le passe en taille large ET on active le mode light pour qu'il devienne blanc */}
+            <BloLogo size="lg" light={true} />
+            
             <p className="text-sm leading-relaxed" style={{ color: '#9CA3AF' }}>{t.footer.tagline}</p>
             <div className="flex gap-3 mt-1">
               {[
