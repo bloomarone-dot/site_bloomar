@@ -44,8 +44,8 @@ const SERVICES_DETAIL = [
     title: 'Les Indispensables Digitaux',
     sub: "Équipements essentiels pour votre écosystème",
     desc: "Commercialisation d'équipements et d'outils utiles pour les opérations courantes de votre écosystème digital.",
-    items: ['Imprimante thermique rechargeable', 'PIOS — outil de gestion essentiel'],
-    tags: ['Imprimante', 'PIOS', 'Encaissement'],
+    items: ['Imprimante thermique rechargeable', 'POS — outil de gestion essentiel'],
+    tags: ['Imprimante', 'POS', 'Encaissement'],
   },
 ]
 

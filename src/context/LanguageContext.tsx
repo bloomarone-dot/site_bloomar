@@ -114,7 +114,7 @@ const SERVICES_FR: ServiceItem[] = [
     desc: "Commercialisation d'équipements et d'outils utiles pour les opérations courantes de votre écosystème digital.",
     features: [
       'Imprimante thermique rechargeable',
-      'PIOS — outil de gestion essentiel',
+      'POS — outil de gestion essentiel',
     ],
     image: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=800&q=80',
   },
