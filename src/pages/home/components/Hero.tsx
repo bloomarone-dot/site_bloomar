@@ -178,7 +178,7 @@ export default function Hero({ onOpenModal }: Props) {
               width: '100%',
               maxWidth: 'clamp(280px,40vw,420px)',
               height: 'clamp(320px,50vw,520px)',
-              borderRadius: 'clamp(16px,3vw,28px)',
+             borderRadius: '12px',
               overflow: 'hidden',
               boxShadow: '0 24px 60px rgba(139,47,201,0.15)',
             }}>
