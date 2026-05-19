@@ -6,7 +6,7 @@ export default function BloLogo({ size = 'md' }: Props) {
       src="/LOGOS_BLOOMAR_ONE.png"
       alt="BLOOMAR ONE"
       style={{
-        height: size === 'lg' ? 52 : 38,
+        height: size === 'lg' ? 70 : 52,
         width: 'auto',
         objectFit: 'contain',
         display: 'block',

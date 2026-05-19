@@ -175,11 +175,12 @@ export default function Hero({ onOpenModal }: Props) {
             transition={{ duration: 0.7, delay: 0.3 }}
             style={{
               position: 'relative',
-              width: '100%',
+              width: 'clamp(280px,40vw,460px)',
               maxWidth: 'clamp(280px,40vw,420px)',
-              height: 'clamp(320px,50vw,520px)',
+             height: 'clamp(320px,40vw,460px)',
              borderRadius: '12px',
               overflow: 'hidden',
+              aspectRatio: '1/1',
               boxShadow: '0 24px 60px rgba(139,47,201,0.15)',
             }}>
            <img
@@ -187,7 +188,8 @@ export default function Hero({ onOpenModal }: Props) {
   alt="Dashboard BLOOMAR ONE"
               style={{
                 width: '100%', height: '100%',
-                objectFit: 'cover', display: 'block',
+                objectFit: 'cover',
+objectPosition: 'center top',
               }}
               loading="eager"
             />
