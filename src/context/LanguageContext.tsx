@@ -4,7 +4,7 @@ export type Lang = 'fr' | 'en'
 
 interface ServiceItem {
   emoji: string; title: string; slug: string; tagline: string
-  desc: string; features: string[]; image: string
+  desc: string; features: string[]
 }
 interface StepItem { num: string; title: string; desc: string }
 interface ValueItem { icon: string; title: string; desc: string }
@@ -74,7 +74,6 @@ const SERVICES_FR: ServiceItem[] = [
       'Création de sites web',
       'Maintenance & évolution',
     ],
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80',
   },
   {
     emoji: '📈',
@@ -90,7 +89,6 @@ const SERVICES_FR: ServiceItem[] = [
       "Interprétation des données",
       'Détection des pertes et opportunités',
     ],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
   },
   {
     emoji: '🎯',
@@ -104,7 +102,6 @@ const SERVICES_FR: ServiceItem[] = [
       'Développement des opportunités business',
       'Optimisation de la chaîne de valeur',
     ],
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80',
   },
   {
     emoji: '🖨️',
@@ -116,7 +113,6 @@ const SERVICES_FR: ServiceItem[] = [
       'Imprimante thermique rechargeable',
       'POS',
     ],
-    image: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=800&q=80',
   },
 ]
 
@@ -133,7 +129,6 @@ const SERVICES_EN: ServiceItem[] = [
       'Website creation',
       'Maintenance & evolution',
     ],
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80',
   },
   {
     emoji: '📈',
@@ -149,7 +144,6 @@ const SERVICES_EN: ServiceItem[] = [
       'Data interpretation',
       'Loss and opportunity detection',
     ],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
   },
   {
     emoji: '🎯',
@@ -163,7 +157,6 @@ const SERVICES_EN: ServiceItem[] = [
       'Business development opportunities',
       'Value chain optimization',
     ],
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80',
   },
   {
     emoji: '🖨️',
@@ -175,7 +168,6 @@ const SERVICES_EN: ServiceItem[] = [
       'Rechargeable thermal printer',
       'POS',
     ],
-    image: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=800&q=80',
   },
 ]
 
@@ -202,7 +194,7 @@ const fr: T = {
     steps: [
       { num: '01', title: 'Parlez-nous de votre projet', desc: "Un appel découverte gratuit pour comprendre vos besoins, votre contexte et vos objectifs. Aucun engagement." },
       { num: '02', title: 'Nous construisons ensemble', desc: "Notre équipe conçoit et développe votre solution avec des points réguliers, en toute transparence." },
-      { num: '03', title: 'Lancez et évoluez', desc: "Votre produit est livré et déployé. Nous restons disponibles pour la maintenance et l'évolution." },
+      { num: '03', title: 'Lancez et évoluez', desc: "Votre produit is livré et déployé. Nous restons disponibles pour la maintenance et l'évolution." },
     ],
   },
   reviews: {
@@ -422,7 +414,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('fr')
   return (
     <LanguageContext.Provider value={{ lang, setLang, t: lang === 'fr' ? fr : en }}>
-      {children}
+      <LanguageContext.Provider value={{ lang, setLang, t: lang === 'fr' ? fr : en }}>
+        {children}
+      </LanguageContext.Provider>
     </LanguageContext.Provider>
   )
 }
