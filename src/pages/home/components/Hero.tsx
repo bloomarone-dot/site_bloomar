@@ -171,7 +171,7 @@ export default function Hero({ onOpenModal }: Props) {
                 <span style={{ fontSize: '0.6rem', color: '#10B981', fontWeight: 700 }}>+12.4% ce mois</span>
               </div>
               <div style={{ background: '#fff', padding: 12, borderRadius: 12, border: '1px solid #F3F4F6' }}>
-                <span style={{ fontSize: '0.65rem', color: '#6B7280', fontWeight: 600 }}>Commandes POS</span>
+                <span style={{ fontSize: '0.65rem', color: '#6B7280', fontWeight: 600 }}>Commandes PIOS</span>
                 <p style={{ margin: '4px 0 0', fontWeight: 800, fontSize: '1.1rem', color: '#111827' }}>1,120</p>
                 <span style={{ fontSize: '0.6rem', color: '#8B2FC9', fontWeight: 700 }}>98.2% complété</span>
               </div>
