@@ -1,0 +1,76 @@
+<div id="capture-popup-modal" class="fixed inset-0 modal-backdrop z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 space-y-6 relative shadow-2xl">
+        <button onclick="closeUniversalCaptureModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <div class="text-center space-y-2">
+            <h3 class="text-lg font-black text-bloomar-navy">Finalisez votre demande d'accès</h3>
+            <p class="text-xs text-slate-500">Complétez ces informations pour recevoir votre document ou activer votre essai.</p>
+        </div>
+        <form onsubmit="handleUniversalCaptureSubmit(event)" class="space-y-4 text-xs">
+            <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Nom et prénom</label><input type="text" id="cap-name" required class="input-field" placeholder="Ex: Jean-Gilles"></div>
+            <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Nom de la structure</label><input type="text" id="cap-structure" required class="input-field" placeholder="Ex: Restaurant du Marché"></div>
+            <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Téléphone 1 (WhatsApp)</label><input type="tel" id="cap-phone1" required class="input-field" placeholder="Ex: +237 690 939 410"></div>
+            <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Téléphone 2</label><input type="tel" id="cap-phone2" required class="input-field" placeholder="Ex: +237 680 116 107"></div>
+            <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Email professionnel</label><input type="email" id="cap-email" required class="input-field" placeholder="Ex: contact@entreprise.cm"></div>
+            <button type="submit" class="btn btn-primary btn-block py-4 text-xxs uppercase tracking-widest">Valider et recevoir</button>
+        </form>
+    </div>
+</div>
+
+<div id="developer-modal" class="fixed inset-0 modal-backdrop z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl border border-slate-200 max-w-lg w-full p-6 space-y-6 relative shadow-2xl">
+        <button onclick="closeDeveloperModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <div class="space-y-2">
+            <h3 class="text-xl font-black text-bloomar-navy">BloomarOne API (BETA Sandbox)</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Intégrez nos modules TVA, journal de caisse SYSCOHADA et gestion de stocks dans vos applications.</p>
+        </div>
+        <form onsubmit="handleDevLeadSubmit(event)" class="space-y-4 text-xs">
+            <div class="grid grid-cols-2 gap-4">
+                <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Nom</label><input type="text" id="dev-name" required class="input-field"></div>
+                <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Email</label><input type="email" id="dev-email" required class="input-field"></div>
+            </div>
+            <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Téléphone 1</label><input type="tel" id="dev-phone1" required class="input-field"></div>
+            <div><label class="block font-bold text-slate-500 uppercase tracking-wider mb-1">Téléphone 2</label><input type="tel" id="dev-phone2" class="input-field"></div>
+            <button type="submit" class="w-full py-3 bg-bloomar-navy hover:bg-slate-900 text-white font-extrabold rounded-xl text-xxs uppercase tracking-widest">Obtenir mes accès Sandbox</button>
+        </form>
+    </div>
+</div>
+
+<div id="full-simulator-modal" class="fixed inset-0 modal-backdrop z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl border border-slate-200 max-w-3xl w-full p-6 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+        <button onclick="closeFullSimulatorModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <div class="text-center space-y-2">
+            <div class="inline-flex p-3 bg-bloomar-violet/10 text-bloomar-violet rounded-full"><i data-lucide="calculator" class="w-6 h-6 animate-spin-slow"></i></div>
+            <h3 class="text-xl font-black text-bloomar-navy">Simulateur d'activité multi-secteurs</h3>
+            <p class="text-xs text-slate-500">Projetez vos marges, BFR et trésorerie selon votre secteur au Cameroun.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 border-b border-slate-100 pb-4">
+            <button onclick="setSimulatorSector('resto')" id="sim-sec-resto" class="px-4 py-2 bg-bloomar-violet text-white text-xs font-bold rounded-xl">Restauration</button>
+            <button onclick="setSimulatorSector('boutique')" id="sim-sec-boutique" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-bold rounded-xl">Boutique</button>
+            <button onclick="setSimulatorSector('ecole')" id="sim-sec-ecole" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-bold rounded-xl">École</button>
+            <button onclick="setSimulatorSector('hotel')" id="sim-sec-hotel" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-bold rounded-xl">Hôtel</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="md:col-span-7 space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs">
+                <div class="space-y-1.5"><div class="flex justify-between font-bold text-slate-700"><span id="sim-lbl-ca">CA mensuel</span><span id="sim-val-ca" class="text-bloomar-violet">8 000 000 FCFA</span></div><input type="range" id="sim-slide-ca" min="500000" max="50000000" step="100000" value="8000000" class="w-full accent-bloomar-violet" oninput="runLivePmeSimulation()"></div>
+                <div class="space-y-1.5"><div class="flex justify-between font-bold text-slate-700"><span>Marge brute (%)</span><span id="sim-val-marge" class="text-bloomar-violet">65%</span></div><input type="range" id="sim-slide-marge" min="10" max="95" value="65" class="w-full accent-bloomar-violet" oninput="runLivePmeSimulation()"></div>
+                <div class="space-y-1.5"><div class="flex justify-between font-bold text-slate-700"><span>Charges fixes</span><span id="sim-val-fixes" class="text-bloomar-violet">2 500 000 FCFA</span></div><input type="range" id="sim-slide-fixes" min="100000" max="25000000" step="50000" value="2500000" class="w-full accent-bloomar-violet" oninput="runLivePmeSimulation()"></div>
+                <div class="space-y-1.5"><div class="flex justify-between font-bold text-slate-700"><span id="sim-lbl-metric4">Clients/jour</span><span id="sim-val-metric4" class="text-bloomar-violet">45 clients</span></div><input type="range" id="sim-slide-metric4" min="5" max="300" value="45" class="w-full accent-bloomar-violet" oninput="runLivePmeSimulation()"></div>
+            </div>
+            <div class="md:col-span-5 space-y-4">
+                <div class="p-4 bg-bloomar-navy text-white rounded-2xl space-y-3">
+                    <span class="text-micro font-black uppercase tracking-widest text-bloomar-turquoise block">Résultats</span>
+                    <div class="grid grid-cols-2 gap-3 text-xxs">
+                        <div><p class="text-slate-400">Bénéfice net</p><p id="sim-res-benefice" class="text-xs font-black text-bloomar-turquoise">2 700 000 F</p></div>
+                        <div><p class="text-slate-400">Seuil rentabilité</p><p id="sim-res-pm" class="text-xs font-black">3 846 153 F</p></div>
+                        <div><p class="text-slate-400">BFR estimé</p><p id="sim-res-bfr" class="text-xs font-black">1 600 000 F</p></div>
+                        <div><p class="text-slate-400">Trésorerie conseillée</p><p id="sim-res-safety" class="text-xs font-black">7 500 000 F</p></div>
+                    </div>
+                </div>
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xxs text-slate-600">
+                    <p id="sim-expert-advice-txt">Ajustez les curseurs pour voir l'impact sur votre rentabilité.</p>
+                    <button onclick="triggerUniversalCaptureModal('consultation-demonstrateur')" class="btn btn-primary btn-block mt-3 py-2.5 text-micro uppercase">Prendre rendez-vous</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,7 @@
 
         /* Signature Game Rain Simulation with optimized, precise vector logo & 3 infinity circles rendering */
         (function() {
-            const COULEURS = ['#a513e2', '#7216db', '#2972d1', '#0caaa6']; 
+            const COULEURS = ['#7B2FF7', '#12C7B7', '#0B1232', '#7B2FF7']; 
             const MAX_PARTICULES = 350; 
             
             let canvas, ctx;
@@ -246,7 +246,7 @@
                     title: "Premium (IA)",
                     price: "174 000 FCFA / 6 mois",
                     desc: "Intégration technologique absolue avec prévisions et protection.",
-                    features: ["Prévisions automatisées par IA de tendances de ventes", "Anticipation des achats au marché Mfoundi/Sandaga", "Alerte intelligente prédictive de stock", "Module Antifraude & Mouchard d'activité de caisse"],
+                    features: ["Prévisions automatisées par IA de tendances de ventes", "Anticipation des achats au marché Mfoundi/Sandaga", "Alerte intelligente prédictive de stock", "Module antifraude & surveillance de caisse"],
                     cta: "Choisir Premium"
                 }
             ],
@@ -269,7 +269,7 @@
                     title: "Premium",
                     price: "120 000 FCFA / 6 mois",
                     desc: "Le contrôle absolu sur plusieurs points de vente physiques.",
-                    features: ["Gestion de stock multi-boutiques (ex: Ydé et Douala)", "Transferts internes de stocks sécurisés", "Analyse de marge nette avancée par produit", "Système Antifraude / Mouchard de connexions suspectes"],
+                    features: ["Gestion de stock multi-boutiques (ex : Yaoundé et Douala)", "Transferts internes de stocks sécurisés", "Analyse de marge nette avancée par produit", "Système antifraude & détection de connexions suspectes"],
                     cta: "Choisir Premium"
                 }
             ],
@@ -292,7 +292,7 @@
                     title: "Premium",
                     price: "500 000 FCFA / an",
                     desc: "Optimisation administrative totale de l'établissement.",
-                    features: ["Module E-learning complet : cours & devoirs", "Gestion RH : heures de vacation & fiches de paie", "IA : Détection du risque de décrochage/impayé", "Module Antifraude & Mouchard de validation bancaire"],
+                    features: ["Module e-learning complet : cours & devoirs", "Gestion RH : heures de vacation & fiches de paie", "IA : détection du risque de décrochage/impayé", "Module antifraude & validation bancaire sécurisée"],
                     cta: "Choisir Premium"
                 }
             ],
@@ -315,7 +315,7 @@
                     title: "Premium (IA)",
                     price: "500 000 FCFA / 6 mois",
                     desc: "Pilotage dynamique et sécurisé du resort.",
-                    features: ["Dynamic Pricing par IA : Tarifs selon occupation/saison", "Rapports d'analyse financière avancée (RevPAR)", "Mouchard & Protection antifraude de validation de caution", "Automatisation des quittances de loyer"],
+                    features: ["Tarification dynamique par IA selon occupation/saison", "Rapports d'analyse financière avancée (RevPAR)", "Protection antifraude de validation de caution", "Automatisation des quittances de loyer"],
                     cta: "Choisir Premium"
                 }
             ]

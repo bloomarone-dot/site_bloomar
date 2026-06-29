@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="api-base" content="">
+    <title>Contact | BL∞MAR ONE</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <script src="assets/js/config/tailwind.config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/core/i18n.js"></script>
+</head>
+<body data-page="contact" class="text-bloomar-text min-h-full flex flex-col overflow-x-hidden">
+
+    <div id="site-header"></div>
+
+    <main class="flex-1">
+
+        <section class="page-hero page-hero--image page-hero--contact text-white">
+            <div class="page-hero__overlay page-hero__overlay--turquoise" aria-hidden="true"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <span class="section-badge" data-i18n="contact.badge">Construisez votre réussite</span>
+                <h1 class="page-hero__title mt-4 mb-4" data-i18n="contact.title">Prêt à passer au niveau supérieur ?</h1>
+                <p class="section-desc mx-auto" data-i18n="contact.desc">Parlons de votre projet et construisons ensemble votre réussite digitale au Cameroun. Notre équipe effectue un diagnostic complet de votre structure.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section-shell relative bg-gradient-to-b from-white to-slate-50 overflow-hidden scroll-mt-20 -mt-8">
+            <div class="max-w-4xl mx-auto px-6 relative z-10">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 text-left max-w-xl mx-auto shadow-sm">
+                    <form onsubmit="handleLeadSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2" data-i18n="contact.name">Votre Nom</label>
+                                <input type="text" id="lead-name" required data-i18n-placeholder="contact.namePh" placeholder="Ex: Jean-Marc" class="input-field">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2" data-i18n="contact.company">Nom de votre PME</label>
+                                <input type="text" id="lead-company" required data-i18n-placeholder="contact.companyPh" placeholder="Ex: Restaurant Le Bon Coin" class="input-field">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2" data-i18n="contact.phone">Numéro de Téléphone (WhatsApp)</label>
+                            <input type="tel" id="lead-phone" required data-i18n-placeholder="contact.phonePh" placeholder="Ex: +237 6XX XX XX XX" class="input-field">
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2" data-i18n="contact.need">Besoin d'accompagnement ciblé</label>
+                            <select id="lead-sector" class="input-field text-slate-700">
+                                <option data-i18n="contact.opt1">Solutions Web & Mobile sur Mesure</option>
+                                <option data-i18n="contact.opt2">Accompagnement, Structuration & Croissance</option>
+                                <option data-i18n="contact.opt3">Service Après-Vente (SAV)</option>
+                                <option data-i18n="contact.opt4">Les Indispensables (POS/Caisse)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block py-4 text-xs uppercase tracking-widest font-extrabold">
+                            <span data-i18n="contact.submit">Demander mon audit gratuit</span>
+                            <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        </button>
+                        <p class="text-center text-[10px] text-slate-500 pt-2" data-i18n="contact.whatsappHint">
+                            Après validation, WhatsApp s'ouvre : cliquez sur Envoyer pour nous transmettre votre demande.
+                        </p>
+                        <p class="text-center text-[10px] text-slate-500 pt-1">
+                            <span data-i18n="contact.orCall">Ou contactez-nous directement :</span>
+                            <a href="tel:+237652209175" class="text-bloomar-violet font-bold hover:underline ml-1" data-i18n="contact.phoneDisplay">+237 652 209 175</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <div id="site-modals"></div>
+    <div id="site-global-ui"></div>
+
+    <script src="assets/js/core/app.js"></script>
+    <script src="assets/js/core/layout.js"></script>
+    <script src="assets/js/core/api.js"></script>
+</body>
+</html>

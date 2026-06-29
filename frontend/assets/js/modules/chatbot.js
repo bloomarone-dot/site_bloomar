@@ -12,7 +12,7 @@
                 responses: [
                     "C'est le niveau de chiffre d'affaires (CA) à atteindre pour couvrir vos charges. Formule : $Charges\\ Fixes / Taux\\ de\\ Marge$. Faisons une simulation ensemble :",
                     "Dans la restauration au Cameroun, la rentabilité repose sur la règle des 3 tiers : 30 à 35% pour les matières premières (achats au marché Mfoundi ou Sandaga), 30% pour le personnel, et le reste pour les charges fixes et votre bénéfice. Sentez-vous que vos coûts de matières premières dépassent ce seuil ?",
-                    "Le Besoin en Fonds de Roulement (BFR), c'est l'argent bloqué entre le moment où vous achetez vos stocks et le moment où votre client vous paye. Si vos clients (souvent des grandes entreprises) vous payent à 60 jours, votre cash s'épuise vite, même si vous faites des ventes.",
+                    "Le Besoin en Fonds de Roulement (BFR), c'est l'argent bloqué entre le moment où vous achetez vos stocks et le moment où votre client vous paie. Si vos clients (souvent des grandes entreprises) vous payent à 60 jours, votre trésorerie s'épuise vite, même si vous faites des ventes.",
                     "Ne fixez pas votre prix uniquement par rapport à la concurrence. Calculez votre coût de revient complet (Achat + Transport/Douane + Main d'œuvre) et appliquez un coefficient de marge. Pour du commerce général, on vise souvent un coefficient de 1,3 à 1,5.",
                     "En plus des investissements de départ (matériel, caution locale), vous devez prévoir au moins 3 à 6 mois de charges fixes en trésorerie de démarrage (le temps que les premiers clients paient). Sans cela, c'est la faillite technique rapide."
                 ],
@@ -55,7 +55,7 @@
                     "Comment comptabiliser l'achat d'un ordinateur de bureau ?",
                     "Pourquoi mon solde de caisse ne correspond pas à ma comptabilité ?",
                     "Comment se passe la clôture des comptes en fin d'année ?",
-                    "Quelle de durée d'amortissement d'un véhicule de livraison ?"
+                    "Quelle est la durée d'amortissement d'un véhicule de livraison ?"
                 ],
                 responses: [
                     "Toute PME au Cameroun doit tenir une comptabilité standardisée. Si votre CA est inférieur à 60 millions FCFA, vous êtes éligible au Système Minimal de Trésorerie (SMT) (un simple journal de caisse et banque suffit). Au-delà, le Système Normal est obligatoire avec Bilan, Compte de résultat et Notes annexes.",
@@ -86,7 +86,7 @@
                     "L'acompte sur l'impôt sur le revenu se paie mensuellement avant le 15 du mois suivant. Le taux dépend de votre régime fiscal :\n- Régime Réel : 2,2% du CA mensuel.\n- Régime Simplifié : 3,3% du CA mensuel.\n(Taux incluant les CAC).",
                     "Si vous achetez des marchandises chez un grossiste ou un importateur, celui-ci retient à la source un pourcentage (entre 1% et 10% selon votre statut et le sien) au titre d'acompte sur vos impôts. Vous pourrez déduire ce montant lors de votre déclaration mensuelle.",
                     "La DGI camerounaise applique des pénalités strictes : 10% par mois de retard sur l'impôt dû (plafonné à 30% si bonne foi, ou 100% si manœuvre frauduleuse), plus un intérêt de retard de 0,5% par mois. Même une déclaration à zéro subit une amende.",
-                    "Depuis la loi de finances, sont obligatoirement soumises au Régime Réel les entreprises qui réalisent un chiffre d'affaires annuel égal ou supérieur à 50 millions de FCFA. En dessous, vous relevez du Régime Simplifié ou des Institutions."
+                    "Depuis la loi de finances, sont obligatoirement soumises au Régime Réel les entreprises qui réalisent un chiffre d'affaires annuel égal ou supérieur à 50 millions de FCFA. En dessous, vous relevez du Régime Simplifié ou du régime des Institutions.",
                 ],
                 options: [
                     ["Simuler un calcul de TVA", "Revenir au menu"],
@@ -97,7 +97,7 @@
                 ]
             },
             advisor: {
-                name: "📊 Business Advisor",
+                name: "Conseiller business",
                 questions: [
                     "Mon chiffre d'affaires baisse, que dois-je analyser en premier ?",
                     "Comment motiver mon équipe commerciale pour booster les ventes ?",
@@ -383,3 +383,7 @@
             chatBody.insertAdjacentHTML('beforeend', msgHtml);
             chatBody.scrollTop = chatBody.scrollHeight;
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.body.dataset.page === 'assist') initChatbot();
+        });

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="api-base" content="">
+    <title>Bloomar Assist | BL∞MAR ONE</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <script src="assets/js/config/tailwind.config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/core/i18n.js"></script>
+</head>
+<body data-page="assist" class="text-bloomar-text min-h-full flex flex-col overflow-x-hidden">
+
+    <div id="site-header"></div>
+
+    <main class="flex-1">
+
+        <section class="page-hero page-hero--image page-hero--assist text-white">
+            <div class="page-hero__overlay page-hero__overlay--violet" aria-hidden="true"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+                <span class="section-badge">Assistant de gestion</span>
+                <h1 class="page-hero__title mt-4 mb-4">Bloomar Assist : votre suite d'assistants spécialisés</h1>
+                <p class="section-desc mx-auto">Choisissez un pôle métier pour simuler en temps réel des questions, obtenir des réponses et calculer vos variables financières d'entreprise.</p>
+            </div>
+        </section>
+
+        <section id="assist" class="section-shell bg-white scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                    <div class="lg:col-span-4 space-y-3">
+                        <button onclick="selectAssistant('finance')" id="btn-as-finance" class="w-full flex items-start space-x-3 p-4 bg-bloomar-violet/10 border border-bloomar-violet/30 rounded-2xl text-left transition-all">
+                            <div class="p-2.5 bg-bloomar-violet/20 text-bloomar-violet rounded-xl"><i data-lucide="bot" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="text-xs font-extrabold text-bloomar-navy uppercase tracking-wider">🤖 Bloomar Finance</h4>
+                                <p class="text-[10px] text-slate-500 mt-1">Calculs de marge, seuil de rentabilité, BFR et cashflow.</p>
+                            </div>
+                        </button>
+
+                        <button onclick="selectAssistant('legal')" id="btn-as-legal" class="w-full flex items-start space-x-3 p-4 bg-slate-50 border border-slate-200 rounded-2xl text-left transition-all hover:bg-slate-100">
+                            <div class="p-2.5 bg-slate-200 text-slate-500 rounded-xl"><i data-lucide="scale" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider">⚖️ Bloomar Legal</h4>
+                                <p class="text-[10px] text-slate-500 mt-1">Création de SARL, SAS, OHADA, rédactions et contrats.</p>
+                            </div>
+                        </button>
+
+                        <button onclick="selectAssistant('compta')" id="btn-as-compta" class="w-full flex items-start space-x-3 p-4 bg-slate-50 border border-slate-200 rounded-2xl text-left transition-all hover:bg-slate-100">
+                            <div class="p-2.5 bg-slate-200 text-slate-500 rounded-xl"><i data-lucide="book-open" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider">📚 Bloomar Compta</h4>
+                                <p class="text-[10px] text-slate-500 mt-1">Écritures comptables, immobilisations et normes SYSCOHADA.</p>
+                            </div>
+                        </button>
+
+                        <button onclick="selectAssistant('fiscal')" id="btn-as-fiscal" class="w-full flex items-start space-x-3 p-4 bg-slate-50 border border-slate-200 rounded-2xl text-left transition-all hover:bg-slate-100">
+                            <div class="p-2.5 bg-slate-200 text-slate-500 rounded-xl"><i data-lucide="wallet" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider">💰 Bloomar Fiscal</h4>
+                                <p class="text-[10px] text-slate-500 mt-1">TVA (19,25%), acomptes d'impôts et régime réel.</p>
+                            </div>
+                        </button>
+
+                        <button onclick="selectAssistant('advisor')" id="btn-as-advisor" class="w-full flex items-start space-x-3 p-4 bg-slate-50 border border-slate-200 rounded-2xl text-left transition-all hover:bg-slate-100">
+                            <div class="p-2.5 bg-slate-200 text-slate-500 rounded-xl"><i data-lucide="bar-chart-2" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider">Conseiller business</h4>
+                                <p class="text-[10px] text-slate-500 mt-1">Optimisation des ventes, commissions d'équipe et analyses d'écarts.</p>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="lg:col-span-8">
+                        <div class="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden flex flex-col h-[550px] shadow-sm relative">
+
+                            <div class="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
+                                    <span id="current-ai-name" class="text-xs font-bold tracking-widest text-bloomar-navy uppercase font-mono">🤖 Bloomar Finance</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-bloomar-violet font-bold uppercase">Démo Interactive</span>
+                            </div>
+
+                            <div id="ai-chat-body" class="flex-1 p-6 space-y-4 overflow-y-auto font-sans text-xs scroll-smooth"></div>
+
+                            <div id="preset-questions-container" class="bg-white border-t border-slate-200 p-4 flex flex-wrap gap-2"></div>
+
+                            <div class="bg-white border-t border-slate-200 p-4 flex space-x-2">
+                                <input type="text" id="ai-user-input" data-i18n-placeholder="chatbot.placeholder" placeholder="Saisissez une valeur ou posez une question..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs text-bloomar-navy placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-bloomar-violet">
+                                <button onclick="sendUserAiQuestion()" class="p-3 bg-bloomar-violet hover:bg-bloomar-violet/90 text-white rounded-xl transition-colors"><i data-lucide="send" class="w-4 h-4"></i></button>
+                            </div>
+
+                            <div class="chat-legal-disclaimer bg-slate-100 text-slate-500 text-[10px] text-center p-3 border-t border-slate-200 font-sans">
+                                <strong>Note :</strong> Bloomar Assist est un outil d'orientation automatisé. Les simulations fournies ont un caractère purement indicatif et ne sauraient remplacer l'avis ou l'analyse d'un professionnel qualifié. Pour toute décision stratégique, échangez avec un expert du domaine.
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <div id="site-modals"></div>
+    <div id="site-global-ui"></div>
+
+    <script src="assets/js/modules/chatbot.js"></script>
+    <script src="assets/js/core/app.js"></script>
+    <script src="assets/js/core/layout.js"></script>
+    <script src="assets/js/core/api.js"></script>
+</body>
+</html>

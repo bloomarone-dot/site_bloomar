@@ -1,0 +1,27 @@
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bloomar-bg);
+    color: var(--bloomar-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bloomar-bg); }
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+.section-shell {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.section-shell--muted {
+    background-color: #f1f5f9;
+    border-top: 1px solid var(--bloomar-border);
+    border-bottom: 1px solid var(--bloomar-border);
+}

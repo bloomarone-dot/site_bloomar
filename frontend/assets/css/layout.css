@@ -1,0 +1,351 @@
+/* ── Hero ── */
+.hero-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse 70% 55% at 15% 10%, rgb(123 47 247 / 0.08), transparent 55%),
+        radial-gradient(ellipse 55% 45% at 85% 90%, rgb(18 199 183 / 0.07), transparent 50%),
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgb(11 18 50 / 0.02), transparent);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--bloomar-navy);
+    background: rgb(11 18 50 / 0.04);
+    border: 1px solid rgb(11 18 50 / 0.08);
+    border-radius: 9999px;
+}
+
+.dashboard-panel {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--bloomar-border);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 25px 50px -12px rgb(11 18 50 / 0.18);
+}
+.dashboard-panel::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgb(123 47 247 / 0.25), rgb(18 199 183 / 0.2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.kpi-card {
+    padding: 0.875rem;
+    background: #f8fafc;
+    border: 1px solid var(--bloomar-border);
+    border-radius: var(--radius-md);
+}
+.kpi-label {
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bloomar-muted);
+}
+.kpi-value {
+    font-size: 0.8125rem;
+    font-weight: 900;
+    color: var(--bloomar-navy);
+    margin-top: 0.25rem;
+}
+
+/* ── À propos (storytelling) ── */
+#propos {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+}
+.story-container {
+    background-color: var(--bloomar-navy);
+    color: #fff;
+}
+.story-container.light-mode {
+    background-color: #fff;
+    color: var(--bloomar-text);
+}
+.story-container.light-mode h2,
+.story-container.light-mode h3 {
+    color: var(--bloomar-violet);
+}
+.story-block {
+    opacity: 1;
+    transform: none;
+    margin-bottom: 4rem;
+}
+.story-block:last-child { margin-bottom: 0; }
+
+/* ── Logo ── */
+.bloomar-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+.bloomar-logo {
+    display: block;
+    height: auto;
+    object-fit: contain;
+}
+.bloomar-logo--header {
+    width: clamp(148px, 18vw, 200px);
+    max-height: 52px;
+}
+.bloomar-logo--footer {
+    width: clamp(160px, 20vw, 220px);
+    max-height: 56px;
+    filter: brightness(1.05);
+}
+
+/* ── Modales ── */
+.modal-backdrop {
+    background: rgb(11 18 50 / 0.55);
+    backdrop-filter: blur(8px);
+}
+
+/* ── Heroes avec image de fond (Unsplash) ── */
+.page-hero {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    background: linear-gradient(180deg, #fff 0%, var(--bloomar-bg) 100%);
+    border-bottom: 1px solid var(--bloomar-border);
+}
+.page-hero__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--bloomar-navy);
+    line-height: 1.1;
+}
+
+.page-hero--image {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+    background-color: var(--bloomar-navy);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.page-hero--image .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+.page-hero--home .hero-mesh {
+    z-index: 1;
+}
+.page-hero--home > .max-w-7xl {
+    z-index: 2;
+}
+.page-hero--image > .max-w-7xl,
+.page-hero--image > .max-w-4xl,
+.page-hero--image > .max-w-3xl {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+.page-hero--image .page-hero__title {
+    color: #fff;
+    text-shadow: 0 2px 20px rgb(11 18 50 / 0.4);
+}
+.page-hero--image .section-desc {
+    color: rgb(226 232 240);
+}
+.page-hero--image .section-badge {
+    color: var(--bloomar-turquoise);
+}
+.page-hero--image .tag {
+    background: rgb(255 255 255 / 0.12);
+    border-color: rgb(255 255 255 / 0.25);
+    color: #fff;
+    backdrop-filter: blur(4px);
+}
+.page-hero--image .tag:hover {
+    background: rgb(255 255 255 / 0.2);
+    border-color: var(--bloomar-turquoise);
+}
+
+.page-hero__overlay--dark {
+    background: linear-gradient(135deg, rgb(11 18 50 / 0.9) 0%, rgb(11 18 50 / 0.75) 50%, rgb(123 47 247 / 0.5) 100%);
+}
+.page-hero__overlay--violet {
+    background: linear-gradient(120deg, rgb(11 18 50 / 0.92) 0%, rgb(123 47 247 / 0.65) 100%);
+}
+.page-hero__overlay--turquoise {
+    background: linear-gradient(135deg, rgb(11 18 50 / 0.88) 0%, rgb(18 199 183 / 0.45) 100%);
+}
+.page-hero__overlay--light {
+    background: linear-gradient(105deg, rgb(248 250 252 / 0.94) 0%, rgb(248 250 252 / 0.88) 45%, rgb(123 47 247 / 0.12) 100%);
+}
+
+/* Accueil — analytics & pilotage financier */
+.page-hero--home {
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80');
+    background-position: center 40%;
+}
+@media (min-width: 1024px) {
+    .page-hero--home { padding-top: 7rem; padding-bottom: 5rem; }
+}
+
+/* Services — développement digital */
+.page-hero--services {
+    min-height: 380px;
+    padding-top: 9rem;
+    padding-bottom: 4rem;
+    background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80');
+    background-position: center 45%;
+}
+
+/* À propos — équipe & entrepreneuriat */
+.page-hero--about {
+    min-height: 420px;
+    padding-top: 9rem;
+    padding-bottom: 5.5rem;
+    background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80');
+    background-position: center 35%;
+}
+.page-hero--about .page-hero__overlay {
+    background: linear-gradient(135deg, rgb(11 18 50 / 0.88) 0%, rgb(11 18 50 / 0.72) 45%, rgb(123 47 247 / 0.55) 100%);
+}
+
+/* Réalisations — projets & succès clients */
+.page-hero--realisations {
+    min-height: 360px;
+    padding-top: 9rem;
+    padding-bottom: 4rem;
+    background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');
+    background-position: center 40%;
+}
+
+/* Bloomar Assist — IA & technologie */
+.page-hero--assist {
+    min-height: 360px;
+    padding-top: 9rem;
+    padding-bottom: 4rem;
+    background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1920&q=80');
+    background-position: center center;
+}
+
+/* Tarifs — finance & abonnements */
+.page-hero--tarifs {
+    min-height: 360px;
+    padding-top: 9rem;
+    padding-bottom: 4rem;
+    background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=80');
+    background-position: center 50%;
+}
+
+/* Ressources — documents & conformité */
+.page-hero--ressources {
+    min-height: 360px;
+    padding-top: 9rem;
+    padding-bottom: 4rem;
+    background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=80');
+    background-position: center 45%;
+}
+
+/* Contact — relation client */
+.page-hero--contact {
+    min-height: 320px;
+    padding-top: 9rem;
+    padding-bottom: 3rem;
+    background-image: url('https://images.unsplash.com/photo-1423666639041-d0360b17a404?auto=format&fit=crop&w=1920&q=80');
+    background-position: center 55%;
+}
+
+@media (min-width: 768px) {
+    .page-hero--about { min-height: 480px; background-position: center 30%; }
+    .page-hero--services,
+    .page-hero--realisations,
+    .page-hero--assist,
+    .page-hero--tarifs,
+    .page-hero--ressources { min-height: 400px; }
+}
+
+.module-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--bloomar-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition);
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+.module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+    border-color: rgb(123 47 247 / 0.3);
+}
+
+.service-detail {
+    scroll-margin-top: 6rem;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--bloomar-border);
+}
+.service-detail:nth-child(even) { background: #f8fafc; }
+.service-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+@media (min-width: 1024px) {
+    .service-detail__grid { grid-template-columns: 1fr 1.2fr; align-items: start; }
+}
+
+.about-timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid rgb(123 47 247 / 0.2);
+}
+.about-timeline__item {
+    position: relative;
+    padding-bottom: 3rem;
+}
+.about-timeline__item::before {
+    content: '';
+    position: absolute;
+    left: calc(-2rem - 5px);
+    top: 0.35rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bloomar-violet);
+    box-shadow: 0 0 0 4px rgb(123 47 247 / 0.15);
+}
+.about-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+.about-value-card {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--bloomar-border);
+    border-radius: var(--radius-xl);
+}

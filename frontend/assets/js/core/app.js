@@ -72,7 +72,7 @@
                 card.className = `p-6 bg-white border rounded-3xl flex flex-col justify-between h-[450px] shadow-sm relative ${isPremium ? 'border-bloomar-violet ring-2 ring-bloomar-violet/20' : 'border-slate-200 hover:border-bloomar-violet/30 transition-all'}`;
                 
                 // Anti-fraud/mouchard visual badge for premium plans
-                const badgeHtml = isPremium ? `<span class="absolute top-4 right-4 bg-rose-500 text-white font-bold uppercase text-[8px] px-2 py-1 rounded-full tracking-wider animate-pulse flex items-center gap-1"><i data-lucide="shield-alert" class="w-2.5 h-2.5"></i> Antifraude / Mouchard inclus</span>` : '';
+                const badgeHtml = isPremium ? `<span class="absolute top-4 right-4 bg-rose-500 text-white font-bold uppercase text-micro px-2 py-1 rounded-full tracking-wider flex items-center gap-1"><i data-lucide="shield-alert" class="w-2.5 h-2.5"></i> Antifraude inclus</span>` : '';
 
                 let featuresHtml = '';
                 p.features.forEach(f => {
@@ -86,7 +86,7 @@
                     ${badgeHtml}
                     <div class="space-y-4">
                         <div>
-                            <span class="text-xxs font-black text-bloomar-violet uppercase tracking-widest block mb-1">MEMBER ACCESS</span>
+                            <span class="text-xxs font-black text-bloomar-violet uppercase tracking-widest block mb-1">Accès membre</span>
                             <h3 class="text-lg font-black text-bloomar-navy">${p.title}</h3>
                         </div>
                         <div class="flex items-baseline space-x-1">
@@ -164,7 +164,7 @@
         function accepterTout() {
             memoryCookieBannerState = 'accepted_all';
             hideCookieBanner();
-            showToast("Cookies et mouchards d'activité de sécurité activés !");
+            showToast("Cookies et outils de sécurité activés.");
         }
 
         function hideCookieBanner() {
@@ -231,7 +231,7 @@
                 marge: 65,
                 fixes: 2500000,
                 metric4: 45,
-                metric4Label: "Clients servis par Jour",
+                metric4Label: "Clients servis par jour",
                 metric4Unit: "clients",
                 caLabel: "CA Prévisionnel Mensuel (FCFA)",
                 adviceGood: "Votre taux de marge de 65% correspond à la norme idéale SYSCOHADA pour la restauration. Vos coûts d'achat au marché Mfoundi/Sandaga sont optimisés.",
@@ -253,7 +253,7 @@
                 marge: 75,
                 fixes: 5000000,
                 metric4: 120,
-                metric4Label: "Nombre d'Écoliers Inscrit",
+                metric4Label: "Nombre d'écoliers inscrits",
                 metric4Unit: "élèves",
                 caLabel: "Total Écolages Annuels (FCFA)",
                 adviceGood: "Une marge de 75% est excellente pour le secteur éducatif. Cela vous permet d'investir sereinement dans la formation des enseignants.",
@@ -267,7 +267,7 @@
                 metric4Label: "Taux d'Occupation Estimé (%)",
                 metric4Unit: "%",
                 caLabel: "Revenus Hébergement & Nuitées (FCFA)",
-                adviceGood: "Votre seuil de rentabilité hôtelier est franchi dès le milieu du mois. Nos fonctionnalités de Dynamic Pricing optimiseront vos nuitées vides.",
+                adviceGood: "Votre seuil de rentabilité hôtelier est franchi dès le milieu du mois. Nos fonctionnalités de tarification dynamique optimiseront vos nuitées inoccupées.",
                 adviceBad: "Taux d'occupation trop bas pour couvrir l'entretien des chambres. Réduisez temporairement vos frais de maintenance ou offrez des packages promotionnels."
             }
         };
@@ -358,3 +358,8 @@
                 adviceBox.innerHTML = `<strong>⚠️ Alerte d'écart :</strong> ${preset.adviceBad}`;
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const page = document.body.dataset.page;
+            if (page === 'tarifs' && typeof renderPricing === 'function') renderPricing('general');
+        });

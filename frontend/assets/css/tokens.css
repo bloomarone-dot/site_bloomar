@@ -1,0 +1,31 @@
+:root {
+    --bloomar-navy: #0B1232;
+    --bloomar-violet: #7B2FF7;
+    --bloomar-turquoise: #12C7B7;
+    --bloomar-gold: #E1B12C;
+    --bloomar-bg: #F8FAFC;
+    --bloomar-text: #111827;
+    --bloomar-border: #E2E8F0;
+    --bloomar-muted: #64748B;
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --shadow-card: 0 1px 3px 0 rgb(11 18 50 / 0.04), 0 4px 16px -2px rgb(11 18 50 / 0.06);
+    --shadow-elevated: 0 20px 40px -15px rgb(11 18 50 / 0.12);
+    --transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Fallback Tailwind bloomar-* si CDN lent */
+.text-bloomar-navy { color: var(--bloomar-navy); }
+.text-bloomar-violet { color: var(--bloomar-violet); }
+.text-bloomar-turquoise { color: var(--bloomar-turquoise); }
+.text-bloomar-text { color: var(--bloomar-text); }
+.bg-bloomar-navy { background-color: var(--bloomar-navy); }
+.bg-bloomar-violet { background-color: var(--bloomar-violet); }
+.bg-bloomar-turquoise { background-color: var(--bloomar-turquoise); }
+.bg-bloomar-bg { background-color: var(--bloomar-bg); }
+.bg-bloomar-gold { background-color: var(--bloomar-gold); }
+.border-bloomar-violet { border-color: var(--bloomar-violet); }
+.from-bloomar-navy { --tw-gradient-from: var(--bloomar-navy); }
+.to-bloomar-violet { --tw-gradient-to: var(--bloomar-violet); }

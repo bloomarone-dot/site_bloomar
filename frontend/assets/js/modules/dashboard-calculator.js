@@ -109,19 +109,17 @@
 
         // Listener for the slider
         document.addEventListener('DOMContentLoaded', () => {
+            const page = document.body.dataset.page;
+
             const slider = document.getElementById('hero-activity-slider');
             if (slider) {
-                slider.addEventListener('input', (e) => {
-                    updateHeroDashboard(e.target.value);
-                });
+                slider.addEventListener('input', (e) => updateHeroDashboard(e.target.value));
+                updateHeroDashboard(100);
             }
 
-            // Set default view on start
-            updateHeroDashboard(100);
-            initChatbot();
-            renderPricing('general');
+            if (page === 'assist' && typeof initChatbot === 'function') initChatbot();
+            if (page === 'tarifs' && typeof renderPricing === 'function') renderPricing('general');
+            if (page === 'a-propos' && typeof setupStorytellingObserver === 'function') setupStorytellingObserver();
 
-            // Setup scroll observer for visual storytelling background pivot
-            setupStorytellingObserver();
-            setupCookieBanner();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         });

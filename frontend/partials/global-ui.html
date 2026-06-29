@@ -1,0 +1,22 @@
+<div id="bloomar-cookie-banner" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-5 z-50 hidden flex-col gap-4">
+    <div class="text-xs text-slate-700 leading-relaxed">
+        <strong data-i18n="cookie.title">Nous respectons votre vie privée</strong> —
+        <span data-i18n="cookie.desc">Nous utilisons des cookies essentiels et, avec votre accord, des outils de mesure d'audience pour améliorer votre expérience.</span>
+    </div>
+    <div id="cookie-settings-section" class="hidden text-xxs text-slate-600 space-y-2 border-t border-slate-100 pt-3">
+        <label class="flex items-center gap-2 font-bold"><input type="checkbox" checked disabled class="accent-bloomar-violet"> Cookies essentiels</label>
+        <label class="flex items-center gap-2 font-bold"><input type="checkbox" id="ck-perf" checked class="accent-bloomar-violet"> Performance & audience</label>
+    </div>
+    <div class="flex justify-end gap-2 text-[11px] font-bold">
+        <button onclick="refuserCookies()" class="px-3 py-1.5 text-slate-400 hover:text-slate-600" data-i18n="cookie.refuse">Continuer sans accepter</button>
+        <button onclick="ouvrirParametres()" class="px-3 py-1.5 bg-slate-100 rounded-lg text-slate-700" data-i18n="cookie.customize">Personnaliser</button>
+        <button onclick="accepterTout()" class="px-4 py-1.5 bg-bloomar-violet text-white rounded-lg" data-i18n="cookie.accept">Tout accepter</button>
+    </div>
+</div>
+
+<a href="https://wa.me/237652209175" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-40 flex items-center gap-2 px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold rounded-full shadow-lg transition-all hover:scale-105" aria-label="WhatsApp">
+    <i data-lucide="message-circle" class="w-5 h-5"></i>
+    <span class="hidden sm:inline">WhatsApp</span>
+</a>
+
+<div id="toast-container" class="fixed bottom-6 right-6 space-y-3 z-50"></div>
