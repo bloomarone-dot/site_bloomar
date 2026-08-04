@@ -24,12 +24,22 @@ services:
     env_file: .env
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-bloomar}:${POSTGRES_PASSWORD:-bloomar}@db:5432/${POSTGRES_DB:-bloomar}
+      REDIS_URL: redis://redis:6379/0
       PORT: 8000
     depends_on:
       db:
         condition: service_healthy
+      redis:
+        condition: service_started
     ports:
       - "8000:8000"
+
+  redis:
+    image: redis:7-alpine
+    container_name: bloomar-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
 
   frontend:
     build: ./frontend

@@ -144,38 +144,7 @@
 
         /* handleUniversalCaptureSubmit → défini dans api.js */
 
-        /* Cookie Management Logic with secure memory state */
-        function setupCookieBanner() {
-            if (memoryCookieBannerState === null) {
-                document.getElementById('bloomar-cookie-banner').classList.remove('hidden');
-            }
-        }
-
-        function refuserCookies() {
-            memoryCookieBannerState = 'refused';
-            hideCookieBanner();
-            showToast("Paramètres enregistrés : Uniquement les cookies essentiels.");
-        }
-
-        function ouvrirParametres() {
-            document.getElementById('cookie-settings-section').classList.toggle('hidden');
-        }
-
-        function accepterTout() {
-            memoryCookieBannerState = 'accepted_all';
-            hideCookieBanner();
-            showToast("Cookies et outils de sécurité activés.");
-        }
-
-        function hideCookieBanner() {
-            const banner = document.getElementById('bloomar-cookie-banner');
-            banner.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            banner.style.opacity = '0';
-            banner.style.transform = 'translate(-50%, 20px)';
-            setTimeout(() => {
-                banner.classList.add('hidden');
-            }, 400);
-        }
+        /* Cookie consent → cookie-consent.js (BloomarCookieConsent) */
 
         /* Modal Developers Beta Access */
         function openDeveloperModal() {

@@ -6,8 +6,11 @@ tailwind.config = {
                 mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
             },
             fontSize: {
-                'xxs': ['0.625rem', { lineHeight: '0.875rem' }],
-                'micro': ['0.5625rem', { lineHeight: '0.75rem' }],
+                /* Échelle lisible — confort de lecture site-wide */
+                'xxs': ['0.75rem', { lineHeight: '1.125rem' }],       /* 12px */
+                'micro': ['0.6875rem', { lineHeight: '1rem' }],         /* 11px */
+                'xs': ['0.875rem', { lineHeight: '1.25rem' }],          /* 14px */
+                'sm': ['0.9375rem', { lineHeight: '1.375rem' }],        /* 15px */
             },
             colors: {
                 bloomar: {

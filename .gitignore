@@ -6,5 +6,11 @@ __pycache__/
 .venv/
 backend/.venv/
 postgres_data/
+storage/media/
+backend/storage/
 .kilocode/
 .vscode/
+.coverage
+backend/.coverage
+cms/dist/
+*.tsbuildinfo

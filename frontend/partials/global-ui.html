@@ -1,4 +1,4 @@
-<div id="bloomar-cookie-banner" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-5 z-50 hidden flex-col gap-4">
+<div id="bloomar-cookie-banner" class="bloomar-cookie-banner fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-5 z-50 hidden flex-col gap-4" role="dialog" aria-live="polite" aria-label="Consentement cookies">
     <div class="text-xs text-slate-700 leading-relaxed">
         <strong data-i18n="cookie.title">Nous respectons votre vie privée</strong> —
         <span data-i18n="cookie.desc">Nous utilisons des cookies essentiels et, avec votre accord, des outils de mesure d'audience pour améliorer votre expérience.</span>
@@ -7,10 +7,10 @@
         <label class="flex items-center gap-2 font-bold"><input type="checkbox" checked disabled class="accent-bloomar-violet"> Cookies essentiels</label>
         <label class="flex items-center gap-2 font-bold"><input type="checkbox" id="ck-perf" checked class="accent-bloomar-violet"> Performance & audience</label>
     </div>
-    <div class="flex justify-end gap-2 text-[11px] font-bold">
-        <button onclick="refuserCookies()" class="px-3 py-1.5 text-slate-400 hover:text-slate-600" data-i18n="cookie.refuse">Continuer sans accepter</button>
-        <button onclick="ouvrirParametres()" class="px-3 py-1.5 bg-slate-100 rounded-lg text-slate-700" data-i18n="cookie.customize">Personnaliser</button>
-        <button onclick="accepterTout()" class="px-4 py-1.5 bg-bloomar-violet text-white rounded-lg" data-i18n="cookie.accept">Tout accepter</button>
+    <div class="flex flex-col sm:flex-row sm:justify-end gap-2 text-[11px] font-bold">
+        <button type="button" data-cookie-action="refuse" class="px-3 py-2 text-slate-400 hover:text-slate-600 text-left sm:text-center" data-i18n="cookie.refuse">Continuer sans accepter</button>
+        <button type="button" data-cookie-action="customize" class="px-3 py-2 bg-slate-100 rounded-lg text-slate-700" data-i18n="cookie.customize">Personnaliser</button>
+        <button type="button" data-cookie-action="accept" class="px-4 py-2 bg-bloomar-violet text-white rounded-lg" data-i18n="cookie.accept">Tout accepter</button>
     </div>
 </div>
 

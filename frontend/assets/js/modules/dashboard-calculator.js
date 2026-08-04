@@ -4,8 +4,12 @@
         const baseVariables = 1620000;
 
         function updateHeroDashboard(sliderValue) {
+            const sliderVal = document.getElementById('slider-val');
+            const caEl = document.getElementById('ca-valeur');
+            if (!sliderVal || !caEl) return;
+
             let mult = sliderValue / 100;
-            document.getElementById('slider-val').innerText = `${sliderValue}% ${sliderValue === 100 ? '(Base)' : ''}`;
+            sliderVal.innerText = `${sliderValue}% ${sliderValue === 100 ? '(Base)' : ''}`;
 
             let nouveauCA = Math.round(baseCA * mult);
             let nouvellesVariables = Math.round(baseVariables * mult);
@@ -13,14 +17,19 @@
             let nouveauBenefice = nouveauCA - nouvellesDepenses;
 
             // Values updating
-            document.getElementById('ca-valeur').innerText = formatFCFA(nouveauCA);
-            document.getElementById('depenses-valeur').innerText = formatFCFA(nouvellesDepenses);
-            document.getElementById('benefice-valeur').innerText = formatFCFA(nouveauBenefice);
+            caEl.innerText = formatFCFA(nouveauCA);
+            const depEl = document.getElementById('depenses-valeur');
+            const benEl = document.getElementById('benefice-valeur');
+            if (depEl) depEl.innerText = formatFCFA(nouvellesDepenses);
+            if (benEl) benEl.innerText = formatFCFA(nouveauBenefice);
 
             // Detail viewports synchronization
-            document.getElementById('lbl-re-c').innerText = formatFCFA(nouveauCA);
-            document.getElementById('lbl-de-c').innerText = formatFCFA(nouvellesDepenses);
-            document.getElementById('calc-couts-var').innerText = formatFCFA(nouvellesVariables);
+            const lblRe = document.getElementById('lbl-re-c');
+            const lblDe = document.getElementById('lbl-de-c');
+            const calcVar = document.getElementById('calc-couts-var');
+            if (lblRe) lblRe.innerText = formatFCFA(nouveauCA);
+            if (lblDe) lblDe.innerText = formatFCFA(nouvellesDepenses);
+            if (calcVar) calcVar.innerText = formatFCFA(nouvellesVariables);
 
             // Tendency colors & icons updating
             updateTrendsVisuals(sliderValue);
@@ -36,6 +45,7 @@
             const caTrend = document.getElementById('ca-tendance');
             const depTrend = document.getElementById('depenses-tendance');
             const benTrend = document.getElementById('benefice-tendance');
+            if (!caTrend || !depTrend || !benTrend) return;
 
             if (sliderValue >= 100) {
                 caTrend.className = "text-[9px] text-emerald-600 font-semibold flex items-center mt-0.5";
@@ -56,33 +66,39 @@
                 benTrend.className = "text-[9px] text-rose-600 font-semibold flex items-center mt-0.5";
                 benTrend.innerHTML = `<i data-lucide="trending-down" class="w-2.5 h-2.5 mr-0.5"></i>-${((100 - sliderValue)/8 + 2.1).toFixed(1)}%`;
             }
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         function updateSvgCurve(mult) {
-            // Mapping mult to SVG space coordinates beautifully
+            const curve = document.getElementById('graph-courbe-ca');
+            const p2 = document.getElementById('graph-point-2');
+            const p3 = document.getElementById('graph-point-3');
+            const pActuel = document.getElementById('graph-point-actuel');
+            if (!curve || !p2 || !p3 || !pActuel) return;
+
             let y4 = Math.max(5, Math.min(95, 90 - 70 * mult));
             let y3 = Math.max(15, Math.min(95, 90 - 35 * mult));
             let y2 = Math.max(30, Math.min(95, 90 - 12 * mult));
 
-            document.getElementById('graph-courbe-ca').setAttribute('d', `M 0,90 C 133,${y2} 266,${y3} 400,${y4}`);
-            document.getElementById('graph-point-2').setAttribute('cy', y2);
-            document.getElementById('graph-point-3').setAttribute('cy', y3);
-            document.getElementById('graph-point-actuel').setAttribute('cy', y4);
+            curve.setAttribute('d', `M 0,90 C 133,${y2} 266,${y3} 400,${y4}`);
+            p2.setAttribute('cy', y2);
+            p3.setAttribute('cy', y3);
+            pActuel.setAttribute('cy', y4);
         }
 
         function updateDonutChart(ca, fixes, variables, benefice) {
+            const fEl = document.getElementById('donut-fixes');
+            const vEl = document.getElementById('donut-variables');
+            const bEl = document.getElementById('donut-benefice');
+            const pctEl = document.getElementById('donut-txt-pourcent');
+            if (!fEl || !vEl || !bEl || !pctEl) return;
+
             const total = fixes + variables + Math.max(0, benefice);
             const pFixes = fixes / total;
             const pVariables = variables / total;
             const pProfit = Math.max(0, benefice) / total;
 
             const c = 188.4; // 2 * PI * 30
-
-            // Stacking segments cleanly via calculated offsets
-            const fEl = document.getElementById('donut-fixes');
-            const vEl = document.getElementById('donut-variables');
-            const bEl = document.getElementById('donut-benefice');
 
             fEl.setAttribute('stroke-dasharray', `${pFixes * c} ${c}`);
             fEl.setAttribute('stroke-dashoffset', '0');
@@ -93,9 +109,8 @@
             bEl.setAttribute('stroke-dasharray', `${pProfit * c} ${c}`);
             bEl.setAttribute('stroke-dashoffset', `${-((pFixes + pVariables) * c)}`);
 
-            // Tooltip update
             const marginPct = Math.round((benefice / ca) * 100);
-            document.getElementById('donut-txt-pourcent').innerText = `${marginPct >= 0 ? marginPct : 0}%`;
+            pctEl.innerText = `${marginPct >= 0 ? marginPct : 0}%`;
         }
 
         function formatFCFA(val) {

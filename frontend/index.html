@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/bloomar-chat.css">
+    <link rel="stylesheet" href="assets/css/home-story.css">
     <script src="assets/js/core/i18n.js"></script>
 </head>
 <body data-page="index" class="text-bloomar-text min-h-full flex flex-col overflow-x-hidden">
@@ -22,206 +24,255 @@
     <main class="flex-1 relative z-[1]">
 
         <!-- SECTION 1: ACCUEIL / HERO -->
-        <section id="accueil" class="page-hero page-hero--image page-hero--home relative py-16 lg:py-28 overflow-hidden scroll-mt-20">
-            <div class="page-hero__overlay page-hero__overlay--light" aria-hidden="true"></div>
+        <section id="accueil" class="page-hero page-hero--home hero-premium relative overflow-hidden scroll-mt-20" aria-labelledby="hero-heading">
             <div class="hero-mesh" aria-hidden="true"></div>
+            <div class="hero-premium__glow" aria-hidden="true"></div>
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="hero-premium__grid">
 
-                    <!-- Hero Left content -->
-                    <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
-                        <div class="hero-badge">
-                            <span class="flex h-2 w-2 relative">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-bloomar-turquoise opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-bloomar-turquoise"></span>
-                            </span>
-                            <span data-i18n="hero.badge">Infrastructure financière numérique et opérationnelle des PME au Cameroun</span>
-                        </div>
+                    <!-- Colonne gauche -->
+                    <div class="hero-copy">
+                        <p class="hero-brand hero-reveal" style="--hero-delay: 0ms" data-i18n="hero.brand">Bloomar ONE</p>
 
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-bloomar-navy">
-                            <span data-i18n="hero.title1">Votre croissance,</span><br>
-                            <span class="bg-gradient-to-r from-bloomar-violet via-bloomar-violet to-bloomar-turquoise bg-clip-text text-transparent" data-i18n="hero.title2">propulsée par le digital.</span>
+                        <h1 id="hero-heading" class="hero-premium__title hero-reveal" style="--hero-delay: 60ms" data-i18n="hero.title">
+                            Des logiciels sur mesure qui accélèrent la croissance de votre entreprise.
                         </h1>
 
-                        <div class="space-y-4">
-                            <p class="text-slate-700 text-lg font-bold leading-relaxed" data-i18n="hero.subtitle">
-                                Prenez les commandes de votre croissance. Pilotez votre PME avec la clarté d'un grand groupe.
-                            </p>
-                            <p class="text-slate-600 text-sm max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-i18n-html="hero.desc1">
-                                Chez <strong class="text-bloomar-navy font-semibold">BL∞MAR ONE</strong>, vous gérez votre business, pas la paperasse. Que vous teniez un restaurant, un hôtel, une boutique, un cabinet ou une école, nous créons des outils digitaux vraiment adaptés à vos réalités quotidiennes.
-                            </p>
-                            <p class="text-slate-600 text-sm leading-relaxed italic" data-i18n="hero.desc2">
-                                Ne subissez plus votre gestion financière. Utilisez le simulateur ci-contre pour projeter vos marges et découvrez comment Bloomar One transforme vos données quotidiennes en leviers de décision.
-                            </p>
-                        </div>
+                        <p class="hero-premium__lead hero-reveal" style="--hero-delay: 120ms" data-i18n="hero.desc">
+                            Bloomarone accompagne les entreprises, écoles et restaurants dans leur transformation digitale grâce à des solutions logicielles innovantes, des applications web et mobiles, des plateformes SaaS et des infrastructures modernes.
+                        </p>
 
-                        <!-- Fast benefits grid -->
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                            <div class="p-4 bg-white border border-slate-200 rounded-2xl shadow-sm">
-                                <div class="w-8 h-8 rounded-xl bg-bloomar-violet/10 flex items-center justify-center text-bloomar-violet mb-3">
-                                    <i data-lucide="smartphone" class="w-4 h-4"></i>
-                                </div>
-                                <h4 class="text-xs font-bold text-bloomar-navy uppercase tracking-wider mb-1" data-i18n="hero.benefit1.title">Des applis simples</h4>
-                                <p class="text-[11px] text-slate-500 leading-normal" data-i18n="hero.benefit1.desc">Suivez caisse, compta, stocks et équipes en quelques clics depuis un ordinateur ou téléphone mobile.</p>
-                            </div>
-                            <div class="p-4 bg-white border border-slate-200 rounded-2xl shadow-sm">
-                                <div class="w-8 h-8 rounded-xl bg-bloomar-turquoise/10 flex items-center justify-center text-bloomar-turquoise mb-3">
-                                    <i data-lucide="zap" class="w-4 h-4"></i>
-                                </div>
-                                <h4 class="text-xs font-bold text-bloomar-navy uppercase tracking-wider mb-1" data-i18n="hero.benefit2.title">Automatisations</h4>
-                                <p class="text-[11px] text-slate-500 leading-normal" data-i18n="hero.benefit2.desc">Nous automatisons vos tâches répétitives pour libérer votre temps.</p>
-                            </div>
-                            <div class="p-4 bg-white border border-slate-200 rounded-2xl shadow-sm">
-                                <div class="w-8 h-8 rounded-xl bg-bloomar-navy/10 flex items-center justify-center text-bloomar-navy mb-3">
-                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
-                                </div>
-                                <h4 class="text-xs font-bold text-bloomar-navy uppercase tracking-wider mb-1" data-i18n="hero.benefit3.title">SAV fiable</h4>
-                                <p class="text-[11px] text-slate-500 leading-normal" data-i18n="hero.benefit3.desc">Une équipe humaine, proche et réactive, vous accompagne au quotidien.</p>
-                            </div>
-                        </div>
-
-                        <div class="border-l-4 border-bloomar-turquoise pl-4 py-1 text-slate-600 italic text-sm" data-i18n="hero.quote">
-                            « Votre business mérite mieux que des approximations. Il mérite du contrôle. »
-                        </div>
-
-                        <!-- Hero CTA Buttons -->
-                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
-                            <a href="contact.html" class="btn btn-primary rounded-2xl px-8 py-4 text-base">
-                                <span data-i18n="hero.cta1">Tester l'accès gratuit de 14 jours</span>
-                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        <div class="hero-cta-group hero-reveal" style="--hero-delay: 180ms">
+                            <a href="contact.html" class="hero-cta hero-cta--primary">
+                                <i data-lucide="play" class="hero-cta__icon" aria-hidden="true"></i>
+                                <span data-i18n="hero.cta1">Demander une démonstration</span>
+                                <i data-lucide="arrow-right" class="hero-cta__arrow" aria-hidden="true"></i>
                             </a>
-                            <a href="tarifs.html" class="btn btn-secondary rounded-2xl px-8 py-4 text-base">
-                                <span data-i18n="hero.cta2">Découvrir la démo interactive</span>
+                            <a href="services.html" class="hero-cta hero-cta--secondary">
+                                <span data-i18n="hero.cta2">Découvrir nos solutions</span>
                             </a>
                         </div>
+
+                        <p class="hero-trust-strip hero-reveal" style="--hero-delay: 220ms">
+                            <i data-lucide="shield-check" class="hero-trust-strip__icon" aria-hidden="true"></i>
+                            <span data-i18n="hero.trust">Applications sécurisées • Hébergement • Maintenance • Support</span>
+                        </p>
+
+                        <ul class="hero-trust-badges hero-reveal" style="--hero-delay: 280ms" role="list">
+                            <li class="hero-capsule">
+                                <span class="hero-capsule__dot" aria-hidden="true"></span>
+                                <span data-i18n="hero.badge1">Développement sur mesure</span>
+                            </li>
+                            <li class="hero-capsule">
+                                <span class="hero-capsule__dot" aria-hidden="true"></span>
+                                <span data-i18n="hero.badge2">Produits SaaS</span>
+                            </li>
+                            <li class="hero-capsule">
+                                <span class="hero-capsule__dot" aria-hidden="true"></span>
+                                <span data-i18n="hero.badge3">Support &amp; Maintenance</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <!-- Dashboard simulator -->
-                    <div class="lg:col-span-6 relative">
-                        <div class="relative dashboard-panel p-6">
+                    <!-- Colonne droite — interface SaaS -->
+                    <div class="hero-visual hero-reveal" style="--hero-delay: 140ms">
+                        <div class="hero-stage" aria-hidden="true">
+                            <div class="hero-stage__light"></div>
 
-                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
-                                <div class="flex items-center space-x-3">
-                                    <div class="flex space-x-1.5">
-                                        <div class="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
-                                        <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
-                                        <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
-                                    </div>
-                                    <span class="text-xs text-slate-400 font-mono">tableau_de_bord_pme</span>
-                                </div>
-                                <span class="text-xxs bg-bloomar-violet/10 border border-bloomar-violet/20 text-bloomar-violet px-2.5 py-1 rounded-lg font-mono font-bold">BL∞MAR ONE</span>
-                            </div>
+                            <div class="hero-float hero-float--dash">
+                                <div class="hero-saas">
+                                    <aside class="hero-saas__sidebar">
+                                        <div class="hero-saas__brand">B</div>
+                                        <nav class="hero-saas__menu">
+                                            <span class="is-active" title="Dashboard"><i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i></span>
+                                            <span title="Produits"><i data-lucide="box" class="w-3.5 h-3.5"></i></span>
+                                            <span title="Clients"><i data-lucide="users" class="w-3.5 h-3.5"></i></span>
+                                            <span title="Analytics"><i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i></span>
+                                            <span title="Settings"><i data-lucide="settings" class="w-3.5 h-3.5"></i></span>
+                                        </nav>
+                                        <div class="hero-saas__avatar" title="Admin">AO</div>
+                                    </aside>
 
-                            <div class="grid grid-cols-3 gap-3 mb-6">
-                                <div class="kpi-card">
-                                    <p class="kpi-label" data-i18n="hero.revenue">Chiffre d'affaires</p>
-                                    <h4 id="ca-valeur" class="kpi-value">12 450 000 FCFA</h4>
-                                    <span id="ca-tendance" class="text-xxs text-emerald-600 font-semibold flex items-center mt-0.5"><i data-lucide="trending-up" class="w-2.5 h-2.5 mr-0.5"></i>+12,5 %</span>
-                                </div>
-                                <div class="kpi-card">
-                                    <p class="kpi-label" data-i18n="hero.expenses">Dépenses totales</p>
-                                    <h4 id="depenses-valeur" class="kpi-value text-slate-700">4 120 000 FCFA</h4>
-                                    <span id="depenses-tendance" class="text-xxs text-rose-600 font-semibold flex items-center mt-0.5"><i data-lucide="trending-down" class="w-2.5 h-2.5 mr-0.5"></i>-4,3 %</span>
-                                </div>
-                                <div class="kpi-card">
-                                    <p id="label-benefice" class="kpi-label" data-i18n="hero.profit">Bénéfice net</p>
-                                    <h4 id="benefice-valeur" class="kpi-value text-bloomar-turquoise">8 330 000 FCFA</h4>
-                                    <span id="benefice-tendance" class="text-xxs text-bloomar-turquoise font-semibold flex items-center mt-0.5"><i data-lucide="trending-up" class="w-2.5 h-2.5 mr-0.5"></i>+8,7 %</span>
-                                </div>
-                            </div>
+                                    <div class="hero-saas__main">
+                                        <header class="hero-saas__topbar">
+                                            <div>
+                                                <p class="hero-saas__eyebrow">Bloomar Cloud</p>
+                                                <h3 class="hero-saas__heading">Vue d'ensemble</h3>
+                                            </div>
+                                            <div class="hero-saas__topbar-right">
+                                                <div class="hero-saas__avatars">
+                                                    <span style="background:#7B2FF7">MK</span>
+                                                    <span style="background:#0B1232">JD</span>
+                                                    <span style="background:#4F46E5">SL</span>
+                                                    <span class="hero-saas__avatars-more">+5</span>
+                                                </div>
+                                                <span class="hero-saas__live"><i></i> Live</span>
+                                            </div>
+                                        </header>
 
-                            <div class="mb-6">
-                                <div class="h-44 relative bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col justify-between">
-                                    <div class="flex justify-between items-center text-[8px] font-bold uppercase tracking-wider mb-1">
-                                        <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-bloomar-violet mr-1"></span> Chiffre d'Affaires Cumulé</div>
-                                        <div class="flex items-center"><span class="w-2.5 h-0.5 bg-rose-500 inline-block mr-1"></span> Seuil de Rentabilité (Point Mort)</div>
-                                    </div>
+                                        <div class="hero-saas__kpis">
+                                            <div class="hero-saas__kpi">
+                                                <p>MRR</p>
+                                                <strong>24,8 M</strong>
+                                                <em>+12,4 %</em>
+                                            </div>
+                                            <div class="hero-saas__kpi">
+                                                <p>Clients actifs</p>
+                                                <strong>1 842</strong>
+                                                <em>+9,1 %</em>
+                                            </div>
+                                            <div class="hero-saas__kpi hero-saas__kpi--accent">
+                                                <p>Uptime</p>
+                                                <strong>99,98 %</strong>
+                                                <em>SLA</em>
+                                            </div>
+                                            <div class="hero-saas__kpi">
+                                                <p>Tickets SAV</p>
+                                                <strong>37</strong>
+                                                <em>−18 %</em>
+                                            </div>
+                                        </div>
 
-                                    <div class="relative w-full h-32">
-                                        <svg viewBox="0 0 400 100" class="w-full h-full overflow-visible">
-                                            <line x1="0" y1="65" x2="400" y2="65" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4 4" opacity="0.7" />
-                                            <path id="graph-courbe-ca" d="M 0,90 Q 133,78 266,55 T 400,20" fill="transparent" stroke="currentColor" stroke-width="3" class="text-bloomar-violet transition-all duration-300" />
-                                            <circle id="graph-point-1" cx="0" cy="90" r="3" fill="currentColor" class="text-bloomar-violet" />
-                                            <circle id="graph-point-2" cx="133" cy="78" r="3" fill="currentColor" class="text-bloomar-violet" />
-                                            <circle id="graph-point-3" cx="266" cy="55" r="3" fill="currentColor" class="text-bloomar-violet" />
-                                            <circle id="graph-point-actuel" cx="400" cy="20" r="5" fill="currentColor" class="text-bloomar-turquoise transition-all duration-300" />
-                                        </svg>
+                                        <div class="hero-saas__products">
+                                            <div class="hero-saas__product">
+                                                <div class="hero-saas__product-icon">
+                                                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+                                                </div>
+                                                <div class="hero-saas__product-body">
+                                                    <p class="hero-saas__product-name">BLOOSCHOOL</p>
+                                                    <p class="hero-saas__product-meta">842 élèves · 98 % présents</p>
+                                                    <div class="hero-saas__meter"><i style="width:78%"></i></div>
+                                                </div>
+                                                <span class="hero-saas__tag">SaaS</span>
+                                            </div>
+                                            <div class="hero-saas__product">
+                                                <div class="hero-saas__product-icon hero-saas__product-icon--dark">
+                                                    <i data-lucide="utensils" class="w-3.5 h-3.5"></i>
+                                                </div>
+                                                <div class="hero-saas__product-body">
+                                                    <p class="hero-saas__product-name">BLOORESTAURANT</p>
+                                                    <p class="hero-saas__product-meta">+22 % tickets · 24 / 32 tables</p>
+                                                    <div class="hero-saas__meter"><i style="width:66%"></i></div>
+                                                </div>
+                                                <span class="hero-saas__tag">SaaS</span>
+                                            </div>
+                                        </div>
 
-                                        <div class="absolute bottom-0 inset-x-0 flex justify-between text-[8px] font-bold text-slate-400 px-1">
-                                            <span>Mois 1</span>
-                                            <span>Mois 2</span>
-                                            <span>Mois 3</span>
-                                            <span>Mois Actuel</span>
+                                        <div class="hero-saas__panels">
+                                            <div class="hero-saas__chart">
+                                                <div class="hero-saas__panel-head">
+                                                    <span>Croissance plateforme</span>
+                                                    <span>12 mois</span>
+                                                </div>
+                                                <svg viewBox="0 0 320 100" class="hero-saas__svg" preserveAspectRatio="none">
+                                                    <defs>
+                                                        <linearGradient id="heroSaasFill" x1="0" y1="0" x2="0" y2="1">
+                                                            <stop offset="0%" stop-color="#7B2FF7" stop-opacity="0.2"/>
+                                                            <stop offset="100%" stop-color="#7B2FF7" stop-opacity="0"/>
+                                                        </linearGradient>
+                                                    </defs>
+                                                    <path d="M0,78 C35,72 55,60 85,58 C115,56 135,68 165,42 C195,18 225,30 255,18 C280,10 300,14 320,8 L320,100 L0,100 Z" fill="url(#heroSaasFill)"/>
+                                                    <path d="M0,78 C35,72 55,60 85,58 C115,56 135,68 165,42 C195,18 225,30 255,18 C280,10 300,14 320,8" fill="none" stroke="#7B2FF7" stroke-width="2.25" stroke-linecap="round"/>
+                                                </svg>
+                                            </div>
+
+                                            <div class="hero-saas__activity">
+                                                <div class="hero-saas__panel-head">
+                                                    <span>Activité récente</span>
+                                                    <span>Temps réel</span>
+                                                </div>
+                                                <ul class="hero-saas__feed">
+                                                    <li>
+                                                        <span class="hero-saas__feed-avatar" style="background:#7B2FF7">BS</span>
+                                                        <div>
+                                                            <strong>BlooSchool</strong>
+                                                            <p>Sync notes · Yaoundé</p>
+                                                        </div>
+                                                        <time>2m</time>
+                                                    </li>
+                                                    <li>
+                                                        <span class="hero-saas__feed-avatar" style="background:#0B1232">BR</span>
+                                                        <div>
+                                                            <strong>BlooRestaurant</strong>
+                                                            <p>Clôture de caisse</p>
+                                                        </div>
+                                                        <time>9m</time>
+                                                    </li>
+                                                    <li>
+                                                        <span class="hero-saas__feed-avatar" style="background:#4F46E5">API</span>
+                                                        <div>
+                                                            <strong>Deploy</strong>
+                                                            <p>v2.4.1 · production</p>
+                                                        </div>
+                                                        <time>1h</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="hero-saas__table-wrap">
+                                            <table class="hero-saas__table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Projet</th>
+                                                        <th>Statut</th>
+                                                        <th>Équipe</th>
+                                                        <th>Progression</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>ERP Retail Douala</td>
+                                                        <td><span class="hero-saas__status is-live">Live</span></td>
+                                                        <td>
+                                                            <div class="hero-saas__avatars hero-saas__avatars--sm">
+                                                                <span style="background:#7B2FF7">A</span>
+                                                                <span style="background:#0B1232">B</span>
+                                                            </div>
+                                                        </td>
+                                                        <td><div class="hero-saas__meter hero-saas__meter--sm"><i style="width:92%"></i></div></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mobile Banking API</td>
+                                                        <td><span class="hero-saas__status is-build">Build</span></td>
+                                                        <td>
+                                                            <div class="hero-saas__avatars hero-saas__avatars--sm">
+                                                                <span style="background:#4F46E5">C</span>
+                                                                <span style="background:#7B2FF7">D</span>
+                                                                <span style="background:#0B1232">E</span>
+                                                            </div>
+                                                        </td>
+                                                        <td><div class="hero-saas__meter hero-saas__meter--sm"><i style="width:64%"></i></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 mb-4">
-                                <div class="flex justify-between items-center text-[10px] uppercase font-bold text-slate-500 tracking-wider">
-                                    <span>Simulateur d'Activité (Volume Caisse)</span>
-                                    <span id="slider-val" class="font-black text-bloomar-violet">100% (Base)</span>
-                                </div>
-                                <input type="range" id="hero-activity-slider" min="30" max="250" value="100" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-bloomar-violet">
-
-                                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200/60 text-[10px]">
-                                    <div class="flex justify-between text-slate-500">
-                                        <span>Seuil de Rentabilité :</span>
-                                        <span id="calc-point-mort" class="font-bold text-slate-700">4 545 454 F</span>
-                                    </div>
-                                    <div class="flex justify-between text-slate-500">
-                                        <span>Marge / Coûts Var. :</span>
-                                        <span class="font-bold text-emerald-600">55%</span>
-                                    </div>
-                                    <div class="flex justify-between text-slate-500">
-                                        <span>Coûts Fixes (Salaires/Loyers) :</span>
-                                        <span class="font-bold text-slate-600">2 500 000 F</span>
-                                    </div>
-                                    <div class="flex justify-between text-slate-500">
-                                        <span>Coûts Variables (Stocks) :</span>
-                                        <span id="calc-couts-var" class="font-bold text-slate-600">1 620 000 F</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <button onclick="openFullSimulatorModal()" class="w-full py-3 bg-gradient-to-r from-bloomar-violet via-bloomar-violet to-bloomar-turquoise hover:opacity-90 text-white font-black text-xs uppercase tracking-wider rounded-2xl shadow-lg transition-all flex items-center justify-center space-x-2">
-                                    <i data-lucide="calculator" class="w-4 h-4 animate-pulse"></i>
-                                    <span>Lancer le Simulateur d'Activité Complet</span>
-                                </button>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
-                                    <div>
-                                        <span class="text-[9px] uppercase font-bold text-slate-400">Téléphone de caisse</span>
-                                        <h6 class="text-xs font-bold text-slate-700 mt-1">Données graphiques de distribution</h6>
-                                    </div>
-
-                                    <div class="flex justify-center my-2 relative">
-                                        <svg width="100" height="100" class="transform -rotate-90">
-                                            <circle cx="50" cy="50" r="30" fill="transparent" stroke="#e2e8f0" stroke-width="12"></circle>
-                                            <circle id="donut-fixes" cx="50" cy="50" r="30" fill="transparent" stroke="#0B1232" stroke-width="12" stroke-dasharray="188.4" stroke-dashoffset="0" class="transition-all duration-300"></circle>
-                                            <circle id="donut-variables" cx="50" cy="50" r="30" fill="transparent" stroke="#7B2FF7" stroke-width="12" stroke-dasharray="188.4" stroke-dashoffset="0" class="transition-all duration-300"></circle>
-                                            <circle id="donut-benefice" cx="50" cy="50" r="30" fill="transparent" stroke="#12C7B7" stroke-width="12" stroke-dasharray="188.4" stroke-dashoffset="0" class="transition-all duration-300"></circle>
-                                        </svg>
-                                        <div id="donut-tooltip" class="absolute inset-0 flex flex-col items-center justify-center text-[9px] font-black text-center text-slate-700 p-1 pointer-events-none">
-                                            <span id="donut-txt-pourcent">67%</span>
-                                            <span class="text-[7px] text-slate-400 font-normal">Marge</span>
+                            <div class="hero-float hero-float--phone">
+                                <div class="hero-phone">
+                                    <div class="hero-phone__notch"></div>
+                                    <div class="hero-phone__screen">
+                                        <p class="hero-phone__label">Aujourd'hui</p>
+                                        <p class="hero-phone__title">Pilotage mobile</p>
+                                        <div class="hero-phone__bars">
+                                            <div class="hero-phone__bar">
+                                                <span>Ventes</span>
+                                                <div class="hero-phone__track"><i style="width:78%"></i></div>
+                                            </div>
+                                            <div class="hero-phone__bar">
+                                                <span>Présences</span>
+                                                <div class="hero-phone__track"><i style="width:92%"></i></div>
+                                            </div>
+                                            <div class="hero-phone__bar">
+                                                <span>SAV</span>
+                                                <div class="hero-phone__track"><i style="width:64%"></i></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
-                                    <div>
-                                        <span class="text-[9px] uppercase font-bold text-slate-400">Suivi financier</span>
-                                        <p class="text-xs font-bold text-slate-700 mt-1">Revenus ce mois : <span id="lbl-re-c" class="text-emerald-600">12 450 000 FCFA</span></p>
-                                        <p class="text-xs font-bold text-slate-700 mt-1">Dépenses ce mois : <span id="lbl-de-c" class="text-rose-600">4 120 000 FCFA</span></p>
-                                    </div>
-                                    <button onclick="triggerUniversalCaptureModal('bloomarone_caisse')" class="mt-4 px-3 py-2 bg-bloomar-violet hover:bg-bloomar-violet/90 text-white rounded-lg text-[10px] font-bold uppercase transition-all flex items-center justify-center space-x-1">
-                                        <span>Voir le détail</span>
-                                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -231,106 +282,896 @@
             </div>
         </section>
 
-        <!-- MODULES NAVIGATION -->
-        <section class="section-shell bg-white">
+        <!-- STORY — Pourquoi Bloomarone -->
+        <section id="pourquoi" class="home-section home-section--why reveal-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="section-header">
-                    <span class="section-badge">Explorer la plateforme</span>
-                    <h2 class="section-title">Découvrez nos modules</h2>
-                    <p class="section-desc mx-auto">Accédez à chaque espace dédié de BL∞MAR ONE — services, réalisations, tarifs, assistants IA et ressources pratiques pour structurer votre PME.</p>
+                <div class="why-intro">
+                    <span class="why-intro__label">Pourquoi Bloomarone</span>
+                    <h2 class="why-intro__title">Plus qu'un prestataire, un partenaire technologique.</h2>
+                    <p class="why-intro__text">Nous concevons des solutions numériques robustes, évolutives et pensées pour accompagner durablement la croissance de votre entreprise.</p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="services.html" class="module-card group">
-                        <div class="w-10 h-10 rounded-xl bg-bloomar-violet/10 text-bloomar-violet flex items-center justify-center">
-                            <i data-lucide="layers" class="w-5 h-5"></i>
+                <div class="why-asymmetric">
+                    <article class="why-feature why-feature--lead">
+                        <div class="why-feature__copy">
+                            <div class="why-feature__icon">
+                                <i data-lucide="code-2" class="w-5 h-5"></i>
+                            </div>
+                            <h3>Développement sur mesure</h3>
+                            <p>Chaque entreprise est unique. Nous développons des logiciels adaptés à vos processus et à vos objectifs.</p>
                         </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy group-hover:text-bloomar-violet transition-colors">Services</h3>
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Web & mobile, accompagnement, SAV et outils indispensables pour votre PME.</p>
+                        <div class="why-feature__art" aria-hidden="true">
+                            <span class="why-orb why-orb--a"></span>
+                            <span class="why-orb why-orb--b"></span>
+                            <span class="why-orb why-orb--c"></span>
+                            <svg class="why-art-lines" viewBox="0 0 240 180" fill="none">
+                                <path d="M20 140 C70 40, 120 160, 220 50" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+                                <path d="M30 90 C90 20, 140 150, 210 80" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>
+                                <circle cx="220" cy="50" r="4" fill="currentColor" opacity="0.55"/>
+                                <circle cx="210" cy="80" r="3" fill="currentColor" opacity="0.35"/>
+                            </svg>
                         </div>
-                        <span class="text-xs font-bold text-bloomar-violet flex items-center gap-1 mt-auto">
-                            Explorer <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </span>
-                    </a>
+                    </article>
 
-                    <a href="realisations.html" class="module-card group">
-                        <div class="w-10 h-10 rounded-xl bg-bloomar-turquoise/10 text-bloomar-turquoise flex items-center justify-center">
-                            <i data-lucide="briefcase" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy group-hover:text-bloomar-violet transition-colors">Réalisations</h3>
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Projets terrain : e-commerce, restauration, hôtellerie et témoignages clients.</p>
-                        </div>
-                        <span class="text-xs font-bold text-bloomar-violet flex items-center gap-1 mt-auto">
-                            Voir les projets <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </span>
-                    </a>
+                    <div class="why-stack">
+                        <article class="why-feature why-feature--glass">
+                            <div class="why-feature__icon why-feature__icon--soft">
+                                <i data-lucide="blocks" class="w-5 h-5"></i>
+                            </div>
+                            <h3>Architecture évolutive</h3>
+                            <p>Nous développons des plateformes capables d'évoluer avec votre activité.</p>
+                        </article>
+                        <article class="why-feature why-feature--glass">
+                            <div class="why-feature__icon why-feature__icon--soft">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <h3>Sécurité &amp; Maintenance</h3>
+                            <p>Vos applications restent performantes, sécurisées et constamment améliorées.</p>
+                        </article>
+                    </div>
+                </div>
 
-                    <a href="a-propos.html" class="module-card group">
-                        <div class="w-10 h-10 rounded-xl bg-bloomar-navy/10 text-bloomar-navy flex items-center justify-center">
-                            <i data-lucide="heart-handshake" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy group-hover:text-bloomar-violet transition-colors">À propos</h3>
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Notre histoire, nos valeurs et l'équipe derrière BL∞MAR ONE à Yaoundé.</p>
-                        </div>
-                        <span class="text-xs font-bold text-bloomar-violet flex items-center gap-1 mt-auto">
-                            Notre histoire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </span>
-                    </a>
+                <div class="why-stats" data-why-stats>
+                    <div class="why-stat">
+                        <strong class="why-stat__value" data-count-to="25" data-count-suffix="+">0+</strong>
+                        <span>Modules développés</span>
+                    </div>
+                    <div class="why-stat">
+                        <strong class="why-stat__value" data-count-to="100" data-count-suffix="%">0%</strong>
+                        <span>Solutions personnalisées</span>
+                    </div>
+                    <div class="why-stat">
+                        <strong class="why-stat__value why-stat__value--static">24/7</strong>
+                        <span>Support</span>
+                    </div>
+                    <div class="why-stat">
+                        <strong class="why-stat__value why-stat__value--static">∞</strong>
+                        <span>Évolutivité</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <a href="assist.html" class="module-card group">
-                        <div class="w-10 h-10 rounded-xl bg-bloomar-violet/10 text-bloomar-violet flex items-center justify-center">
-                            <i data-lucide="bot" class="w-5 h-5"></i>
+        <!-- STORY — Nos solutions -->
+        <section id="solutions" class="home-section home-section--solutions reveal-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="sol-showcase" data-sol-showcase>
+                    <div class="sol-showcase__copy">
+                        <div class="sol-showcase__intro">
+                            <span class="sol-showcase__label">Nos solutions</span>
+                            <h2 class="sol-showcase__title">Nous développons des solutions adaptées à chaque étape de votre croissance.</h2>
+                            <p class="sol-showcase__text">Bloomarone accompagne les entreprises de la conception jusqu'à la maintenance — avec une expertise complète, du produit digital à l'infrastructure.</p>
                         </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy group-hover:text-bloomar-violet transition-colors">Bloomar Assist</h3>
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Assistants IA spécialisés : finance, legal, compta, fiscal et conseil business.</p>
-                        </div>
-                        <span class="text-xs font-bold text-bloomar-violet flex items-center gap-1 mt-auto">
-                            Tester la démo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </span>
-                    </a>
 
-                    <a href="tarifs.html" class="module-card group">
-                        <div class="w-10 h-10 rounded-xl bg-bloomar-turquoise/10 text-bloomar-turquoise flex items-center justify-center">
-                            <i data-lucide="credit-card" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy group-hover:text-bloomar-violet transition-colors">Tarifs</h3>
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Plans Starter à Premium, solutions métiers et tableau comparatif complet.</p>
-                        </div>
-                        <span class="text-xs font-bold text-bloomar-violet flex items-center gap-1 mt-auto">
-                            Voir les offres <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </span>
-                    </a>
+                        <ul class="sol-list" role="tablist" aria-label="Nos domaines d'expertise">
+                            <li role="presentation">
+                                <button type="button" class="sol-list__item is-active" role="tab" aria-selected="true" data-sol-trigger="web" id="sol-tab-web">
+                                    <span class="sol-list__icon"><i data-lucide="globe" class="w-5 h-5"></i></span>
+                                    <span class="sol-list__body">
+                                        <strong>Développement Web</strong>
+                                        <span>Plateformes modernes, rapides et évolutives.</span>
+                                    </span>
+                                </button>
+                            </li>
+                            <li role="presentation">
+                                <button type="button" class="sol-list__item" role="tab" aria-selected="false" data-sol-trigger="mobile" id="sol-tab-mobile">
+                                    <span class="sol-list__icon"><i data-lucide="smartphone" class="w-5 h-5"></i></span>
+                                    <span class="sol-list__body">
+                                        <strong>Applications Mobile</strong>
+                                        <span>Expériences natives Android et iOS.</span>
+                                    </span>
+                                </button>
+                            </li>
+                            <li role="presentation">
+                                <button type="button" class="sol-list__item" role="tab" aria-selected="false" data-sol-trigger="erp" id="sol-tab-erp">
+                                    <span class="sol-list__icon"><i data-lucide="layout-dashboard" class="w-5 h-5"></i></span>
+                                    <span class="sol-list__body">
+                                        <strong>Logiciels Métier</strong>
+                                        <span>ERP, CRM et outils internes sur mesure.</span>
+                                    </span>
+                                </button>
+                            </li>
+                            <li role="presentation">
+                                <button type="button" class="sol-list__item" role="tab" aria-selected="false" data-sol-trigger="ai" id="sol-tab-ai">
+                                    <span class="sol-list__icon"><i data-lucide="sparkles" class="w-5 h-5"></i></span>
+                                    <span class="sol-list__body">
+                                        <strong>Intelligence Artificielle</strong>
+                                        <span>Assistants, automatisation et décision.</span>
+                                    </span>
+                                </button>
+                            </li>
+                            <li role="presentation">
+                                <button type="button" class="sol-list__item" role="tab" aria-selected="false" data-sol-trigger="cloud" id="sol-tab-cloud">
+                                    <span class="sol-list__icon"><i data-lucide="cloud" class="w-5 h-5"></i></span>
+                                    <span class="sol-list__body">
+                                        <strong>Cloud &amp; DevOps</strong>
+                                        <span>Déploiement, scalabilité et monitoring.</span>
+                                    </span>
+                                </button>
+                            </li>
+                            <li role="presentation">
+                                <button type="button" class="sol-list__item" role="tab" aria-selected="false" data-sol-trigger="sec" id="sol-tab-sec">
+                                    <span class="sol-list__icon"><i data-lucide="shield-check" class="w-5 h-5"></i></span>
+                                    <span class="sol-list__body">
+                                        <strong>Cybersécurité</strong>
+                                        <span>Protection, audit et résilience.</span>
+                                    </span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <a href="ressources.html" class="module-card group">
-                        <div class="w-10 h-10 rounded-xl bg-bloomar-navy/10 text-bloomar-navy flex items-center justify-center">
-                            <i data-lucide="book-open" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy group-hover:text-bloomar-violet transition-colors">Ressources</h3>
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Modèles juridiques, guides fiscaux et outils de conformité gratuits.</p>
-                        </div>
-                        <span class="text-xs font-bold text-bloomar-violet flex items-center gap-1 mt-auto">
-                            Télécharger <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </span>
-                    </a>
+                    <div class="sol-showcase__stage">
+                        <div class="sol-stage" data-sol-stage>
+                            <!-- Web -->
+                            <div class="sol-panel is-active" data-sol-panel="web" role="tabpanel" aria-labelledby="sol-tab-web">
+                                <div class="sol-panel__chrome">
+                                    <span></span><span></span><span></span>
+                                    <em>app.bloomarone.com</em>
+                                </div>
+                                <div class="sol-panel__canvas sol-illu--web">
+                                    <aside class="sol-illu-web__nav" aria-hidden="true">
+                                        <i></i><i></i><i></i><i></i>
+                                    </aside>
+                                    <div class="sol-illu-web__main">
+                                        <div class="sol-illu-web__kpis">
+                                            <span><b>12.4k</b> Sessions</span>
+                                            <span><b>98%</b> Uptime</span>
+                                            <span><b>+34%</b> Conversion</span>
+                                        </div>
+                                        <div class="sol-illu-web__chart" aria-hidden="true">
+                                            <i style="--h:42%"></i><i style="--h:68%"></i><i style="--h:55%"></i><i style="--h:82%"></i><i style="--h:70%"></i><i style="--h:90%"></i>
+                                        </div>
+                                        <div class="sol-illu-web__tags">
+                                            <span>Dashboard</span>
+                                            <span>Analytics</span>
+                                            <span>API</span>
+                                            <span>Navigateur</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <a href="contact.html" class="module-card group sm:col-span-2 lg:col-span-1 xl:col-span-1">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <!-- Mobile -->
+                            <div class="sol-panel" data-sol-panel="mobile" role="tabpanel" aria-labelledby="sol-tab-mobile" hidden>
+                                <div class="sol-panel__canvas sol-illu--mobile">
+                                    <div class="sol-phone" aria-hidden="true">
+                                        <div class="sol-phone__notch"></div>
+                                        <div class="sol-phone__screen">
+                                            <div class="sol-phone__header"></div>
+                                            <div class="sol-phone__card"></div>
+                                            <div class="sol-phone__card sol-phone__card--soft"></div>
+                                            <div class="sol-phone__toast">Nouvelle commande · maintenant</div>
+                                        </div>
+                                    </div>
+                                    <div class="sol-illu-mobile__side">
+                                        <span class="sol-pill">Notifications</span>
+                                        <span class="sol-pill">Android</span>
+                                        <span class="sol-pill">iOS</span>
+                                        <span class="sol-pill">Smartphone</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ERP -->
+                            <div class="sol-panel" data-sol-panel="erp" role="tabpanel" aria-labelledby="sol-tab-erp" hidden>
+                                <div class="sol-panel__canvas sol-illu--erp">
+                                    <div class="sol-erp-grid" aria-hidden="true">
+                                        <div class="sol-erp-tile"><strong>CRM</strong><span>Pipeline</span></div>
+                                        <div class="sol-erp-tile sol-erp-tile--accent"><strong>ERP</strong><span>Stocks</span></div>
+                                        <div class="sol-erp-tile"><strong>RH</strong><span>Équipes</span></div>
+                                        <div class="sol-erp-tile"><strong>Finance</strong><span>Facturation</span></div>
+                                    </div>
+                                    <div class="sol-illu-web__tags">
+                                        <span>Modules métier</span>
+                                        <span>Workflows</span>
+                                        <span>Reporting</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AI -->
+                            <div class="sol-panel" data-sol-panel="ai" role="tabpanel" aria-labelledby="sol-tab-ai" hidden>
+                                <div class="sol-panel__canvas sol-illu--ai">
+                                    <div class="sol-chat" aria-hidden="true">
+                                        <div class="sol-chat__bubble sol-chat__bubble--bot">Comment puis-je optimiser vos opérations aujourd'hui ?</div>
+                                        <div class="sol-chat__bubble sol-chat__bubble--user">Simule mon scénario de croissance.</div>
+                                        <div class="sol-chat__bubble sol-chat__bubble--bot sol-chat__bubble--typing"><i></i><i></i><i></i></div>
+                                    </div>
+                                    <div class="sol-illu-web__tags">
+                                        <span>Chatbot</span>
+                                        <span>IA générative</span>
+                                        <span>Automatisation</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cloud -->
+                            <div class="sol-panel" data-sol-panel="cloud" role="tabpanel" aria-labelledby="sol-tab-cloud" hidden>
+                                <div class="sol-panel__canvas sol-illu--cloud">
+                                    <div class="sol-cloud-map" aria-hidden="true">
+                                        <div class="sol-cloud-node"><strong>API</strong></div>
+                                        <div class="sol-cloud-node sol-cloud-node--main"><strong>Docker</strong></div>
+                                        <div class="sol-cloud-node"><strong>K8s</strong></div>
+                                        <div class="sol-cloud-node"><strong>CI/CD</strong></div>
+                                        <div class="sol-cloud-monitor">
+                                            <span></span><span></span><span></span><span></span>
+                                            <em>Monitoring</em>
+                                        </div>
+                                    </div>
+                                    <div class="sol-illu-web__tags">
+                                        <span>Serveurs</span>
+                                        <span>Docker</span>
+                                        <span>Kubernetes</span>
+                                        <span>Monitoring</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Security -->
+                            <div class="sol-panel" data-sol-panel="sec" role="tabpanel" aria-labelledby="sol-tab-sec" hidden>
+                                <div class="sol-panel__canvas sol-illu--sec">
+                                    <div class="sol-sec-shield" aria-hidden="true">
+                                        <div class="sol-sec-ring"></div>
+                                        <div class="sol-sec-core">
+                                            <i data-lucide="lock" class="w-8 h-8"></i>
+                                        </div>
+                                    </div>
+                                    <div class="sol-illu-web__tags">
+                                        <span>Audit</span>
+                                        <span>Chiffrement</span>
+                                        <span>SOC</span>
+                                        <span>Conformité</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY — Écosystème -->
+        <section id="ecosysteme" class="home-section home-section--eco reveal-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="eco-orbit-intro">
+                    <span class="eco-orbit-intro__label">Écosystème</span>
+                    <h2 class="eco-orbit-intro__title">Notre écosystème numérique</h2>
+                    <p class="eco-orbit-intro__text">Un hub central qui relie nos produits SaaS, notre assistant IA et nos développements sur mesure — pour une expérience cohérente, de l'école au restaurant.</p>
+                </div>
+
+                <div class="eco-orbit" aria-hidden="false">
+                    <div class="eco-orbit__halo" aria-hidden="true"></div>
+                    <div class="eco-orbit__aura" aria-hidden="true"></div>
+                    <div class="eco-orbit__ring" aria-hidden="true"></div>
+
+                    <svg class="eco-orbit__lines" viewBox="0 0 720 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                        <!-- Lignes cardinales : jamais croisées hors du hub -->
+                        <path class="eco-orbit__path" d="M360 212 L360 78" />
+                        <path class="eco-orbit__path" d="M428 280 L612 280" />
+                        <path class="eco-orbit__path" d="M360 348 L360 482" />
+                        <path class="eco-orbit__path" d="M292 280 L108 280" />
+                    </svg>
+
+                    <div class="eco-orbit__core">
+                        <div class="eco-orbit__core-glow" aria-hidden="true"></div>
+                        <div class="eco-orbit__hub-ring" aria-hidden="true"></div>
+                        <img src="assets/images/bloomar-one-logo.png" alt="Bloomarone" class="eco-orbit__logo" width="148" height="40" loading="lazy" decoding="async">
+                        <strong>Hub numérique</strong>
+                        <span>Bloomarone</span>
+                    </div>
+
+                    <article class="eco-sat eco-sat--assist">
+                        <div class="eco-sat__icon"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
                         <div>
-                            <h3 class="text-sm font-black text-bloomar-navy group-hover:text-bloomar-violet transition-colors">Contact</h3>
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Demandez votre audit gratuit et démarrez votre projet digital au Cameroun.</p>
+                            <p class="eco-sat__meta">Intelligence artificielle</p>
+                            <h3>Bloomar Assist</h3>
+                            <p>Suite d'assistants spécialisés pour orienter, simuler et accélérer vos décisions métier.</p>
                         </div>
-                        <span class="text-xs font-bold text-bloomar-violet flex items-center gap-1 mt-auto">
-                            Nous contacter <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </span>
-                    </a>
+                    </article>
+
+                    <article class="eco-sat eco-sat--resto">
+                        <div class="eco-sat__icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                        <div>
+                            <p class="eco-sat__meta">Produit SaaS</p>
+                            <h3>BLOORESTAURANT</h3>
+                            <p>Caisse, stocks, tickets cuisine et marges — le restaurant piloté en temps réel.</p>
+                        </div>
+                    </article>
+
+                    <article class="eco-sat eco-sat--custom">
+                        <div class="eco-sat__icon"><i data-lucide="code-2" class="w-5 h-5"></i></div>
+                        <div>
+                            <p class="eco-sat__meta">Ingénierie</p>
+                            <h3>Développement sur mesure</h3>
+                            <p>Applications web, mobile, ERP et CRM conçues autour de vos processus réels.</p>
+                        </div>
+                    </article>
+
+                    <article class="eco-sat eco-sat--school">
+                        <div class="eco-sat__icon"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div>
+                        <div>
+                            <p class="eco-sat__meta">Produit SaaS</p>
+                            <h3>BLOOSCHOOL</h3>
+                            <p>Élèves, notes, présences et portail parents — la gestion scolaire unifiée.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="eco-orbit__footnote">Toutes nos solutions sont conçues pour évoluer ensemble afin de simplifier la transformation digitale de votre organisation.</p>
+            </div>
+        </section>
+
+        <!-- STORY — BLOOSCHOOL produit -->
+        <section id="blooschool" class="home-section home-section--blooschool reveal-section" aria-labelledby="blooschool-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="bs-product" data-bs-product>
+                    <div class="bs-product__copy">
+                        <div class="bs-product__intro">
+                            <span class="bs-product__label">Produit SaaS</span>
+                            <h2 id="blooschool-heading" class="bs-product__title">BLOOSCHOOL</h2>
+                            <p class="bs-product__subtitle">La plateforme complète pour digitaliser la gestion de votre établissement scolaire.</p>
+                            <p class="bs-product__text">BLOOSCHOOL centralise la gestion académique, administrative et financière dans une seule plateforme moderne, sécurisée et accessible partout.</p>
+                        </div>
+
+                        <ul class="bs-features">
+                            <li class="bs-feature">
+                                <span class="bs-feature__icon"><i data-lucide="users" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Gestion des élèves</strong>
+                                    <span>Dossiers, classes, parcours et historique académique unifiés.</span>
+                                </div>
+                            </li>
+                            <li class="bs-feature">
+                                <span class="bs-feature__icon"><i data-lucide="graduation-cap" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Gestion des enseignants</strong>
+                                    <span>Affectations, emplois du temps et suivi pédagogique.</span>
+                                </div>
+                            </li>
+                            <li class="bs-feature">
+                                <span class="bs-feature__icon"><i data-lucide="file-text" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Notes &amp; Bulletins</strong>
+                                    <span>Évaluations, moyennes et bulletins générés automatiquement.</span>
+                                </div>
+                            </li>
+                            <li class="bs-feature">
+                                <span class="bs-feature__icon"><i data-lucide="clipboard-check" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Présences</strong>
+                                    <span>Appels, absences et alertes en temps réel.</span>
+                                </div>
+                            </li>
+                            <li class="bs-feature">
+                                <span class="bs-feature__icon"><i data-lucide="wallet" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Paiements &amp; Comptabilité</strong>
+                                    <span>Frais de scolarité, reçus et pilotage financier.</span>
+                                </div>
+                            </li>
+                            <li class="bs-feature">
+                                <span class="bs-feature__icon"><i data-lucide="message-circle" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Communication Parents / École</strong>
+                                    <span>Messages, annonces et suivi partagé avec les familles.</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="bs-stats" role="list">
+                            <div class="bs-stat" role="listitem">
+                                <strong>+15</strong>
+                                <span>modules intégrés</span>
+                            </div>
+                            <div class="bs-stat" role="listitem">
+                                <strong>99,9&nbsp;%</strong>
+                                <span>disponibilité</span>
+                            </div>
+                            <div class="bs-stat" role="listitem">
+                                <strong>100&nbsp;%</strong>
+                                <span>sécurisé</span>
+                            </div>
+                            <div class="bs-stat" role="listitem">
+                                <strong>24/7</strong>
+                                <span>support continu</span>
+                            </div>
+                        </div>
+
+                        <div class="bs-product__actions">
+                            <a href="contact.html" class="btn btn-primary bs-btn" data-track="blooschool_click" data-track-label="Demander une démo BLOOSCHOOL">Demander une démonstration <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                            <a href="realisations.html" class="btn btn-secondary bs-btn">Découvrir toutes les fonctionnalités</a>
+                        </div>
+                    </div>
+
+                    <div class="bs-product__visual" aria-hidden="true">
+                        <div class="bs-mock">
+                            <div class="bs-mock__glow"></div>
+                            <div class="bs-mock__frame">
+                                <aside class="bs-mock__sidebar">
+                                    <div class="bs-mock__brand"></div>
+                                    <nav class="bs-mock__nav">
+                                        <i class="is-active"></i><i></i><i></i><i></i><i></i>
+                                    </nav>
+                                    <div class="bs-mock__avatar"></div>
+                                </aside>
+                                <div class="bs-mock__main">
+                                    <header class="bs-mock__top">
+                                        <div class="bs-mock__search"></div>
+                                        <div class="bs-mock__bell"><span></span></div>
+                                    </header>
+
+                                    <div class="bs-mock__kpis">
+                                        <article class="bs-kpi bs-kpi--pupils">
+                                            <span class="bs-kpi__label">Élèves</span>
+                                            <strong>1&nbsp;248</strong>
+                                            <em>+42 ce mois</em>
+                                        </article>
+                                        <article class="bs-kpi bs-kpi--teachers">
+                                            <span class="bs-kpi__label">Enseignants</span>
+                                            <strong>86</strong>
+                                            <em>12 départements</em>
+                                        </article>
+                                        <article class="bs-kpi bs-kpi--attendance">
+                                            <span class="bs-kpi__label">Présences</span>
+                                            <strong>97,4&nbsp;%</strong>
+                                            <em>Aujourd'hui</em>
+                                        </article>
+                                        <article class="bs-kpi bs-kpi--payments">
+                                            <span class="bs-kpi__label">Paiements</span>
+                                            <strong>92&nbsp;%</strong>
+                                            <em>Recouvrés</em>
+                                        </article>
+                                    </div>
+
+                                    <div class="bs-mock__grid">
+                                        <div class="bs-mock__chart">
+                                            <div class="bs-mock__panel-head">
+                                                <strong>Inscriptions</strong>
+                                                <span>2025–2026</span>
+                                            </div>
+                                            <div class="bs-chart">
+                                                <i style="--h:38%"></i>
+                                                <i style="--h:52%"></i>
+                                                <i style="--h:46%"></i>
+                                                <i style="--h:68%"></i>
+                                                <i style="--h:61%"></i>
+                                                <i style="--h:84%"></i>
+                                                <i style="--h:76%"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="bs-mock__cal">
+                                            <div class="bs-mock__panel-head">
+                                                <strong>Calendrier</strong>
+                                                <span>Mars</span>
+                                            </div>
+                                            <div class="bs-cal">
+                                                <span></span><span></span><span class="is-event"></span><span></span>
+                                                <span></span><span class="is-today"></span><span></span><span></span>
+                                                <span class="is-event"></span><span></span><span></span><span></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="bs-mock__notes">
+                                            <div class="bs-mock__panel-head">
+                                                <strong>Notifications</strong>
+                                                <span>Récentes</span>
+                                            </div>
+                                            <ul class="bs-notes">
+                                                <li><b></b><i></i></li>
+                                                <li><b></b><i></i></li>
+                                                <li><b></b><i></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY — BLOORESTAURANT produit -->
+        <section id="bloorestaurant" class="home-section home-section--bloorestaurant reveal-section" aria-labelledby="bloorestaurant-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="br-product" data-br-product>
+                    <div class="br-product__copy">
+                        <div class="br-product__intro">
+                            <span class="br-product__label">Produit SaaS</span>
+                            <h2 id="bloorestaurant-heading" class="br-product__title">BLOORESTAURANT</h2>
+                            <p class="br-product__subtitle">La plateforme intelligente pour gérer efficacement votre restaurant.</p>
+                            <p class="br-product__text">BLOORESTAURANT centralise les commandes, la caisse, la cuisine, les stocks et les rapports dans une seule plateforme moderne accessible partout.</p>
+                        </div>
+
+                        <ul class="br-features">
+                            <li class="br-feature">
+                                <span class="br-feature__icon"><i data-lucide="monitor-smartphone" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Point de vente (POS)</strong>
+                                    <span>Encaissement rapide, tickets et modes de paiement unifiés.</span>
+                                </div>
+                            </li>
+                            <li class="br-feature">
+                                <span class="br-feature__icon"><i data-lucide="shopping-bag" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Gestion des commandes</strong>
+                                    <span>Salle, à emporter et livraison suivis dans un seul flux.</span>
+                                </div>
+                            </li>
+                            <li class="br-feature">
+                                <span class="br-feature__icon"><i data-lucide="layout-grid" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Gestion des tables</strong>
+                                    <span>Occupation, rotation et plan de salle en direct.</span>
+                                </div>
+                            </li>
+                            <li class="br-feature">
+                                <span class="br-feature__icon"><i data-lucide="chef-hat" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Cuisine en temps réel</strong>
+                                    <span>Tickets cuisine, priorités et statuts instantanés.</span>
+                                </div>
+                            </li>
+                            <li class="br-feature">
+                                <span class="br-feature__icon"><i data-lucide="package" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Gestion des stocks</strong>
+                                    <span>Alertes, inventaire et consommation liées aux ventes.</span>
+                                </div>
+                            </li>
+                            <li class="br-feature">
+                                <span class="br-feature__icon"><i data-lucide="bar-chart-3" class="w-4 h-4"></i></span>
+                                <div>
+                                    <strong>Rapports &amp; Statistiques</strong>
+                                    <span>CA, marges et performance du service en un clin d'œil.</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="br-stats" role="list">
+                            <div class="br-stat" role="listitem">
+                                <strong>+10</strong>
+                                <span>modules intégrés</span>
+                            </div>
+                            <div class="br-stat" role="listitem">
+                                <strong>Live</strong>
+                                <span>temps réel</span>
+                            </div>
+                            <div class="br-stat" role="listitem">
+                                <strong>99,9&nbsp;%</strong>
+                                <span>disponibilité</span>
+                            </div>
+                            <div class="br-stat" role="listitem">
+                                <strong>24/7</strong>
+                                <span>support continu</span>
+                            </div>
+                        </div>
+
+                        <div class="br-product__actions">
+                            <a href="realisations.html" class="btn btn-primary br-btn" data-track="bloorestaurant_click" data-track-label="Découvrir BLOORESTAURANT">Découvrir BLOORESTAURANT <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                            <a href="contact.html" class="btn btn-secondary br-btn">Demander une démonstration</a>
+                        </div>
+                    </div>
+
+                    <div class="br-product__visual" aria-hidden="true">
+                        <div class="br-stage">
+                            <div class="br-stage__glow"></div>
+
+                            <div class="br-dash">
+                                <header class="br-dash__top">
+                                    <div class="br-dash__brand"><i></i><span>BLOORESTAURANT</span></div>
+                                    <div class="br-dash__meta"><em>Service du soir</em><b></b></div>
+                                </header>
+
+                                <div class="br-dash__kpis">
+                                    <article class="br-kpi">
+                                        <span>Commandes du jour</span>
+                                        <strong>186</strong>
+                                    </article>
+                                    <article class="br-kpi">
+                                        <span>Ventes</span>
+                                        <strong>450&nbsp;000&nbsp;FCFA</strong>
+                                    </article>
+                                    <article class="br-kpi">
+                                        <span>Tables occupées</span>
+                                        <strong>18/24</strong>
+                                    </article>
+                                    <article class="br-kpi br-kpi--hot">
+                                        <span>En cuisine</span>
+                                        <strong>09</strong>
+                                    </article>
+                                </div>
+
+                                <div class="br-dash__body">
+                                    <div class="br-dash__chart">
+                                        <div class="br-dash__head"><strong>Chiffre d'affaires</strong><span>3&nbsp;000&nbsp;000&nbsp;FCFA</span></div>
+                                        <div class="br-bars">
+                                            <i style="--h:42%"></i><i style="--h:55%"></i><i style="--h:48%"></i>
+                                            <i style="--h:70%"></i><i style="--h:62%"></i><i style="--h:88%"></i><i style="--h:76%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="br-dash__side">
+                                        <div class="br-dash__menu">
+                                            <div class="br-dash__head"><strong>Menu digital</strong><span>Actif</span></div>
+                                            <ul>
+                                                <li><b></b><i></i></li>
+                                                <li><b></b><i></i></li>
+                                                <li><b></b><i></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="br-dash__notes">
+                                            <div class="br-dash__head"><strong>Notifications</strong></div>
+                                            <ul>
+                                                <li><b></b><i></i></li>
+                                                <li><b></b><i></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="br-float br-float--order">
+                                <span class="br-float__dot"></span>
+                                <strong>Nouvelle commande</strong>
+                                <em>Table 12 · 18&nbsp;500&nbsp;FCFA</em>
+                            </div>
+                            <div class="br-float br-float--stock">
+                                <span class="br-float__dot"></span>
+                                <strong>Stock faible</strong>
+                                <em>Tomates · 8 restants</em>
+                            </div>
+                            <div class="br-float br-float--ready">
+                                <span class="br-float__dot"></span>
+                                <strong>Commande prête</strong>
+                                <em>Table 7 · à servir</em>
+                            </div>
+                            <div class="br-float br-float--pay">
+                                <span class="br-float__dot"></span>
+                                <strong>Paiement reçu</strong>
+                                <em>CB · 64&nbsp;500&nbsp;FCFA</em>
+                            </div>
+
+                            <div class="br-phone">
+                                <div class="br-phone__notch"></div>
+                                <div class="br-phone__screen">
+                                    <div class="br-phone__qr"></div>
+                                    <strong>QR Menu</strong>
+                                    <span>Commande mobile</span>
+                                    <div class="br-phone__status">
+                                        <i></i>
+                                        <em>En préparation</em>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY — Méthode -->
+        <section id="methode" class="home-section home-section--process reveal-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="section-header">
+                    <span class="section-badge">Méthode</span>
+                    <h2 class="section-title">Comment nous travaillons</h2>
+                    <p class="section-desc mx-auto">Un processus clair, transparent et orienté résultats — de l'analyse au support.</p>
+                </div>
+                <ol class="process-rail">
+                    <li class="process-step">
+                        <span class="process-step__num">1</span>
+                        <h3>Analyse</h3>
+                        <p>Comprendre vos enjeux, vos données et vos priorités.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="process-step__num">2</span>
+                        <h3>UX / UI</h3>
+                        <p>Concevoir des parcours simples, élégants et efficaces.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="process-step__num">3</span>
+                        <h3>Développement</h3>
+                        <p>Construire une solution robuste, testable et évolutive.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="process-step__num">4</span>
+                        <h3>Tests</h3>
+                        <p>Valider qualité, performance et sécurité avant la mise en ligne.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="process-step__num">5</span>
+                        <h3>Déploiement</h3>
+                        <p>Mettre en production avec une transition maîtrisée.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="process-step__num">6</span>
+                        <h3>Support</h3>
+                        <p>Assurer le suivi, la maintenance et l'amélioration continue.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- STORY — Réalisations -->
+        <section id="realisations-home" class="home-section home-section--work reveal-section" aria-labelledby="realisations-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="work-show__intro">
+                    <span class="work-show__label">Nos réalisations</span>
+                    <h2 id="realisations-heading" class="work-show__title">Des solutions conçues pour répondre à des besoins réels.</h2>
+                    <p class="work-show__text">Chaque projet est développé avec une architecture moderne, des technologies fiables et une expérience utilisateur pensée pour durer.</p>
+                </div>
+
+                <div class="work-carousel" data-work-carousel>
+                    <div class="work-carousel__viewport">
+                        <div class="work-carousel__track" data-work-track>
+                            <!-- Slide 1 — BLOOSCHOOL -->
+                            <article class="work-slide is-active" data-work-slide aria-hidden="false">
+                                <div class="work-slide__copy">
+                                    <span class="work-slide__cat">SaaS Éducation</span>
+                                    <h3>BLOOSCHOOL</h3>
+                                    <p>Solution complète de gestion scolaire permettant de gérer les élèves, enseignants, notes, présences, paiements et communication.</p>
+                                    <ul class="work-slide__tech" aria-label="Technologies">
+                                        <li>React</li>
+                                        <li>FastAPI</li>
+                                        <li>PostgreSQL</li>
+                                        <li>Docker</li>
+                                    </ul>
+                                    <a href="#blooschool" class="btn btn-primary work-slide__cta">Découvrir le produit <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                                </div>
+                                <div class="work-slide__visual" aria-hidden="true">
+                                    <div class="work-illu work-illu--school">
+                                        <aside class="work-illu__side">
+                                            <i class="is-on"></i><i></i><i></i><i></i>
+                                        </aside>
+                                        <div class="work-illu__main">
+                                            <div class="work-illu__kpis">
+                                                <span><b>1 248</b>Élèves</span>
+                                                <span><b>86</b>Enseignants</span>
+                                                <span><b>97%</b>Présences</span>
+                                            </div>
+                                            <div class="work-illu__chart">
+                                                <i style="--h:40%"></i><i style="--h:58%"></i><i style="--h:48%"></i>
+                                                <i style="--h:72%"></i><i style="--h:64%"></i><i style="--h:86%"></i>
+                                            </div>
+                                            <div class="work-illu__rows"><b></b><b></b><b></b></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Slide 2 — BLOORESTAURANT -->
+                            <article class="work-slide" data-work-slide aria-hidden="true">
+                                <div class="work-slide__copy">
+                                    <span class="work-slide__cat work-slide__cat--resto">SaaS Restauration</span>
+                                    <h3>BLOORESTAURANT</h3>
+                                    <p>Plateforme moderne permettant de gérer les commandes, les tables, les stocks, la cuisine, les paiements et les statistiques.</p>
+                                    <ul class="work-slide__tech" aria-label="Technologies">
+                                        <li>React</li>
+                                        <li>FastAPI</li>
+                                        <li>Docker</li>
+                                        <li>Redis</li>
+                                    </ul>
+                                    <a href="#bloorestaurant" class="btn btn-primary work-slide__cta">Découvrir le produit <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                                </div>
+                                <div class="work-slide__visual" aria-hidden="true">
+                                    <div class="work-illu work-illu--resto">
+                                        <div class="work-illu__kpis work-illu__kpis--resto">
+                                            <span><b>186</b>Commandes</span>
+                                            <span><b>18/24</b>Tables</span>
+                                            <span><b>09</b>Cuisine</span>
+                                        </div>
+                                        <div class="work-illu__chart work-illu__chart--resto">
+                                            <i style="--h:45%"></i><i style="--h:62%"></i><i style="--h:50%"></i>
+                                            <i style="--h:78%"></i><i style="--h:68%"></i><i style="--h:90%"></i>
+                                        </div>
+                                        <div class="work-illu__toast">Nouvelle commande · Table 12</div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Slide 3 — Sur mesure -->
+                            <article class="work-slide" data-work-slide aria-hidden="true">
+                                <div class="work-slide__copy">
+                                    <span class="work-slide__cat work-slide__cat--custom">Développement personnalisé</span>
+                                    <h3>Solutions sur mesure</h3>
+                                    <p>Applications web, ERP, CRM, plateformes métiers, portails clients, API et outils internes adaptés aux besoins spécifiques de chaque entreprise.</p>
+                                    <ul class="work-slide__tech" aria-label="Technologies">
+                                        <li>Python</li>
+                                        <li>React</li>
+                                        <li>Node.js</li>
+                                        <li>Flutter</li>
+                                        <li>AWS</li>
+                                    </ul>
+                                    <a href="contact.html" class="btn btn-primary work-slide__cta">Discuter de mon projet <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                                </div>
+                                <div class="work-slide__visual" aria-hidden="true">
+                                    <div class="work-illu work-illu--custom">
+                                        <div class="work-illu__tiles">
+                                            <span>Web</span><span>ERP</span><span>CRM</span>
+                                            <span>Mobile</span><span>API</span><span>Portail</span>
+                                        </div>
+                                        <div class="work-illu__stack">
+                                            <div></div><div></div><div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="work-carousel__controls">
+                        <button type="button" class="work-carousel__btn" data-work-prev aria-label="Réalisation précédente">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        </button>
+                        <div class="work-carousel__progress" aria-hidden="true">
+                            <div class="work-carousel__bar" data-work-progress></div>
+                        </div>
+                        <div class="work-carousel__count" data-work-count>01 / 03</div>
+                        <button type="button" class="work-carousel__btn" data-work-next aria-label="Réalisation suivante">
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY — Technologies -->
+        <section id="technologies" class="home-section home-section--tech reveal-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="section-header">
+                    <span class="section-badge">Stack</span>
+                    <h2 class="section-title">Nos technologies</h2>
+                    <p class="section-desc mx-auto">Une stack moderne, éprouvée et maintenable — pour des produits durables.</p>
+                </div>
+                <div class="tech-grid" role="list">
+                    <span class="tech-badge" role="listitem">React</span>
+                    <span class="tech-badge" role="listitem">Next.js</span>
+                    <span class="tech-badge" role="listitem">Python</span>
+                    <span class="tech-badge" role="listitem">FastAPI</span>
+                    <span class="tech-badge" role="listitem">Flutter</span>
+                    <span class="tech-badge" role="listitem">Docker</span>
+                    <span class="tech-badge" role="listitem">PostgreSQL</span>
+                    <span class="tech-badge" role="listitem">Redis</span>
+                    <span class="tech-badge" role="listitem">AWS</span>
+                    <span class="tech-badge" role="listitem">GitHub</span>
+                    <span class="tech-badge" role="listitem">CI/CD</span>
+                    <span class="tech-badge tech-badge--accent" role="listitem">IA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY — CTA final -->
+        <section id="cta-finale" class="home-section home-section--cta reveal-section">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="home-cta">
+                    <h2 class="home-cta__title">Transformons votre idée en une solution numérique performante.</h2>
+                    <p class="home-cta__text">Notre équipe vous accompagne de l'idée jusqu'au déploiement avec des solutions modernes, sécurisées et évolutives.</p>
+                    <div class="home-cta__actions">
+                        <a href="contact.html" class="btn btn-primary rounded-2xl px-7 py-3.5">Demander un devis <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <a href="contact.html" class="btn btn-secondary rounded-2xl px-7 py-3.5">Prendre rendez-vous</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -343,6 +1184,15 @@
 
     <script src="assets/js/modules/canvas-animation.js"></script>
     <script src="assets/js/modules/dashboard-calculator.js"></script>
+    <script src="assets/js/modules/home-story.js"></script>
+    <script src="assets/js/modules/solutions-showcase.js"></script>
+    <script src="assets/js/modules/work-carousel.js"></script>
+    <script src="assets/js/modules/chatbot-knowledge.js"></script>
+    <script src="assets/js/modules/chatbot-memory.js"></script>
+    <script src="assets/js/modules/chatbot-intents.js"></script>
+    <script src="assets/js/modules/chatbot-provider.js"></script>
+    <script src="assets/js/modules/chatbot-engine.js"></script>
+    <script src="assets/js/modules/bloomar-chat.js"></script>
     <script src="assets/js/core/app.js"></script>
     <script src="assets/js/core/layout.js"></script>
     <script src="assets/js/core/api.js"></script>

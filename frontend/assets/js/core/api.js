@@ -39,6 +39,12 @@ async function parseApiResponse(res) {
   return data;
 }
 
+function trackAnalyticsEvent(name, params) {
+  if (window.BloomarAnalytics && typeof window.BloomarAnalytics.trackEvent === 'function') {
+    window.BloomarAnalytics.trackEvent(name, params);
+  }
+}
+
 async function handleLeadSubmit(e) {
   e.preventDefault();
 
@@ -57,6 +63,17 @@ async function handleLeadSubmit(e) {
     const data = await parseApiResponse(res);
 
     if (data.success) {
+      const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
+      trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
+        event_category: 'form',
+        form_name: 'contact_lead',
+        form_destination: 'contact',
+      });
+      trackAnalyticsEvent((ev && ev.QUOTE_REQUEST) || 'quote_request', {
+        event_category: 'lead',
+        source: 'contact_form',
+        need: besoin,
+      });
       showToast(
         typeof t === 'function' ? t('contact.whatsappNext') : 'Demande enregistrée. Envoyez le message WhatsApp pour finaliser.'
       );
@@ -101,6 +118,19 @@ async function handleUniversalCaptureSubmit(e) {
     closeUniversalCaptureModal();
     showToast(data.message);
 
+    if (data.success || data.redirect) {
+      const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
+      trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
+        event_category: 'form',
+        form_name: 'universal_capture',
+        form_context: currentDownloadContext,
+      });
+      trackAnalyticsEvent((ev && ev.DOCUMENT_DOWNLOAD) || 'document_download', {
+        event_category: 'resource',
+        document_context: currentDownloadContext,
+      });
+    }
+
     if (data.redirect) {
       setTimeout(() => window.open(data.redirect, '_blank'), 2000);
     } else if (data.success) {
@@ -126,6 +156,13 @@ async function handleDevLeadSubmit(e) {
     });
 
     const data = await parseApiResponse(res);
+    const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
+    if (data.success) {
+      trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
+        event_category: 'form',
+        form_name: 'developer_sandbox',
+      });
+    }
     closeDeveloperModal();
     showToast(data.message);
   } catch (err) {

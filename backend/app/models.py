@@ -1,9 +1,41 @@
+"""Legacy public-site models + CMS model registration for Alembic."""
+
 from datetime import datetime
 
 from sqlalchemy import DateTime, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.database import Base
+
+# CMS modules — register metadata with Alembic
+from app.modules.audit.models import AuditLog  # noqa: F401
+from app.modules.identity.models import (  # noqa: F401
+    Permission,
+    Role,
+    User,
+    UserSession,
+)
+from app.modules.media.models import MediaAsset, MediaVariant  # noqa: F401
+from app.modules.media.infrastructure.models import (  # noqa: F401
+    MediaCollection,
+    MediaCollectionItem,
+    MediaFolder,
+    MediaTag,
+    MediaUsage,
+)
+from app.modules.settings.models import Setting  # noqa: F401
+
+# Sprint 1 — content, navigation, localization
+from app.modules.content.infrastructure.models import (  # noqa: F401
+    Page,
+    PageVersion,
+    PreviewToken,
+    Publication,
+    Section,
+    SectionType,
+)
+from app.modules.localization.infrastructure.models import Locale, Translation  # noqa: F401
+from app.modules.navigation.infrastructure.models import Menu, MenuItem  # noqa: F401
 
 
 class Lead(Base):

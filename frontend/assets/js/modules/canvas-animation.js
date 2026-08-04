@@ -1,7 +1,4 @@
-/* In-memory cookie preferences state strictly compliant with non-local storage rules */
-        let memoryCookieBannerState = null;
-
-        /* Signature Game Rain Simulation with optimized, precise vector logo & 3 infinity circles rendering */
+/* Signature Game Rain Simulation with optimized, precise vector logo & 3 infinity circles rendering */
         (function() {
             const COULEURS = ['#7B2FF7', '#12C7B7', '#0B1232', '#7B2FF7']; 
             const MAX_PARTICULES = 350; 
