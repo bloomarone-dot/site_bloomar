@@ -64,6 +64,15 @@ async function initAnalytics() {
 }
 
 async function injectLayout() {
+    try {
+        if (!window.__bloomarThemeLoaded) {
+            await loadScript('assets/js/core/theme.js');
+            window.__bloomarThemeLoaded = true;
+        }
+    } catch (err) {
+        console.error('[Bloomar] Theme/i18n premium load failed', err);
+    }
+
     const slots = [
         ['site-header', 'partials/header.html'],
         ['site-footer', 'partials/footer.html'],
@@ -86,10 +95,8 @@ async function injectLayout() {
     if (page) {
         document.querySelectorAll('[data-nav-page]').forEach((link) => {
             const active = link.dataset.navPage === page;
+            link.classList.toggle('premium-nav__link--active', active);
             link.classList.toggle('nav-link--active', active);
-            if (active && !link.classList.contains('nav-link--highlight')) {
-                link.classList.add('text-bloomar-navy', 'bg-slate-100/80');
-            }
         });
     }
 

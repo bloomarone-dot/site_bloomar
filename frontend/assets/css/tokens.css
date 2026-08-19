@@ -1,4 +1,5 @@
 :root {
+    /* Brand core */
     --bloomar-navy: #0B1232;
     --bloomar-violet: #7B2FF7;
     --bloomar-turquoise: #12C7B7;
@@ -7,16 +8,42 @@
     --bloomar-text: #111827;
     --bloomar-border: #E2E8F0;
     --bloomar-muted: #64748B;
+
+    /* Premium theme — valeurs par défaut (dark), surchargées dans theme.css */
+    --premium-heading: #ffffff;
+    --premium-nav-bg: rgba(5, 8, 24, 0.72);
+    --premium-nav-border: rgba(255, 255, 255, 0.06);
+    --premium-hero-mesh: linear-gradient(180deg, #050818 0%, #0a0f2e 50%, #050818 100%);
+    --premium-card-bg: rgba(255, 255, 255, 0.04);
+    --premium-footer-bg: #030510;
+    --premium-bg: #050818;
+    --premium-bg-elevated: #0a0f2e;
+    --premium-surface: rgba(255, 255, 255, 0.04);
+    --premium-surface-hover: rgba(255, 255, 255, 0.07);
+    --premium-border: rgba(139, 92, 246, 0.18);
+    --premium-border-bright: rgba(167, 139, 250, 0.35);
+    --premium-text: #f1f5f9;
+    --premium-text-muted: #94a3b8;
+    --premium-violet: #8b5cf6;
+    --premium-violet-bright: #a78bfa;
+    --premium-violet-deep: #6d28d9;
+    --premium-glow: rgba(123, 47, 247, 0.45);
+    --premium-gradient: linear-gradient(135deg, #7B2FF7 0%, #6366f1 50%, #12C7B7 100%);
+    --premium-gradient-text: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 40%, #7B2FF7 100%);
+
     --radius-sm: 0.5rem;
     --radius-md: 0.75rem;
     --radius-lg: 1rem;
     --radius-xl: 1.5rem;
+    --radius-2xl: 1.75rem;
     --shadow-card: 0 1px 3px 0 rgb(11 18 50 / 0.04), 0 4px 16px -2px rgb(11 18 50 / 0.06);
     --shadow-elevated: 0 20px 40px -15px rgb(11 18 50 / 0.12);
-    --transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-glow-violet: 0 0 60px -12px var(--premium-glow);
+    --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-height: 5rem;
 }
 
-/* Fallback Tailwind bloomar-* si CDN lent */
 .text-bloomar-navy { color: var(--bloomar-navy); }
 .text-bloomar-violet { color: var(--bloomar-violet); }
 .text-bloomar-turquoise { color: var(--bloomar-turquoise); }

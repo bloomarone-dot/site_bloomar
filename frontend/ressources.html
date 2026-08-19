@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="api-base" content="">
-    <title>Ressources | BL∞MAR ONE</title>
+    <title>Ressources | Bloomarone</title>
+    <meta name="description" content="Modèles OHADA, guides fiscaux, checklist KYC et journal de caisse SYSCOHADA — des ressources gratuites pour structurer votre entreprise au Cameroun.">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <script src="assets/js/config/tailwind.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,80 +14,227 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/ressources-page.css">
     <script src="assets/js/core/i18n.js"></script>
+    <script src="assets/js/core/i18n-premium.js"></script>
 </head>
-<body data-page="ressources" class="text-bloomar-text min-h-full flex flex-col overflow-x-hidden">
+<body data-page="ressources" class="page-premium min-h-full flex flex-col overflow-x-hidden">
 
     <div id="site-header"></div>
 
     <main class="flex-1">
 
-        <section class="page-hero page-hero--image page-hero--ressources text-white">
-            <div class="page-hero__overlay page-hero__overlay--dark" aria-hidden="true"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-                <span class="section-badge">Éducation administrative</span>
-                <h1 class="page-hero__title mt-4 mb-4">Modèles juridiques et guides de conformité gratuits</h1>
-                <p class="section-desc mx-auto">Téléchargez nos outils et guides pratiques pour structurer votre activité au Cameroun et franchir sereinement vos revues de conformité.</p>
+        <!-- HERO -->
+        <section class="premium-hero premium-hero--ressources" aria-labelledby="res-hero-heading">
+            <div class="premium-hero__bg">
+                <div class="premium-hero__mesh"></div>
+                <div class="premium-hero__grid-lines"></div>
+                <canvas id="res-hero-particles" aria-hidden="true"></canvas>
+                <div class="res-hero-floats" aria-hidden="true">
+                    <span class="res-hero-float res-hero-float--1"><i data-lucide="file-text" class="w-5 h-5"></i></span>
+                    <span class="res-hero-float res-hero-float--2"><i data-lucide="download" class="w-5 h-5"></i></span>
+                    <span class="res-hero-float res-hero-float--3"><i data-lucide="shield-check" class="w-5 h-5"></i></span>
+                    <span class="res-hero-float res-hero-float--4"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></span>
+                    <span class="res-hero-float res-hero-float--5"><i data-lucide="clipboard-list" class="w-4 h-4"></i></span>
+                    <span class="res-hero-float res-hero-float--6"><i data-lucide="lock" class="w-4 h-4"></i></span>
+                </div>
+            </div>
+
+            <div class="premium-hero__content">
+                <p class="premium-hero__badge" data-i18n="res.hero.badge">ÉDUCATION ADMINISTRATIVE</p>
+
+                <h1 id="res-hero-heading" class="premium-hero__title" data-i18n-html="res.heroTitleHtml">
+                    Des ressources pour mieux<br>
+                    structurer <span class="gradient-text">votre entreprise</span>
+                </h1>
+
+                <p class="premium-hero__lead" data-i18n="res.hero.lead">
+                    Téléchargez gratuitement nos modèles, guides et outils pratiques pour structurer votre activité au Cameroun et franchir sereinement vos revues de conformité.
+                </p>
             </div>
         </section>
 
-        <section id="ressources" class="section-shell bg-white scroll-mt-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card-muted p-5 flex flex-col justify-between h-72">
-                        <div class="space-y-3">
-                            <div class="w-8 h-8 rounded-lg bg-bloomar-violet/10 text-bloomar-violet flex items-center justify-center"><i data-lucide="file-text" class="w-4 h-4"></i></div>
-                            <span class="text-[9px] uppercase font-bold text-slate-400 block">Document (Format Word - .docx)</span>
-                            <h4 class="text-xs font-extrabold text-bloomar-navy uppercase tracking-wider">Modèle : Statuts de SARL (OHADA)</h4>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Le canevas juridique indispensable pour lancer l'enregistrement de votre société au CFCE. Inclut les clauses de gérance révisées.</p>
-                        </div>
-                        <button onclick="triggerUniversalCaptureModal('statuts-sarl')" class="btn btn-primary btn-sm btn-block py-2.5 rounded-xl">
-                            <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                            <span>Télécharger le modèle</span>
-                        </button>
-                    </div>
+        <!-- BIBLIOTHÈQUE -->
+        <section id="ressources" class="res-section premium-reveal" aria-labelledby="res-library-title">
+            <div class="premium-container">
+                <div class="res-section__head">
+                    <span class="res-section__label" data-i18n="res.lib.label">NOS RESSOURCES</span>
+                    <h2 id="res-library-title" class="res-section__title" data-i18n-html="res.lib.titleHtml">
+                        Bibliothèque de <span class="gradient-text">ressources</span>
+                    </h2>
+                    <p class="res-section__subtitle" data-i18n="res.lib.sub">Des outils concrets pour vous faire gagner du temps et rester en conformité.</p>
+                </div>
 
-                    <div class="card-muted p-5 flex flex-col justify-between h-72">
-                        <div class="space-y-3">
-                            <div class="w-8 h-8 rounded-lg bg-bloomar-turquoise/10 text-bloomar-turquoise flex items-center justify-center"><i data-lucide="smartphone" class="w-4 h-4"></i></div>
-                            <span class="text-[9px] uppercase font-bold text-slate-400 block">Module Digital Intégré</span>
-                            <h4 class="text-xs font-extrabold text-bloomar-navy uppercase tracking-wider">Suivi & Journal de Caisse SYSCOHADA</h4>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Fini les erreurs de calcul et les pertes de tickets sur Excel. Saisissez vos flux en direct et générez un journal 100% conforme au SMT.</p>
-                        </div>
-                        <button onclick="triggerUniversalCaptureModal('bloomarone_caisse')" class="btn btn-primary btn-sm btn-block py-2.5 rounded-xl">
-                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                            <span>Activer mon accès gratuit</span>
-                        </button>
-                    </div>
+                <div class="res-grid premium-reveal" id="res-grid">
 
-                    <div class="card-muted p-5 flex flex-col justify-between h-72">
-                        <div class="space-y-3">
-                            <div class="w-8 h-8 rounded-lg bg-bloomar-navy/10 text-bloomar-navy flex items-center justify-center"><i data-lucide="book-open" class="w-4 h-4"></i></div>
-                            <span class="text-[9px] uppercase font-bold text-slate-400 block">Manuel pratique (Format PDF)</span>
-                            <h4 class="text-xs font-extrabold text-bloomar-navy uppercase tracking-wider">Guide : Déclarations Fiscales Mensuelles</h4>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">La feuille de route étape par étape pour préparer votre déclaration de TVA et votre acompte d'impôt (2,2% ou 3,3%) avant le 15 du mois.</p>
+                    <!-- 01 — STATUTS SARL -->
+                    <article class="res-card res-card--docx">
+                        <div class="res-card__visual">
+                            <div class="res-card__glow" aria-hidden="true"></div>
+                            <div class="res-doc-icon">
+                                <i data-lucide="file-text" class="w-8 h-8" style="color:#818cf8"></i>
+                                <span class="res-doc-icon__badge">DOCX</span>
+                            </div>
                         </div>
-                        <button onclick="triggerUniversalCaptureModal('guide-fiscal')" class="btn btn-primary btn-sm btn-block py-2.5 rounded-xl">
-                            <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                            <span>Télécharger le guide</span>
-                        </button>
-                    </div>
+                        <div class="res-card__body">
+                            <div class="res-card__badges">
+                                <span class="res-badge res-badge--type" data-i18n="res.r1.type">DOCUMENT</span>
+                                <span class="res-badge res-badge--format">DOCX</span>
+                            </div>
+                            <h3 data-i18n="res.r1.title">Modèle : Statuts de SARL (OHADA)</h3>
+                            <p data-i18n="res.r1.desc">Le canevas juridique indispensable pour lancer l'enregistrement de votre société au CFCE. Inclut les clauses de gérance révisées.</p>
+                            <button type="button" class="res-card__cta" onclick="triggerUniversalCaptureModal('statuts-sarl')">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                                <span data-i18n="res.r1.cta">Télécharger le modèle →</span>
+                            </button>
+                        </div>
+                    </article>
 
-                    <div class="card-muted p-5 flex flex-col justify-between h-72">
-                        <div class="space-y-3">
-                            <div class="w-8 h-8 rounded-lg bg-bloomar-turquoise/10 text-bloomar-turquoise flex items-center justify-center"><i data-lucide="check-square" class="w-4 h-4"></i></div>
-                            <span class="text-[9px] uppercase font-bold text-slate-400 block">Document de contrôle (Format PDF)</span>
-                            <h4 class="text-xs font-extrabold text-bloomar-navy uppercase tracking-wider">Checklist : Revue KYC & Conformité Bancaire</h4>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">La liste exhaustive des documents obligatoires exigés par les banques en zone CEMAC pour l'ouverture et l'audit des comptes de PME.</p>
+                    <!-- 02 — JOURNAL DE CAISSE -->
+                    <article class="res-card res-card--module">
+                        <div class="res-card__visual">
+                            <div class="res-card__glow" aria-hidden="true"></div>
+                            <div class="res-module-mock" aria-hidden="true">
+                                <div class="res-module-mock__head">
+                                    <span>Journal SYSCOHADA</span>
+                                    <span style="color:#12C7B7">● Live</span>
+                                </div>
+                                <div class="res-module-mock__kpis">
+                                    <div class="res-module-mock__kpi"><strong>+850K</strong><span>Recettes</span></div>
+                                    <div class="res-module-mock__kpi"><strong>-320K</strong><span>Dépenses</span></div>
+                                    <div class="res-module-mock__kpi"><strong>530K</strong><span>Solde</span></div>
+                                </div>
+                                <div class="res-module-mock__chart">
+                                    <i style="height:45%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:85%"></i><i style="height:60%"></i>
+                                </div>
+                                <div class="res-module-mock__rows">
+                                    <div class="res-module-mock__row" style="width:88%"></div>
+                                    <div class="res-module-mock__row" style="width:72%"></div>
+                                    <div class="res-module-mock__row" style="width:95%"></div>
+                                </div>
+                            </div>
                         </div>
-                        <button onclick="triggerUniversalCaptureModal('checklist-kyc')" class="btn btn-primary btn-sm btn-block py-2.5 rounded-xl">
-                            <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                            <span>Télécharger la checklist</span>
-                        </button>
-                    </div>
+                        <div class="res-card__body">
+                            <div class="res-card__badges">
+                                <span class="res-badge res-badge--type" data-i18n="res.r2.type">MODULE DIGITAL</span>
+                                <span class="res-badge res-badge--free" data-i18n="res.r2.free">ACCÈS GRATUIT</span>
+                            </div>
+                            <h3 data-i18n="res.r2.title">Suivi & Journal de Caisse SYSCOHADA</h3>
+                            <p data-i18n="res.r2.desc">Fini les erreurs de calcul et les pertes de tickets sur Excel. Saisissez vos flux en direct et générez un journal 100% conforme au SMT.</p>
+                            <button type="button" class="res-card__cta" onclick="triggerUniversalCaptureModal('bloomarone_caisse')">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                <span data-i18n="res.r2.cta">Activer mon accès gratuit →</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 03 — DÉCLARATIONS FISCALES -->
+                    <article class="res-card res-card--pdf">
+                        <div class="res-card__visual">
+                            <div class="res-card__glow" aria-hidden="true"></div>
+                            <div class="res-pdf-icon">
+                                <i data-lucide="book-open" class="w-9 h-9" style="color:#f472b6"></i>
+                                <span class="res-pdf-icon__label">PDF</span>
+                            </div>
+                        </div>
+                        <div class="res-card__body">
+                            <div class="res-card__badges">
+                                <span class="res-badge res-badge--type" data-i18n="res.r3.type">MANUEL PRATIQUE</span>
+                                <span class="res-badge res-badge--format">PDF</span>
+                            </div>
+                            <h3 data-i18n="res.r3.title">Guide : Déclarations Fiscales Mensuelles</h3>
+                            <p data-i18n="res.r3.desc">La feuille de route étape par étape pour préparer votre déclaration de TVA et votre acompte d'impôt (2,2% ou 3,3%) avant le 15 du mois.</p>
+                            <button type="button" class="res-card__cta" onclick="triggerUniversalCaptureModal('guide-fiscal')">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                                <span data-i18n="res.r3.cta">Télécharger le guide →</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- 04 — KYC -->
+                    <article class="res-card res-card--kyc">
+                        <div class="res-card__visual">
+                            <div class="res-card__glow" aria-hidden="true"></div>
+                            <div class="res-kyc-icon">
+                                <div class="res-kyc-shield">
+                                    <i data-lucide="shield-check" class="w-7 h-7"></i>
+                                </div>
+                                <div class="res-kyc-checks">
+                                    <span><i data-lucide="check"></i> RCCM</span>
+                                    <span><i data-lucide="check"></i> NIU / Patente</span>
+                                    <span><i data-lucide="check"></i> Statuts & KYC</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="res-card__body">
+                            <div class="res-card__badges">
+                                <span class="res-badge res-badge--type" data-i18n="res.r4.type">DOCUMENT DE CONTRÔLE</span>
+                                <span class="res-badge res-badge--format">PDF</span>
+                            </div>
+                            <h3 data-i18n="res.r4.title">Checklist : Revue KYC & Conformité Bancaire</h3>
+                            <p data-i18n="res.r4.desc">La liste exhaustive des documents obligatoires exigés par les banques en zone CEMAC pour l'ouverture et l'audit des comptes de PME.</p>
+                            <button type="button" class="res-card__cta" onclick="triggerUniversalCaptureModal('checklist-kyc')">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                                <span data-i18n="res.r4.cta">Télécharger la checklist →</span>
+                            </button>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
+
+        <!-- POURQUOI -->
+        <section class="res-section res-section--alt premium-reveal" aria-labelledby="res-why-title">
+            <div class="premium-container">
+                <div class="res-section__head">
+                    <h2 id="res-why-title" class="res-section__title" data-i18n="res.why.title">Pourquoi utiliser nos ressources ?</h2>
+                </div>
+
+                <div class="res-why-grid">
+                    <article class="res-why-card">
+                        <div class="res-why-card__icon"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+                        <h3 data-i18n="res.why.w1t">Conformité assurée</h3>
+                        <p data-i18n="res.why.w1d">Nos modèles sont alignés sur les normes OHADA, SYSCOHADA et CEMAC.</p>
+                    </article>
+                    <article class="res-why-card">
+                        <div class="res-why-card__icon"><i data-lucide="clock" class="w-5 h-5"></i></div>
+                        <h3 data-i18n="res.why.w2t">Gain de temps</h3>
+                        <p data-i18n="res.why.w2d">Des outils prêts à l'emploi pour vous concentrer sur la croissance de votre activité.</p>
+                    </article>
+                    <article class="res-why-card">
+                        <div class="res-why-card__icon"><i data-lucide="download" class="w-5 h-5"></i></div>
+                        <h3 data-i18n="res.why.w3t">100% gratuits</h3>
+                        <p data-i18n="res.why.w3d">Accédez librement à nos guides et outils essentiels pour démarrer et progresser.</p>
+                    </article>
+                    <article class="res-why-card">
+                        <div class="res-why-card__icon"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                        <h3 data-i18n="res.why.w4t">Pensé pour le Cameroun</h3>
+                        <p data-i18n="res.why.w4d">Des ressources adaptées à la réalité locale et aux exigences des administrations et banques.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="premium-container premium-reveal" style="padding-bottom:5rem">
+            <div class="res-cta">
+                <div class="res-cta__illus" aria-hidden="true">
+                    <div class="res-cta__illus-ring"></div>
+                    <div class="res-cta__illus-core">
+                        <i data-lucide="folder-open" class="w-7 h-7"></i>
+                        <i data-lucide="shield" class="w-4 h-4" style="opacity:0.7"></i>
+                    </div>
+                </div>
+                <div class="res-cta__content">
+                    <span class="res-section__label" data-i18n="res.cta.label">BESOIN D'ALLER PLUS LOIN ?</span>
+                    <h2 class="res-cta__title" data-i18n="res.cta.title">Structurez votre activité avec Bloomarone.</h2>
+                    <p class="res-cta__text" data-i18n="res.cta.desc">Nos ressources vous permettent de commencer gratuitement. Pour un accompagnement personnalisé, notre équipe peut vous aider à structurer vos outils, vos finances et vos processus.</p>
+                    <a href="contact.html" class="premium-btn-primary" data-i18n="res.cta.btn">Demander un diagnostic →</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <div id="site-footer"></div>
@@ -96,5 +244,7 @@
     <script src="assets/js/core/app.js"></script>
     <script src="assets/js/core/layout.js"></script>
     <script src="assets/js/core/api.js"></script>
+    <script src="assets/js/modules/premium-home.js"></script>
+    <script src="assets/js/modules/ressources-page.js"></script>
 </body>
 </html>

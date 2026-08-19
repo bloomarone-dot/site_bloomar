@@ -1,9 +1,15 @@
 /**
  * BL∞MAR ONE — Internationalisation FR / EN
  */
+(function antiFlashTheme() {
+  try {
+    const t = localStorage.getItem('bloomar-theme');
+    if (t) document.documentElement.dataset.theme = t;
+  } catch (_) { /* ignore */ }
+})();
 const I18N = {
   fr: {
-    'meta.title': 'BL∞MAR ONE | Plateforme de Pilotage & IA pour PME',
+    'meta.title': 'Bloomarone | Écosystème technologique pour PME',
     'brand.tagline': "Pilotes d'Infrastructure Financière",
     'nav.home': 'Accueil',
     'nav.services': 'Services',
@@ -14,7 +20,28 @@ const I18N = {
     'nav.resources': 'Ressources',
     'nav.resourcesMobile': 'Ressources & Guides',
     'nav.startProject': 'Démarrer un projet',
+    'nav.tagline': 'Une plateforme, mille opportunités.',
+    'nav.products': 'Produits',
+    'nav.login': 'Se connecter',
+    'theme.light': 'Activer le mode clair',
+    'theme.dark': 'Activer le mode sombre',
     'sidebar.help': "Besoin d'aide ? Appelez-nous au +237 652 209 175",
+
+    'hero.premiumBadge': 'Technologie • Conseil • Paiement • SaaS • Support',
+    'hero.premiumLead': 'Bloomarone conçoit des solutions digitales innovantes pour simplifier vos opérations, renforcer votre performance et accélérer votre croissance.',
+    'hero.trust1t': 'Paiements locaux',
+    'hero.trust1d': 'MTN MoMo • Orange Money',
+    'hero.trust2t': 'Solutions sur mesure',
+    'hero.trust2d': 'Web • Mobile • Logiciels',
+    'hero.trust3t': 'Produits SaaS',
+    'hero.trust3d': "Prêts à l'emploi",
+    'hero.trust4t': 'Accompagnement',
+    'hero.trust4d': 'Conseil & croissance',
+    'hero.trust5t': 'Support de proximité',
+    'hero.trust5d': 'Yaoundé • Douala',
+
+    'premium.servicesLabel': 'Nos services officiels',
+    'premium.servicesTitle': 'Tout ce dont votre activité a besoin',
 
     'hero.brand': 'Bloomar ONE',
     'hero.title': 'Des logiciels sur mesure qui accélèrent la croissance de votre entreprise.',
@@ -107,8 +134,14 @@ const I18N = {
     'svc.ctaDesc': 'Parlez-nous de votre projet — nous vous proposons un diagnostic gratuit et une feuille de route adaptée.',
     'svc.ctaBtn': 'Demander mon audit gratuit',
 
-    'footer.services': 'Nos services',
-    'footer.agency': 'Contact & Agence',
+    'footer.services': 'Services',
+    'footer.products': 'Produits',
+    'footer.links': 'Liens',
+    'footer.blog': 'Blog',
+    'footer.privacy': 'Politique de confidentialité',
+    'footer.hours': 'Lun–Ven : 8h–17h',
+    'footer.premiumDesc': 'Des solutions digitales innovantes qui simplifient vos opérations et accélèrent votre croissance.',
+    'footer.agency': 'Contact',
     'footer.address': 'Yaoundé, Quartier Omnisports, Cameroun',
     'footer.dev': 'Espace Développeurs',
     'footer.legal': 'Mentions légales',
@@ -184,7 +217,7 @@ const I18N = {
     'chatbot.hint': 'Cliquez sur une question ci-dessous ou posez votre propre question pour me tester.',
   },
   en: {
-    'meta.title': 'BL∞MAR ONE | SME Management & AI Platform',
+    'meta.title': 'Bloomarone | Technology ecosystem for SMEs',
     'brand.tagline': 'Financial Infrastructure Pilots',
     'nav.home': 'Home',
     'nav.services': 'Services',
@@ -195,7 +228,28 @@ const I18N = {
     'nav.resources': 'Resources',
     'nav.resourcesMobile': 'Resources & Guides',
     'nav.startProject': 'Start a project',
+    'nav.tagline': 'One platform, a thousand opportunities.',
+    'nav.products': 'Products',
+    'nav.login': 'Sign in',
+    'theme.light': 'Enable light mode',
+    'theme.dark': 'Enable dark mode',
     'sidebar.help': 'Need help? Call us at +237 652 209 175',
+
+    'hero.premiumBadge': 'Technology • Advisory • Payment • SaaS • Support',
+    'hero.premiumLead': 'Bloomarone builds innovative digital solutions to simplify your operations, strengthen performance and accelerate growth.',
+    'hero.trust1t': 'Local payments',
+    'hero.trust1d': 'MTN MoMo • Orange Money',
+    'hero.trust2t': 'Custom solutions',
+    'hero.trust2d': 'Web • Mobile • Software',
+    'hero.trust3t': 'SaaS products',
+    'hero.trust3d': 'Ready to deploy',
+    'hero.trust4t': 'Advisory',
+    'hero.trust4d': 'Growth & strategy',
+    'hero.trust5t': 'Local support',
+    'hero.trust5d': 'Yaoundé • Douala',
+
+    'premium.servicesLabel': 'Our official services',
+    'premium.servicesTitle': 'Everything your business needs',
 
     'hero.brand': 'Bloomar ONE',
     'hero.title': 'Custom software that accelerates your business growth.',
@@ -289,7 +343,13 @@ const I18N = {
     'svc.ctaBtn': 'Request my free audit',
 
     'footer.services': 'Our services',
-    'footer.agency': 'Contact & Office',
+    'footer.products': 'Products',
+    'footer.links': 'Links',
+    'footer.blog': 'Blog',
+    'footer.privacy': 'Privacy policy',
+    'footer.hours': 'Mon–Fri: 8am–5pm',
+    'footer.premiumDesc': 'Innovative digital solutions that simplify operations and accelerate growth.',
+    'footer.agency': 'Contact',
     'footer.address': 'Yaoundé, Omnisports district, Cameroon',
     'footer.dev': 'Developers area',
     'footer.legal': 'Legal notice',
@@ -383,10 +443,12 @@ function getLocale() {
 function updateLangButtons() {
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     const active = btn.dataset.lang === currentLang;
+    btn.classList.toggle('lang-btn--active', active);
     btn.classList.toggle('bg-bloomar-violet', active);
     btn.classList.toggle('text-white', active);
     btn.classList.toggle('text-slate-600', !active);
     btn.classList.toggle('bg-white', !active);
+    btn.setAttribute('aria-pressed', String(active));
   });
 }
 
@@ -422,6 +484,9 @@ function applyTranslations() {
   });
 
   updateLangButtons();
+  if (typeof getTheme === 'function' && typeof applyTheme === 'function') {
+    applyTheme(getTheme());
+  }
   window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: currentLang } }));
 }
 
@@ -439,3 +504,4 @@ function initLanguage() {
 }
 
 document.addEventListener('DOMContentLoaded', initLanguage);
+document.addEventListener('layoutReady', applyTranslations);

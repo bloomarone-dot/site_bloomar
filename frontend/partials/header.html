@@ -1,48 +1,59 @@
-<header class="fixed top-0 left-0 right-0 z-40 glass-header">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-        <a href="index.html" class="bloomar-logo-link group shrink-0">
-            <img src="assets/images/bloomar-one-logo.png" alt="BL∞MAR ONE" class="bloomar-logo bloomar-logo--header transition-transform duration-200 group-hover:scale-[1.02]" width="200" height="52" decoding="async">
-        </a>
-        <nav class="hidden lg:flex items-center gap-1">
-            <a href="index.html" data-nav-page="index" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100/80" data-i18n="nav.home">Accueil</a>
-            <a href="services.html" data-nav-page="services" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100/80" data-i18n="nav.services">Services</a>
-            <a href="realisations.html" data-nav-page="realisations" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100/80" data-i18n="nav.projects">Réalisations</a>
-            <a href="a-propos.html" data-nav-page="a-propos" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100/80" data-i18n="nav.about">À propos</a>
-            <a href="assist.html" data-nav-page="assist" class="nav-link nav-link--highlight px-3 py-2 rounded-lg hover:bg-bloomar-violet/5 flex items-center gap-1.5">
-                <span class="flex h-1.5 w-1.5 rounded-full bg-bloomar-violet animate-pulse"></span>
-                <span data-i18n="nav.assist">Bloomar Assist</span>
-            </a>
-            <a href="tarifs.html" data-nav-page="tarifs" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100/80" data-i18n="nav.pricing">Tarifs</a>
-            <a href="ressources.html" data-nav-page="ressources" class="nav-link px-3 py-2 rounded-lg hover:bg-slate-100/80" data-i18n="nav.resources">Ressources</a>
-        </nav>
-        <div class="hidden sm:flex items-center space-x-4">
-            <div class="flex border border-slate-300 rounded-lg overflow-hidden">
-                <button type="button" data-lang="fr" onclick="setLanguage('fr')" class="lang-btn px-3 py-1.5 text-xs font-bold uppercase bg-bloomar-violet text-white transition-colors">FR</button>
-                <button type="button" data-lang="en" onclick="setLanguage('en')" class="lang-btn px-3 py-1.5 text-xs font-bold uppercase bg-white text-slate-600 transition-colors">EN</button>
+<header class="premium-nav">
+    <div class="premium-nav__inner">
+        <a href="index.html" class="premium-nav__brand">
+            <div class="premium-nav__logo">
+                <img src="assets/images/bloomar-one-logo.png" alt="Bloomarone" width="180" height="46" decoding="async">
             </div>
-            <a href="contact.html" class="btn btn-primary px-5 py-2.5 text-sm rounded-xl">
+            <span class="premium-nav__tagline" data-i18n="nav.tagline">Une plateforme, mille opportunités.</span>
+        </a>
+
+        <nav class="premium-nav__links" aria-label="Navigation principale">
+            <a href="index.html" data-nav-page="index" class="premium-nav__link" data-i18n="nav.home">Accueil</a>
+            <a href="services.html" data-nav-page="services" class="premium-nav__link" data-i18n="nav.services">Services</a>
+            <a href="index.html#ecosysteme" data-nav-page="produits" class="premium-nav__link" data-i18n="nav.products">Produits</a>
+            <a href="a-propos.html" data-nav-page="a-propos" class="premium-nav__link" data-i18n="nav.about">À propos</a>
+            <a href="ressources.html" data-nav-page="ressources" class="premium-nav__link" data-i18n="nav.resources">Ressources</a>
+            <a href="tarifs.html" data-nav-page="tarifs" class="premium-nav__link" data-i18n="nav.pricing">Tarifs</a>
+        </nav>
+
+        <div class="premium-nav__actions">
+            <button type="button" class="premium-nav__theme" data-theme-toggle onclick="toggleTheme()" aria-label="Activer le mode clair" aria-pressed="false">
+                <i data-theme-icon data-lucide="sun" class="w-4 h-4"></i>
+            </button>
+            <div class="premium-nav__lang">
+                <button type="button" data-lang="fr" onclick="setLanguage('fr')" class="lang-btn">FR</button>
+                <button type="button" data-lang="en" onclick="setLanguage('en')" class="lang-btn">EN</button>
+            </div>
+            <a href="contact.html" class="premium-btn-ghost" data-i18n="nav.login">Se connecter</a>
+            <a href="contact.html" class="premium-btn-primary">
                 <span data-i18n="nav.startProject">Démarrer un projet</span>
-                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span aria-hidden="true">→</span>
             </a>
         </div>
-        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-600 hover:text-bloomar-navy focus:outline-none" aria-label="Menu">
-            <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+
+        <button type="button" class="premium-nav__burger" onclick="togglePremiumMenu()" aria-label="Menu" aria-expanded="false" id="premium-menu-btn">
+            <i data-lucide="menu" class="w-6 h-6" id="premium-menu-icon"></i>
         </button>
     </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-6 py-6 space-y-4 shadow-xl">
-        <a href="index.html" onclick="toggleMobileMenu()" class="block text-base font-semibold text-slate-700 hover:text-bloomar-navy" data-i18n="nav.home">Accueil</a>
-        <a href="services.html" onclick="toggleMobileMenu()" class="block text-base font-semibold text-slate-700 hover:text-bloomar-navy" data-i18n="nav.services">Services</a>
-        <a href="realisations.html" onclick="toggleMobileMenu()" class="block text-base font-semibold text-slate-700 hover:text-bloomar-navy" data-i18n="nav.projects">Réalisations</a>
-        <a href="a-propos.html" onclick="toggleMobileMenu()" class="block text-base font-semibold text-slate-700 hover:text-bloomar-navy" data-i18n="nav.about">À propos</a>
-        <a href="assist.html" onclick="toggleMobileMenu()" class="block text-base font-semibold text-bloomar-violet font-bold" data-i18n="nav.assist">Bloomar Assist</a>
-        <a href="tarifs.html" onclick="toggleMobileMenu()" class="block text-base font-semibold text-slate-700 hover:text-bloomar-navy" data-i18n="nav.pricing">Tarifs</a>
-        <a href="ressources.html" onclick="toggleMobileMenu()" class="block text-base font-semibold text-slate-700 hover:text-bloomar-navy" data-i18n="nav.resourcesMobile">Ressources & Guides</a>
-        <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-            <div class="flex border border-slate-300 rounded-lg overflow-hidden">
-                <button type="button" data-lang="fr" onclick="setLanguage('fr')" class="lang-btn px-3 py-1.5 text-xs font-bold uppercase bg-bloomar-violet text-white">FR</button>
-                <button type="button" data-lang="en" onclick="setLanguage('en')" class="lang-btn px-3 py-1.5 text-xs font-bold uppercase bg-white text-slate-600">EN</button>
+
+    <div id="premium-mobile-menu" class="premium-mobile-menu" hidden>
+        <a href="index.html" onclick="togglePremiumMenu()" data-i18n="nav.home">Accueil</a>
+        <a href="services.html" onclick="togglePremiumMenu()" data-i18n="nav.services">Services</a>
+        <a href="index.html#ecosysteme" onclick="togglePremiumMenu()" data-i18n="nav.products">Produits</a>
+        <a href="a-propos.html" onclick="togglePremiumMenu()" data-i18n="nav.about">À propos</a>
+        <a href="ressources.html" onclick="togglePremiumMenu()" data-i18n="nav.resources">Ressources</a>
+        <a href="tarifs.html" onclick="togglePremiumMenu()" data-i18n="nav.pricing">Tarifs</a>
+        <div class="flex items-center justify-between pt-4 mt-2 border-t border-white/5">
+            <div class="flex items-center gap-2">
+                <button type="button" class="premium-nav__theme" data-theme-toggle onclick="toggleTheme()" aria-label="Activer le mode clair">
+                    <i data-theme-icon data-lucide="sun" class="w-4 h-4"></i>
+                </button>
+                <div class="premium-nav__lang">
+                    <button type="button" data-lang="fr" onclick="setLanguage('fr')" class="lang-btn">FR</button>
+                    <button type="button" data-lang="en" onclick="setLanguage('en')" class="lang-btn">EN</button>
+                </div>
             </div>
-            <a href="contact.html" onclick="toggleMobileMenu()" class="btn btn-primary px-4 py-2 text-xs rounded-lg" data-i18n="nav.startProject">Démarrer un projet</a>
+            <a href="contact.html" onclick="togglePremiumMenu()" class="premium-btn-primary text-sm" data-i18n="nav.startProject">Démarrer un projet →</a>
         </div>
     </div>
 </header>

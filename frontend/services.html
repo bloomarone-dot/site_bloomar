@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="api-base" content="">
-    <title>Services | BL∞MAR ONE</title>
+    <title>Services | Bloomarone</title>
+    <meta name="description" content="B.one Payment, solutions Web & Mobile, accompagnement financier, SAV de proximité et matériel — Bloomarone couvre toute la chaîne de valeur numérique des PME camerounaises.">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <script src="assets/js/config/tailwind.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,209 +14,410 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/services-page.css">
     <script src="assets/js/core/i18n.js"></script>
+    <script src="assets/js/core/i18n-premium.js"></script>
 </head>
-<body data-page="services" class="text-bloomar-text min-h-full flex flex-col overflow-x-hidden">
+<body data-page="services" class="page-premium min-h-full flex flex-col overflow-x-hidden">
 
     <div id="site-header"></div>
 
     <main class="flex-1">
-        <section class="page-hero page-hero--image page-hero--services text-white">
-            <div class="page-hero__overlay page-hero__overlay--violet" aria-hidden="true"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-                <span class="section-badge">Nos services</span>
-                <h1 class="page-hero__title mt-4 mb-4">Des solutions digitales complètes pour votre PME</h1>
-                <p class="section-desc mx-auto">De la conception d'applications à l'accompagnement financier, en passant par le SAV et le matériel — BL∞MAR ONE couvre toute la chaîne de valeur numérique des entreprises camerounaises.</p>
-                <div class="flex flex-wrap justify-center gap-3 mt-8">
-                    <a href="#bone-payment" class="tag hover:border-bloomar-violet">01 · B.one Payment</a>
-                    <a href="#web-mobile" class="tag hover:border-bloomar-violet">02 · Web & Mobile</a>
-                    <a href="#accompagnement" class="tag hover:border-bloomar-violet">03 · Accompagnement</a>
-                    <a href="#sav" class="tag hover:border-bloomar-violet">04 · SAV</a>
-                    <a href="#indispensables" class="tag hover:border-bloomar-violet">05 · Indispensables</a>
+
+        <!-- HERO -->
+        <section class="premium-hero premium-hero--services" aria-labelledby="services-hero-heading">
+            <div class="premium-hero__bg">
+                <div class="premium-hero__mesh"></div>
+                <div class="premium-hero__grid-lines"></div>
+                <canvas id="services-hero-particles" aria-hidden="true"></canvas>
+            </div>
+
+            <div class="premium-hero__content">
+                <p class="premium-hero__badge" data-i18n="svc.badge">NOS SERVICES</p>
+
+                <h1 id="services-hero-heading" class="premium-hero__title" data-i18n-html="svc.heroTitleHtml">
+                    Des solutions digitales<br>
+                    <span class="gradient-text">complètes</span> pour votre PME
+                </h1>
+
+                <p class="premium-hero__lead" data-i18n="svc.desc">
+                    De la conception d'applications à l'accompagnement financier, en passant par le SAV et le matériel — Bloomarone couvre toute la chaîne de valeur numérique des entreprises camerounaises.
+                </p>
+
+                <div class="premium-hero__ctas">
+                    <a href="contact.html" class="premium-btn-primary" data-i18n="svc.hero.cta1">Demander un audit gratuit →</a>
+                    <a href="contact.html" class="premium-btn-secondary" data-i18n="svc.hero.cta2">Nous contacter</a>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICE 01 -->
-        <article id="bone-payment" class="service-detail">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="service-detail__grid">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="service-card__icon bg-bloomar-violet/10 text-bloomar-violet"><i data-lucide="wallet" class="w-7 h-7"></i></div>
-                            <span class="service-card__number">01</span>
+        <!-- ANCHOR NAV -->
+        <nav class="svc-anchor-nav" id="svc-anchor-nav" aria-label="Navigation des services">
+            <div class="svc-anchor-nav__inner">
+                <a href="#bone-payment" class="svc-anchor-nav__link is-active" data-anchor="bone-payment" data-i18n="svc.anchor1">01 · B.one Payment</a>
+                <a href="#web-mobile" class="svc-anchor-nav__link" data-anchor="web-mobile" data-i18n="svc.anchor2">02 · Web & Mobile</a>
+                <a href="#accompagnement" class="svc-anchor-nav__link" data-anchor="accompagnement" data-i18n="svc.anchor3">03 · Accompagnement</a>
+                <a href="#sav" class="svc-anchor-nav__link" data-anchor="sav" data-i18n="svc.anchor4">04 · SAV</a>
+                <a href="#indispensables" class="svc-anchor-nav__link" data-anchor="indispensables" data-i18n="svc.anchor5">05 · Indispensables</a>
+            </div>
+        </nav>
+
+        <!-- SERVICE 01 — B.ONE PAYMENT -->
+        <article id="bone-payment" class="svc-block premium-reveal">
+            <div class="premium-container">
+                <div class="svc-block__grid">
+                    <div class="svc-block__intro">
+                        <div class="svc-block__head">
+                            <span class="svc-block__num">01</span>
+                            <span class="svc-block__icon"><i data-lucide="wallet" class="w-5 h-5"></i></span>
                         </div>
-                        <h2 class="text-2xl sm:text-3xl font-black text-bloomar-navy">B.one Payment</h2>
-                        <p class="text-slate-600 leading-relaxed">B.one Payment est notre solution de paiement pour encaisser facilement via Mobile Money (MTN MoMo, Orange Money) et fluidifier vos transactions commerciales — en ligne, en boutique ou sur vos applications.</p>
-                        <a href="contact.html" class="btn btn-primary inline-flex">Demander un devis <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <h2 class="svc-block__title" data-i18n="svc.s1.title">B.one Payment</h2>
+                        <p class="svc-block__desc" data-i18n="svc.s1.desc">B.one Payment est notre solution de paiement pour encaisser facilement via Mobile Money (MTN MoMo, Orange Money) et fluidifier vos transactions commerciales — en ligne, en boutique ou sur vos applications.</p>
+                        <div class="svc-block__cta">
+                            <a href="contact.html" class="premium-btn-primary" data-i18n="svc.s1.ctaQuote">Demander un devis →</a>
+                        </div>
+                        <div class="svc-audience">
+                            <span class="svc-audience__icon"><i data-lucide="users" class="w-4 h-4"></i></span>
+                            <div>
+                                <strong data-i18n="svc.s1.box2">Pour qui ?</strong>
+                                <p data-i18n="svc.s1.who">Commerces, restaurants, écoles, plateformes en ligne et toute entreprise qui veut accepter les paiements mobiles au Cameroun sans friction.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card p-6 space-y-5">
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy uppercase tracking-wider mb-3">Ce que nous livrons</h3>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Encaissement MTN MoMo & Orange Money</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Paiements sécurisés pour sites, apps et points de vente</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Suivi des transactions et rapprochements simplifiés</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Intégration avec l'écosystème Bloomarone (caisse, e-commerce, SaaS)</li>
+
+                    <div class="svc-block__details">
+                        <div class="svc-glass">
+                            <span class="svc-glass__label" data-i18n="svc.s1.box1">Ce que nous livrons</span>
+                            <ul class="svc-checklist">
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s1.li1">Encaissement MTN MoMo & Orange Money</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s1.li2">Paiements sécurisés pour sites, apps et points de vente</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s1.li3">Suivi des transactions et rapprochements simplifiés</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s1.li4">Intégration avec l'écosystème Bloomarone (caisse, e-commerce, SaaS)</span></li>
                             </ul>
                         </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy uppercase tracking-wider mb-3">Pour qui ?</h3>
-                            <p class="text-sm text-slate-600">Commerces, restaurants, écoles, plateformes en ligne et toute entreprise qui veut accepter les paiements mobiles au Cameroun sans friction.</p>
+                    </div>
+
+                    <div class="svc-block__visual">
+                        <div class="svc-visual-pay">
+                            <div class="svc-visual-pay__glow" aria-hidden="true"></div>
+                            <img src="assets/images/ecosystem/b-one-payment.png" alt="Paiement Mobile Money sur smartphone" class="svc-visual-pay__photo" width="320" height="568" loading="lazy" decoding="async">
+                            <div class="svc-float-card svc-float-card--success">
+                                <span class="svc-float-card__check"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                                <div>
+                                    <strong style="display:block;font-size:0.6875rem;color:#12C7B7" data-i18n="svc.float.success">Transaction réussie</strong>
+                                    <span style="font-weight:800;color:#fff">125 000 FCFA</span>
+                                </div>
+                            </div>
+                            <div class="svc-float-card svc-float-card--momo">
+                                <span class="svc-momo-badge svc-momo-badge--mtn">● MTN MoMo</span>
+                            </div>
+                            <div class="svc-float-card svc-float-card--orange">
+                                <span class="svc-momo-badge svc-momo-badge--orange">● Orange Money</span>
+                            </div>
+                            <div class="svc-float-card svc-float-card--tx">
+                                <span style="color:var(--premium-text-muted)" data-i18n="svc.float.txDay">Transactions du jour</span>
+                                <strong style="display:block;color:#fff;font-size:0.875rem">47 <span data-i18n="svc.float.encash">encaissements</span></strong>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- SERVICE 02 -->
-        <article id="web-mobile" class="service-detail">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="service-detail__grid">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="service-card__icon bg-bloomar-violet/10 text-bloomar-violet"><i data-lucide="smartphone" class="w-7 h-7"></i></div>
-                            <span class="service-card__number">02</span>
+        <!-- SERVICE 02 — WEB & MOBILE -->
+        <article id="web-mobile" class="svc-block svc-block--alt svc-block--web premium-reveal">
+            <div class="premium-container">
+                <div class="svc-block__grid">
+                    <div class="svc-block__intro">
+                        <div class="svc-block__head">
+                            <span class="svc-block__num">02</span>
+                            <span class="svc-block__icon"><i data-lucide="smartphone" class="w-5 h-5"></i></span>
                         </div>
-                        <h2 class="text-2xl sm:text-3xl font-black text-bloomar-navy">Solutions Web & Mobile sur mesure</h2>
-                        <p class="text-slate-600 leading-relaxed">Nous concevons et développons des applications adaptées à votre métier : caisse, gestion de stocks, réservations, scolarité, facturation. Chaque solution intègre les moyens de paiement locaux (MTN MoMo, Orange Money) et respecte les contraintes du terrain camerounais.</p>
-                        <a href="contact.html" class="btn btn-primary inline-flex">Demander un devis <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <h2 class="svc-block__title" data-i18n="svc.s2.title">Solutions Web & Mobile sur mesure</h2>
+                        <p class="svc-block__desc" data-i18n="svc.s2.desc">Nous concevons et développons des applications adaptées à votre métier : caisse, gestion de stocks, réservations, scolarité, facturation. Chaque solution intègre les moyens de paiement locaux (MTN MoMo, Orange Money) et respecte les contraintes du terrain camerounais.</p>
+                        <div class="svc-block__cta">
+                            <a href="contact.html" class="premium-btn-primary" data-i18n="svc.s2.ctaQuote">Demander un devis →</a>
+                        </div>
+                        <div class="svc-audience">
+                            <span class="svc-audience__icon"><i data-lucide="building-2" class="w-4 h-4"></i></span>
+                            <div>
+                                <strong data-i18n="svc.s2.box2">Pour qui ?</strong>
+                                <p data-i18n="svc.s2.who">Restaurants, hôtels, boutiques, écoles, cabinets et toute PME qui souhaite digitaliser ses opérations sans complexité inutile.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card p-6 space-y-5">
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy uppercase tracking-wider mb-3">Ce que nous livrons</h3>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Logiciels de gestion d'entreprise (ERP léger, POS, CRM)</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Applications mobiles Android / iOS pour vos équipes terrain</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Sites web vitrines et e-commerce avec paiement mobile intégré</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Tableaux de bord financiers et indicateurs en temps réel</li>
+
+                    <div class="svc-block__details">
+                        <div class="svc-glass">
+                            <span class="svc-glass__label" data-i18n="svc.s2.box1">Ce que nous livrons</span>
+                            <ul class="svc-checklist">
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s2.li1">Logiciels de gestion d'entreprise (ERP léger, POS, CRM)</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s2.li2">Applications mobiles Android / iOS pour vos équipes terrain</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s2.li3">Sites web vitrines et e-commerce avec paiement mobile intégré</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s2.li4">Tableaux de bord financiers et indicateurs en temps réel</span></li>
                             </ul>
                         </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy uppercase tracking-wider mb-3">Pour qui ?</h3>
-                            <p class="text-sm text-slate-600">Restaurants, hôtels, boutiques, écoles, cabinets et toute PME qui souhaite digitaliser ses opérations sans complexité inutile.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy uppercase tracking-wider mb-3">Notre méthode</h3>
-                            <ol class="text-sm text-slate-600 space-y-1 list-decimal list-inside">
-                                <li>Audit de vos processus actuels</li>
-                                <li>Prototype et validation avec vos équipes</li>
-                                <li>Développement, tests et déploiement</li>
-                                <li>Formation et mise en production</li>
+
+                        <div class="svc-method-timeline">
+                            <span class="svc-method-timeline__label" data-i18n="svc.s2.method.label">Notre méthode</span>
+                            <ol class="svc-method-steps">
+                                <li>
+                                    <span>01</span>
+                                    <div><strong data-i18n="svc.s2.m1">Audit de vos processus actuels</strong></div>
+                                </li>
+                                <li>
+                                    <span>02</span>
+                                    <div><strong data-i18n="svc.s2.m2">Prototype et validation avec vos équipes</strong></div>
+                                </li>
+                                <li>
+                                    <span>03</span>
+                                    <div><strong data-i18n="svc.s2.m3">Développement, tests et déploiement</strong></div>
+                                </li>
+                                <li>
+                                    <span>04</span>
+                                    <div><strong data-i18n="svc.s2.m4">Formation et mise en production</strong></div>
+                                </li>
                             </ol>
                         </div>
                     </div>
+
+                    <div class="svc-block__visual">
+                        <div class="svc-visual-dev">
+                            <div class="svc-visual-dev__laptop">
+                                <img src="assets/images/ecosystem/b-one-assist.png" alt="Tableau de bord web Bloomarone" width="640" height="400" loading="lazy" decoding="async">
+                            </div>
+                            <div class="svc-visual-dev__phone">
+                                <img src="assets/images/ecosystem/b-onerestaurant.png" alt="Application mobile Bloomarone" width="200" height="356" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
 
-        <!-- SERVICE 03 -->
-        <article id="accompagnement" class="service-detail">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="service-detail__grid">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="service-card__icon bg-bloomar-turquoise/10 text-bloomar-turquoise"><i data-lucide="trending-up" class="w-7 h-7"></i></div>
-                            <span class="service-card__number">03</span>
+        <!-- SERVICE 03 — ACCOMPAGNEMENT -->
+        <article id="accompagnement" class="svc-block premium-reveal">
+            <div class="premium-container">
+                <div class="svc-block__grid">
+                    <div class="svc-block__intro">
+                        <div class="svc-block__head">
+                            <span class="svc-block__num">03</span>
+                            <span class="svc-block__icon"><i data-lucide="trending-up" class="w-5 h-5"></i></span>
                         </div>
-                        <h2 class="text-2xl sm:text-3xl font-black text-bloomar-navy">Accompagnement, structuration & croissance</h2>
-                        <p class="text-slate-600 leading-relaxed">Au-delà du logiciel, nous vous aidons à structurer votre activité : comptabilité SYSCOHADA, modélisation financière, analyse de données et détection des fuites de marge. Vous pilotez votre entreprise avec des chiffres fiables.</p>
-                        <a href="contact.html" class="btn btn-primary inline-flex">Planifier un diagnostic <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <h2 class="svc-block__title" data-i18n="svc.s3.title">Accompagnement, structuration & croissance</h2>
+                        <p class="svc-block__desc" data-i18n="svc.s3.desc">Au-delà du logiciel, nous vous aidons à structurer votre activité : comptabilité SYSCOHADA, modélisation financière, analyse de données et détection des fuites de marge. Vous pilotez votre entreprise avec des chiffres fiables.</p>
+                        <div class="svc-block__cta">
+                            <a href="contact.html" class="premium-btn-primary" data-i18n="svc.s3.cta">Planifier un diagnostic →</a>
+                        </div>
                     </div>
-                    <div class="card p-6 space-y-5">
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy uppercase tracking-wider mb-3">Prestations incluses</h3>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Structuration financière, comptable et juridique (OHADA)</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Modélisation financière : seuil de rentabilité, BFR, trésorerie</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Business intelligence : tableaux de bord et rapports automatisés</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Détection des pertes, anomalies de caisse et opportunités de marge</li>
+
+                    <div class="svc-block__details">
+                        <div class="svc-glass">
+                            <span class="svc-glass__label" data-i18n="svc.s3.box1">Prestations incluses</span>
+                            <ul class="svc-checklist">
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s3.li1">Structuration financière, comptable et juridique (OHADA)</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s3.li2">Modélisation financière : seuil de rentabilité, BFR, trésorerie</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s3.li3">Business intelligence : tableaux de bord et rapports automatisés</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s3.li4">Détection des pertes, anomalies de caisse et opportunités de marge</span></li>
                             </ul>
                         </div>
-                        <div>
-                            <h3 class="text-sm font-black text-bloomar-navy uppercase tracking-wider mb-3">Livrables concrets</h3>
-                            <p class="text-sm text-slate-600">Plan de trésorerie prévisionnel, rapport de rentabilité par activité, recommandations d'optimisation des coûts et feuille de route de croissance sur 12 mois.</p>
+
+                        <div class="svc-glass" style="margin-top:1.25rem">
+                            <span class="svc-glass__label" data-i18n="svc.deliverables">Livrables concrets</span>
+                            <div class="svc-deliverables">
+                                <div class="svc-deliverable"><i data-lucide="file-text" class="w-4 h-4"></i>Plan de trésorerie prévisionnel</div>
+                                <div class="svc-deliverable"><i data-lucide="pie-chart" class="w-4 h-4"></i>Rapport de rentabilité par activité</div>
+                                <div class="svc-deliverable"><i data-lucide="lightbulb" class="w-4 h-4"></i>Recommandations d'optimisation des coûts</div>
+                                <div class="svc-deliverable"><i data-lucide="map" class="w-4 h-4"></i>Feuille de route de croissance sur 12 mois</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="svc-block__visual">
+                        <div class="svc-visual-finance">
+                            <div class="svc-chart-card">
+                                <div class="svc-chart-card__head">
+                                    <span>Évolution illustrative</span>
+                                    <em data-i18n="svc.chart.demo">UI démo</em>
+                                </div>
+                                <div class="svc-bars" aria-hidden="true">
+                                    <i style="height:45%"></i>
+                                    <i style="height:62%"></i>
+                                    <i style="height:55%"></i>
+                                    <i style="height:78%"></i>
+                                    <i style="height:70%"></i>
+                                    <i style="height:88%"></i>
+                                </div>
+                            </div>
+                            <div class="svc-chart-card">
+                                <div class="svc-chart-card__head">
+                                    <span>Répartition illustrative</span>
+                                    <em data-i18n="svc.chart.demo">UI démo</em>
+                                </div>
+                                <div class="svc-donut-wrap">
+                                    <div class="svc-donut" aria-hidden="true"></div>
+                                    <div class="svc-donut-label">
+                                        <strong>Indicateur</strong>
+                                        Visualisation financière type dashboard
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="svc-chart-card">
+                                <div class="svc-chart-card__head">
+                                    <span>Trésorerie illustrative</span>
+                                    <em data-i18n="svc.chart.demo">UI démo</em>
+                                </div>
+                                <svg viewBox="0 0 200 60" width="100%" height="60" aria-hidden="true" style="display:block">
+                                    <defs>
+                                        <linearGradient id="svcCurveGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="rgba(123,47,247,0.4)"/>
+                                            <stop offset="100%" stop-color="rgba(123,47,247,0)"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M0,45 Q50,40 80,30 T160,15 T200,20 L200,60 L0,60 Z" fill="url(#svcCurveGrad)"/>
+                                    <path d="M0,45 Q50,40 80,30 T160,15 T200,20" fill="none" stroke="#a78bfa" stroke-width="2"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- SERVICE 04 -->
-        <article id="sav" class="service-detail">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="service-detail__grid">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="service-card__icon bg-bloomar-navy/10 text-bloomar-navy"><i data-lucide="headphones" class="w-7 h-7"></i></div>
-                            <span class="service-card__number">04</span>
+        <!-- SERVICE 04 — SAV -->
+        <article id="sav" class="svc-block svc-block--alt premium-reveal">
+            <div class="premium-container">
+                <div class="svc-block__grid">
+                    <div class="svc-block__intro">
+                        <div class="svc-block__head">
+                            <span class="svc-block__num">04</span>
+                            <span class="svc-block__icon"><i data-lucide="headphones" class="w-5 h-5"></i></span>
                         </div>
-                        <h2 class="text-2xl sm:text-3xl font-black text-bloomar-navy">Service après-vente de proximité</h2>
-                        <p class="text-slate-600 leading-relaxed">Une équipe humaine basée à Yaoundé vous accompagne au quotidien : assistance technique, formation sur site, maintenance préventive et conseil stratégique. Pas de ticket perdu dans une file d'attente internationale.</p>
-                        <a href="contact.html" class="btn btn-primary inline-flex">Contacter le SAV <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <h2 class="svc-block__title" data-i18n="svc.s4.title">Service après-vente de proximité</h2>
+                        <p class="svc-block__desc" data-i18n="svc.s4.desc">Une équipe humaine basée à Yaoundé vous accompagne au quotidien : assistance technique, formation sur site, maintenance préventive et conseil stratégique. Pas de ticket perdu dans une file d'attente internationale.</p>
+                        <div class="svc-block__cta">
+                            <a href="contact.html" class="premium-btn-primary" data-i18n="svc.s4.cta">Contacter le SAV →</a>
+                        </div>
                     </div>
-                    <div class="card p-6 space-y-5">
-                        <ul class="space-y-2 text-sm text-slate-600">
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Support en cas de panne ou dysfonctionnement (WhatsApp, téléphone, sur site)</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Formation et prise en main de vos équipes à Yaoundé et Douala</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Mises à jour logicielles et correctifs de sécurité</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-bloomar-turquoise shrink-0 mt-0.5"></i>Conseil stratégique et recommandations d'évolution de vos outils</li>
-                        </ul>
-                        <div class="p-4 bg-bloomar-bg rounded-xl border border-slate-200 text-sm">
-                            <p class="font-bold text-bloomar-navy mb-1">Horaires d'assistance</p>
-                            <p class="text-slate-600">Lundi – Vendredi, 8h00 – 17h00 · Quartier Omnisports, Yaoundé</p>
+
+                    <div class="svc-block__details">
+                        <div class="svc-glass">
+                            <ul class="svc-checklist">
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li1">Support en cas de panne ou dysfonctionnement (WhatsApp, téléphone, sur site)</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li2">Formation et prise en main de vos équipes à Yaoundé et Douala</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li3">Mises à jour logicielles et correctifs de sécurité</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li4">Conseil stratégique et recommandations d'évolution de vos outils</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="svc-block__visual">
+                        <div class="svc-visual-sav">
+                            <div class="svc-chat">
+                                <div class="svc-chat__head">
+                                    <span class="svc-chat__avatar">BO</span>
+                                    <div>
+                                        <strong>Support Bloomarone</strong>
+                                        <span>En ligne · Yaoundé</span>
+                                    </div>
+                                </div>
+                                <div class="svc-chat__bubble svc-chat__bubble--user" data-i18n="svc.s4.chat.user">Bonjour, notre caisse ne synchronise plus les ventes.</div>
+                                <div class="svc-chat__bubble svc-chat__bubble--agent" data-i18n="svc.s4.chat.agent1">Bonjour ! Je prends en charge votre demande. Pouvez-vous me confirmer le nom de l'établissement ?</div>
+                                <div class="svc-chat__bubble svc-chat__bubble--agent" data-i18n="svc.s4.chat.agent2">Un technicien peut intervenir demain matin à Yaoundé si besoin.</div>
+                            </div>
+                            <div class="svc-proximity">
+                                <h4 data-i18n="svc.s4.proximity">Support de proximité</h4>
+                                <div class="svc-proximity__meta">
+                                    <span><i data-lucide="map-pin" class="w-4 h-4"></i> Yaoundé · Douala</span>
+                                    <span><i data-lucide="clock" class="w-4 h-4"></i> <span data-i18n="svc.s4.hours">Lundi – Vendredi, 8h00 – 17h00 · Quartier Omnisports, Yaoundé</span></span>
+                                </div>
+                                <div class="svc-proximity__channels">
+                                    <div class="svc-proximity__channel"><i data-lucide="message-circle" class="w-5 h-5"></i><span data-i18n="svc.s4.wa">WhatsApp</span></div>
+                                    <div class="svc-proximity__channel"><i data-lucide="phone" class="w-5 h-5"></i><span data-i18n="svc.s4.phone">Téléphone</span></div>
+                                    <div class="svc-proximity__channel"><i data-lucide="map-pin" class="w-5 h-5"></i><span data-i18n="svc.s4.onsite">Sur site</span></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- SERVICE 05 -->
-        <article id="indispensables" class="service-detail border-b-0">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="service-detail__grid">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="service-card__icon bg-bloomar-violet/10 text-bloomar-violet"><i data-lucide="shopping-cart" class="w-7 h-7"></i></div>
-                            <span class="service-card__number">05</span>
+        <!-- SERVICE 05 — INDISPENSABLES -->
+        <article id="indispensables" class="svc-block svc-block--hardware premium-reveal">
+            <div class="premium-container">
+                <div class="svc-block__intro-row">
+                    <div>
+                        <div class="svc-block__head">
+                            <span class="svc-block__num">05</span>
+                            <span class="svc-block__icon"><i data-lucide="shopping-cart" class="w-5 h-5"></i></span>
                         </div>
-                        <h2 class="text-2xl sm:text-3xl font-black text-bloomar-navy">Les indispensables</h2>
-                        <p class="text-slate-600 leading-relaxed">Nous fournissons et configurons le matériel essentiel à votre écosystème digital : terminaux de caisse, imprimantes thermiques, pointeuses biométriques et tablettes de commande — testés et compatibles avec nos solutions.</p>
-                        <a href="tarifs.html" class="btn btn-secondary inline-flex">Voir les tarifs matériel <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <h2 class="svc-block__title" data-i18n="svc.s5.title">Les indispensables</h2>
+                        <p class="svc-block__desc" style="margin-bottom:0" data-i18n="svc.s5.desc">Nous fournissons et configurons le matériel essentiel à votre écosystème digital : terminaux de caisse, imprimantes thermiques, pointeuses biométriques et tablettes de commande — testés et compatibles avec nos solutions.</p>
                     </div>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="card-muted p-5 space-y-2">
-                            <i data-lucide="printer" class="w-6 h-6 text-bloomar-violet"></i>
-                            <h3 class="font-bold text-bloomar-navy text-sm">Imprimante thermique</h3>
-                            <p class="text-xs text-slate-500">Reçus de caisse, tickets cuisine, rechargeable — idéale pour restaurants et boutiques.</p>
-                        </div>
-                        <div class="card-muted p-5 space-y-2">
-                            <i data-lucide="fingerprint" class="w-6 h-6 text-bloomar-violet"></i>
-                            <h3 class="font-bold text-bloomar-navy text-sm">Pointeuse biométrique</h3>
-                            <p class="text-xs text-slate-500">Suivi des présences et sécurisation des accès pour vos équipes.</p>
-                        </div>
-                        <div class="card-muted p-5 space-y-2">
-                            <i data-lucide="tablet" class="w-6 h-6 text-bloomar-violet"></i>
-                            <h3 class="font-bold text-bloomar-navy text-sm">Tablettes de commande</h3>
-                            <p class="text-xs text-slate-500">Prise de commande en salle, synchronisée avec la cuisine et la caisse.</p>
-                        </div>
-                        <div class="card-muted p-5 space-y-2">
-                            <i data-lucide="monitor" class="w-6 h-6 text-bloomar-violet"></i>
-                            <h3 class="font-bold text-bloomar-navy text-sm">Terminal POS</h3>
-                            <p class="text-xs text-slate-500">Caisse tactile complète avec BL∞MAR ONE préinstallé et configuré.</p>
-                        </div>
+                    <div class="svc-block__cta" style="margin-bottom:0">
+                        <a href="tarifs.html" class="premium-btn-primary" data-i18n="svc.s5.cta">Voir les tarifs matériel →</a>
                     </div>
+                </div>
+
+                <div class="svc-hardware-grid">
+                    <article class="svc-hardware-card">
+                        <div class="svc-hardware-card__img">
+                            <img src="assets/images/services/hardware/thermal-printer.png" alt="Imprimante thermique de caisse" width="400" height="300" loading="lazy" decoding="async">
+                        </div>
+                        <div class="svc-hardware-card__body">
+                            <h3 data-i18n="svc.s5.i1t">Imprimante thermique</h3>
+                            <p data-i18n="svc.s5.i1d">Reçus de caisse, tickets cuisine, rechargeable — idéale pour restaurants et boutiques.</p>
+                        </div>
+                    </article>
+
+                    <article class="svc-hardware-card">
+                        <div class="svc-hardware-card__img">
+                            <img src="assets/images/services/hardware/biometric-clock.png" alt="Pointeuse biométrique" width="400" height="300" loading="lazy" decoding="async">
+                        </div>
+                        <div class="svc-hardware-card__body">
+                            <h3 data-i18n="svc.s5.i2t">Pointeuse biométrique</h3>
+                            <p data-i18n="svc.s5.i2d">Suivi des présences et sécurisation des accès pour vos équipes.</p>
+                        </div>
+                    </article>
+
+                    <article class="svc-hardware-card">
+                        <div class="svc-hardware-card__img">
+                            <img src="assets/images/services/hardware/order-tablet.png" alt="Tablette de commande restaurant" width="400" height="300" loading="lazy" decoding="async">
+                        </div>
+                        <div class="svc-hardware-card__body">
+                            <h3 data-i18n="svc.s5.i3t">Tablettes de commande</h3>
+                            <p data-i18n="svc.s5.i3d">Prise de commande en salle, synchronisée avec la cuisine et la caisse.</p>
+                        </div>
+                    </article>
+
+                    <article class="svc-hardware-card">
+                        <div class="svc-hardware-card__img">
+                            <img src="assets/images/services/hardware/pos-terminal.png" alt="Terminal POS tactile" width="400" height="300" loading="lazy" decoding="async">
+                        </div>
+                        <div class="svc-hardware-card__body">
+                            <h3 data-i18n="svc.s5.i4t">Terminal POS</h3>
+                            <p data-i18n="svc.s5.i4d">Caisse tactile complète avec BL∞MAR ONE préinstallé et configuré.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </article>
 
-        <section class="section-shell bg-bloomar-navy text-white text-center">
-            <div class="max-w-2xl mx-auto px-4 space-y-6">
-                <h2 class="text-2xl font-black">Prêt à structurer votre activité ?</h2>
-                <p class="text-slate-300 text-sm">Parlez-nous de votre projet — nous vous proposons un diagnostic gratuit et une feuille de route adaptée.</p>
-                <a href="contact.html" class="btn btn-primary mx-auto">Demander mon audit gratuit</a>
+        <!-- CTA FINAL -->
+        <section class="premium-container premium-reveal">
+            <div class="premium-cta premium-cta--services">
+                <div class="premium-cta__mesh" aria-hidden="true"></div>
+                <div class="premium-cta__content">
+                    <h2 data-i18n="svc.ctaTitle">Prêt à structurer votre activité ?</h2>
+                    <p data-i18n="svc.ctaDesc">Parlez-nous de votre projet — nous vous proposons un diagnostic gratuit et une feuille de route adaptée.</p>
+                    <div class="premium-cta__btns">
+                        <a href="contact.html" class="premium-btn-primary" data-i18n="svc.ctaBtn">Demander mon audit gratuit →</a>
+                    </div>
+                </div>
             </div>
         </section>
+
     </main>
 
     <div id="site-footer"></div>
@@ -225,5 +427,7 @@
     <script src="assets/js/core/app.js"></script>
     <script src="assets/js/core/layout.js"></script>
     <script src="assets/js/core/api.js"></script>
+    <script src="assets/js/modules/premium-home.js"></script>
+    <script src="assets/js/modules/services-page.js"></script>
 </body>
 </html>

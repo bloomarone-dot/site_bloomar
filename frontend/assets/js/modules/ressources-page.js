@@ -1,11 +1,11 @@
 /**
- * Page Services — particules hero, navigation ancres, révélations au scroll
+ * Page Ressources — particules hero, révélations au scroll
  */
-(function initServicesPage() {
+(function initRessourcesPage() {
     'use strict';
 
     function initParticles() {
-        const canvas = document.getElementById('services-hero-particles');
+        const canvas = document.getElementById('res-hero-particles');
         if (!canvas) return;
 
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -15,7 +15,7 @@
         let w = 0;
         let h = 0;
         let particles = [];
-        const count = 36;
+        const count = 38;
 
         function resize() {
             const parent = canvas.parentElement;
@@ -27,10 +27,10 @@
             particles = Array.from({ length: count }, () => ({
                 x: Math.random() * w,
                 y: Math.random() * h,
-                r: Math.random() * 1.6 + 0.35,
-                vx: (Math.random() - 0.5) * 0.2,
-                vy: (Math.random() - 0.5) * 0.2,
-                a: Math.random() * 0.45 + 0.12,
+                r: Math.random() * 1.4 + 0.3,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: (Math.random() - 0.5) * 0.18,
+                a: Math.random() * 0.4 + 0.1,
             }));
         }
 
@@ -54,11 +54,11 @@
                     const dx = p.x - q.x;
                     const dy = p.y - q.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 100) {
+                    if (dist < 90) {
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(q.x, q.y);
-                        ctx.strokeStyle = `rgba(123, 47, 247, ${0.07 * (1 - dist / 100)})`;
+                        ctx.strokeStyle = `rgba(123, 47, 247, ${0.06 * (1 - dist / 90)})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
@@ -95,81 +95,19 @@
                     }
                 });
             },
-            { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+            { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
         );
 
         els.forEach((el) => io.observe(el));
-    }
 
-    function initAnchorNav() {
-        const nav = document.getElementById('svc-anchor-nav');
-        if (!nav) return;
-
-        const links = nav.querySelectorAll('.svc-anchor-nav__link');
-        const sections = Array.from(links)
-            .map((link) => {
-                const id = link.dataset.anchor;
-                const el = document.getElementById(id);
-                return el ? { id, el, link } : null;
-            })
-            .filter(Boolean);
-
-        if (!sections.length) return;
-
-        function setActive(id) {
-            links.forEach((link) => {
-                link.classList.toggle('is-active', link.dataset.anchor === id);
-            });
-        }
-
-        links.forEach((link) => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.getElementById(link.dataset.anchor);
-                if (!target) return;
-                setActive(link.dataset.anchor);
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            setActive(entry.target.id);
-                        }
-                    });
-                },
-                {
-                    rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height').trim() || '4rem'} 0px -55% 0px`,
-                    threshold: 0,
-                }
-            );
-
-            sections.forEach(({ el }) => observer.observe(el));
-        }
-
-        if (window.location.hash) {
-            const hash = window.location.hash.slice(1);
-            if (sections.some((s) => s.id === hash)) {
-                setActive(hash);
-                if (!reduce) {
-                    requestAnimationFrame(() => {
-                        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
-                    });
-                }
-            }
-        }
+        const grid = document.getElementById('res-grid');
+        if (grid) io.observe(grid);
     }
 
     function run() {
-        if (document.body.dataset.page !== 'services') return;
+        if (document.body.dataset.page !== 'ressources') return;
         initParticles();
         initReveals();
-        initAnchorNav();
         if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
