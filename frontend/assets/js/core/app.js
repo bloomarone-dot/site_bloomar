@@ -35,14 +35,18 @@
             const metiersSub = document.getElementById('sub-tabs-metiers');
 
             if (cat === 'general') {
-                tabGen.className = "px-6 py-3 bg-bloomar-violet text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all";
-                tabSpec.className = "px-6 py-3 bg-white border border-slate-200 text-slate-700 hover:border-bloomar-violet font-bold text-xs uppercase tracking-wider rounded-xl transition-all";
-                metiersSub.classList.add('hidden');
+                tabGen.className = 'tarifs-tab tarifs-tab--active';
+                tabSpec.className = 'tarifs-tab';
+                tabGen.setAttribute('aria-selected', 'true');
+                tabSpec.setAttribute('aria-selected', 'false');
+                metiersSub.classList.remove('is-visible');
                 renderPricing('general');
             } else {
-                tabSpec.className = "px-6 py-3 bg-bloomar-violet text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all";
-                tabGen.className = "px-6 py-3 bg-white border border-slate-200 text-slate-700 hover:border-bloomar-violet font-bold text-xs uppercase tracking-wider rounded-xl transition-all";
-                metiersSub.classList.remove('hidden');
+                tabSpec.className = 'tarifs-tab tarifs-tab--active';
+                tabGen.className = 'tarifs-tab';
+                tabSpec.setAttribute('aria-selected', 'true');
+                tabGen.setAttribute('aria-selected', 'false');
+                metiersSub.classList.add('is-visible');
                 renderPricing(activeMetierSector);
             }
         }
@@ -52,82 +56,72 @@
             const sectors = ['restaurant', 'boutique', 'ecole', 'hotel'];
             sectors.forEach(s => {
                 const btn = document.getElementById(`tab-tr-${s}`);
-                if (s === sector) {
-                    btn.className = "flex items-center space-x-2 px-4 py-2.5 bg-white border border-bloomar-violet rounded-xl text-xs font-bold uppercase text-bloomar-navy transition-all";
-                } else {
-                    btn.className = "flex items-center space-x-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold uppercase text-slate-500 hover:border-bloomar-violet transition-all";
-                }
+                if (!btn) return;
+                btn.className = s === sector
+                    ? 'tarifs-metier-tab tarifs-metier-tab--active'
+                    : 'tarifs-metier-tab';
             });
             renderPricing(sector);
         }
 
         function renderPricing(key) {
             const container = document.getElementById('pricing-grid-container');
+            if (!container || !pricingData[key]) return;
             container.innerHTML = '';
             const list = pricingData[key];
 
             list.forEach(p => {
                 const isPremium = p.title.toLowerCase().includes('premium');
-                const card = document.createElement('div');
-                card.className = `p-6 bg-white border rounded-3xl flex flex-col justify-between h-[450px] shadow-sm relative ${isPremium ? 'border-bloomar-violet ring-2 ring-bloomar-violet/20' : 'border-slate-200 hover:border-bloomar-violet/30 transition-all'}`;
-                
-                // Anti-fraud/mouchard visual badge for premium plans
-                const badgeHtml = isPremium ? `<span class="absolute top-4 right-4 bg-rose-500 text-white font-bold uppercase text-micro px-2 py-1 rounded-full tracking-wider flex items-center gap-1"><i data-lucide="shield-alert" class="w-2.5 h-2.5"></i> Antifraude inclus</span>` : '';
+                const card = document.createElement('article');
+                card.className = 'tarifs-card' + (isPremium ? ' tarifs-card--featured' : '');
+
+                const badgeHtml = isPremium
+                    ? '<span class="tarifs-card__badge"><i data-lucide="shield-alert" class="w-2.5 h-2.5 inline"></i> Antifraude</span>'
+                    : '';
 
                 let featuresHtml = '';
                 p.features.forEach(f => {
-                    featuresHtml += `<li class="flex items-start space-x-2 text-[11px] text-slate-600 font-medium">
-                        <i data-lucide="check" class="w-3.5 h-3.5 text-bloomar-turquoise mt-0.5 shrink-0"></i>
-                        <span>${f}</span>
-                    </li>`;
+                    featuresHtml += `<li><i data-lucide="check" class="w-3.5 h-3.5"></i><span>${f}</span></li>`;
                 });
 
                 card.innerHTML = `
                     ${badgeHtml}
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-xxs font-black text-bloomar-violet uppercase tracking-widest block mb-1">Accès membre</span>
-                            <h3 class="text-lg font-black text-bloomar-navy">${p.title}</h3>
-                        </div>
-                        <div class="flex items-baseline space-x-1">
-                            <span class="text-2xl font-black text-bloomar-navy">${p.price}</span>
-                        </div>
-                        <p class="text-[10px] text-slate-400 leading-normal">${p.desc}</p>
-                        <div class="h-px bg-slate-100 my-2"></div>
-                        <ul class="space-y-2 max-h-[180px] overflow-y-auto">
-                            ${featuresHtml}
-                        </ul>
+                    <div>
+                        <span class="tarifs-card__label">Accès membre</span>
+                        <h3 class="tarifs-card__title">${p.title}</h3>
+                        <p class="tarifs-card__price">${p.price}</p>
+                        <p class="tarifs-card__desc">${p.desc}</p>
+                        <div class="tarifs-card__divider"></div>
+                        <ul class="tarifs-card__features">${featuresHtml}</ul>
                     </div>
-                    <button onclick="triggerUniversalCaptureModal('offre-premium')" class="w-full py-3 ${isPremium ? 'bg-bloomar-violet text-white hover:bg-bloomar-violet/90' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'} rounded-xl text-[10px] font-bold uppercase tracking-widest mt-4">
+                    <button type="button" onclick="triggerUniversalCaptureModal('offre-premium')" class="tarifs-card__cta ${isPremium ? 'tarifs-card__cta--primary' : 'tarifs-card__cta--secondary'}">
                         ${p.cta}
                     </button>
                 `;
                 container.appendChild(card);
             });
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         /* Table Accordions Logic */
         let accordionsOpen = false;
         function toggleAccordion(id) {
             const el = document.getElementById(id);
-            el.classList.toggle('hidden');
+            if (!el) return;
+            el.classList.toggle('is-open');
         }
 
         function toggleAllTableAccordions() {
             const ids = ['acc-caisse', 'acc-stocks', 'acc-compta', 'acc-metier', 'acc-ia'];
             const btn = document.getElementById('btn-toggle-all-text');
             accordionsOpen = !accordionsOpen;
-            
+
             ids.forEach(id => {
                 const el = document.getElementById(id);
-                if (accordionsOpen) {
-                    el.classList.remove('hidden');
-                } else {
-                    el.classList.add('hidden');
-                }
+                if (!el) return;
+                el.classList.toggle('is-open', accordionsOpen);
             });
-            btn.innerText = accordionsOpen ? "Tout replier" : "Tout déplier";
+            if (btn) btn.innerText = accordionsOpen ? 'Tout replier' : 'Tout déplier';
         }
 
         /* Lead Capture & Resources popups logic */

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="api-base" content="">
-    <title>Tarifs | BL∞MAR ONE</title>
+    <title>Tarifs | Bloomarone</title>
+    <meta name="description" content="Tarification simple et transparente pour les PME africaines — essai gratuit, plans Starter et solutions métiers Bloomarone.">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <script src="assets/js/config/tailwind.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,132 +16,147 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/core/i18n.js"></script>
     <script src="assets/js/core/i18n-premium.js"></script>
+    <script src="assets/js/core/theme.js"></script>
 </head>
-<body data-page="tarifs" class="text-bloomar-text min-h-full flex flex-col overflow-x-hidden">
+<body data-page="tarifs" class="page-premium min-h-full flex flex-col overflow-x-hidden">
 
     <div id="site-header"></div>
 
     <main class="flex-1">
 
-        <section class="page-hero page-hero--image page-hero--tarifs text-white">
-            <div class="page-hero__overlay page-hero__overlay--dark" aria-hidden="true"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-                <span class="section-badge" data-i18n="pricing.badge">Stratégie tarifaire</span>
-                <h1 class="page-hero__title mt-4 mb-4" data-i18n="pricing.title">Une tarification simple, adaptée à votre échelle</h1>
-                <p class="section-desc mx-auto" data-i18n="pricing.desc">Commencez sereinement avec notre offre transversale ou sélectionnez le module spécialisé adapté à votre cœur d'activité professionnelle.</p>
+        <section class="premium-hero premium-hero--tarifs premium-reveal" aria-labelledby="tarifs-hero-heading">
+            <div class="premium-hero__bg">
+                <div class="premium-hero__mesh"></div>
+                <div class="premium-hero__grid-lines"></div>
+            </div>
+            <div class="premium-hero__content">
+                <p class="premium-hero__badge" data-i18n="pricing.badge">Stratégie tarifaire</p>
+                <h1 id="tarifs-hero-heading" class="premium-hero__title" data-i18n="pricing.title">Une tarification simple, adaptée à votre échelle</h1>
+                <p class="premium-hero__lead" data-i18n="pricing.desc">Commencez sereinement avec notre offre transversale ou sélectionnez le module spécialisé adapté à votre cœur d'activité professionnelle.</p>
             </div>
         </section>
 
-        <section id="tarifs" class="section-shell section-shell--muted scroll-mt-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="flex justify-center space-x-4 mb-12">
-                    <button onclick="switchTarifCategory('general')" id="tab-tr-general" class="px-6 py-3 bg-bloomar-violet text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all" data-i18n="pricing.tabGeneral">Essai Gratuit & Plan Starter</button>
-                    <button onclick="switchTarifCategory('specialise')" id="tab-tr-specialise" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 hover:border-bloomar-violet font-bold text-xs uppercase tracking-wider rounded-xl transition-all" data-i18n="pricing.tabSpecialized">Solutions Métiers Avancées</button>
+        <section id="tarifs" class="tarifs-section premium-section premium-section--alt premium-reveal">
+            <div class="premium-container">
+
+                <div class="tarifs-tabs" role="tablist" aria-label="Catégories tarifaires">
+                    <button type="button" onclick="switchTarifCategory('general')" id="tab-tr-general" class="tarifs-tab tarifs-tab--active" role="tab" aria-selected="true" data-i18n="pricing.tabGeneral">Essai Gratuit & Plan Starter</button>
+                    <button type="button" onclick="switchTarifCategory('specialise')" id="tab-tr-specialise" class="tarifs-tab" role="tab" aria-selected="false" data-i18n="pricing.tabSpecialized">Solutions Métiers Avancées</button>
                 </div>
 
-                <div id="sub-tabs-metiers" class="hidden flex justify-center space-x-2 md:space-x-4 mb-12 overflow-x-auto pb-2">
-                    <button onclick="switchMetierSector('restaurant')" id="tab-tr-restaurant" class="flex items-center space-x-2 px-4 py-2.5 bg-white border border-bloomar-violet rounded-xl text-xs font-bold uppercase text-bloomar-navy transition-all"><i data-lucide="utensils" class="w-4 h-4 text-bloomar-violet"></i> <span data-i18n="pricing.restaurant">Restaurants</span></button>
-                    <button onclick="switchMetierSector('boutique')" id="tab-tr-boutique" class="flex items-center space-x-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold uppercase text-slate-500 hover:border-bloomar-violet transition-all"><i data-lucide="shopping-bag" class="w-4 h-4"></i> <span data-i18n="pricing.boutique">Boutiques</span></button>
-                    <button onclick="switchMetierSector('ecole')" id="tab-tr-ecole" class="flex items-center space-x-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold uppercase text-slate-500 hover:border-bloomar-violet transition-all"><i data-lucide="graduation-cap" class="w-4 h-4"></i> <span data-i18n="pricing.school">Écoles</span></button>
-                    <button onclick="switchMetierSector('hotel')" id="tab-tr-hotel" class="flex items-center space-x-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold uppercase text-slate-500 hover:border-bloomar-violet transition-all"><i data-lucide="building" class="w-4 h-4"></i> <span data-i18n="pricing.hotel">Hôtels</span></button>
+                <div id="sub-tabs-metiers" class="tarifs-metiers" role="tablist" aria-label="Secteurs métiers">
+                    <button type="button" onclick="switchMetierSector('restaurant')" id="tab-tr-restaurant" class="tarifs-metier-tab tarifs-metier-tab--active"><i data-lucide="utensils" class="w-4 h-4"></i> <span data-i18n="pricing.restaurant">Restaurants</span></button>
+                    <button type="button" onclick="switchMetierSector('boutique')" id="tab-tr-boutique" class="tarifs-metier-tab"><i data-lucide="shopping-bag" class="w-4 h-4"></i> <span data-i18n="pricing.boutique">Boutiques</span></button>
+                    <button type="button" onclick="switchMetierSector('ecole')" id="tab-tr-ecole" class="tarifs-metier-tab"><i data-lucide="graduation-cap" class="w-4 h-4"></i> <span data-i18n="pricing.school">Écoles</span></button>
+                    <button type="button" onclick="switchMetierSector('hotel')" id="tab-tr-hotel" class="tarifs-metier-tab"><i data-lucide="building" class="w-4 h-4"></i> <span data-i18n="pricing.hotel">Hôtels</span></button>
                 </div>
 
-                <div id="pricing-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center max-w-6xl mx-auto"></div>
+                <div id="pricing-grid-container" class="tarifs-grid"></div>
 
-                <div class="mt-16 p-8 bg-white border border-slate-200 rounded-3xl max-w-4xl mx-auto shadow-sm">
-                    <h4 class="text-xs font-extrabold text-bloomar-navy uppercase tracking-widest mb-6 text-center">Services additionnels & extensions</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
-                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <span class="font-bold text-slate-700">🌐 Création de site web vitrine & Liaisons</span>
-                            <span class="text-bloomar-violet font-black">60 000 FCFA</span>
+                <div class="tarifs-addons premium-reveal">
+                    <h2 class="tarifs-addons__title">Services additionnels & extensions</h2>
+                    <div class="tarifs-addons__grid">
+                        <div class="tarifs-addon">
+                            <span>🌐 Création de site web vitrine & Liaisons</span>
+                            <span class="tarifs-addon__price">60 000 FCFA</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <span class="font-bold text-slate-700">⚙️ Automatisation de Workflow (via n8n)</span>
-                            <span class="text-bloomar-violet font-black">80 000 FCFA</span>
+                        <div class="tarifs-addon">
+                            <span>⚙️ Automatisation de Workflow (via n8n)</span>
+                            <span class="tarifs-addon__price">80 000 FCFA</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <span class="font-bold text-slate-700">👥 Formation sur site du personnel</span>
-                            <span class="text-bloomar-turquoise font-black uppercase font-bold text-[9px] tracking-wide">Sur Devis</span>
+                        <div class="tarifs-addon">
+                            <span>👥 Formation sur site du personnel</span>
+                            <span class="tarifs-addon__price tarifs-addon__price--quote">Sur Devis</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <span class="font-bold text-slate-700">🤝 Accompagnement & Conseil</span>
-                            <span class="text-bloomar-turquoise font-black uppercase font-bold text-[9px] tracking-wide">Sur Devis</span>
+                        <div class="tarifs-addon">
+                            <span>🤝 Accompagnement & Conseil</span>
+                            <span class="tarifs-addon__price tarifs-addon__price--quote">Sur Devis</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-20 max-w-5xl mx-auto">
-                    <div class="flex justify-between items-center mb-6">
-                        <h4 class="text-sm font-black text-bloomar-navy uppercase tracking-wider">🛠️ Tableau Comparatif Complet des Fonctionnalités</h4>
-                        <button onclick="toggleAllTableAccordions()" class="text-xs font-bold text-bloomar-violet hover:underline flex items-center space-x-1">
+                <div class="tarifs-compare premium-reveal">
+                    <div class="tarifs-compare__head">
+                        <h2 class="tarifs-compare__title">🛠️ Tableau comparatif des fonctionnalités</h2>
+                        <button type="button" onclick="toggleAllTableAccordions()" class="tarifs-compare__toggle">
                             <i data-lucide="unfold-horizontal" class="w-3.5 h-3.5"></i>
                             <span id="btn-toggle-all-text">Tout déplier</span>
                         </button>
                     </div>
 
-                    <div class="space-y-4">
-                        <div class="border border-slate-200 bg-white rounded-2xl overflow-hidden">
-                            <button onclick="toggleAccordion('acc-caisse')" class="w-full flex items-center justify-between p-4 bg-slate-50 font-bold text-xs text-bloomar-navy uppercase tracking-wide">
-                                <span>📂 Catégorie 1 : Gestion de Caisse & Ventes (POS)</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div id="acc-caisse" class="hidden border-t border-slate-200 p-4 text-xs space-y-3">
-                                <div class="grid grid-cols-4 py-2 border-b border-slate-100 text-slate-500 font-semibold uppercase text-[9px]"><span class="col-span-1">Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Gestion des encaissements & Facturation</span><span>✅ Basique</span><span>✅ Avancée</span><span>✅ Multi-devises & Tactile</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Intégration Mobile Money (MTN & Orange)</span><span>✅ Inclus (Frais standards)</span><span>✅ Automatisé</span><span>✅ Automatisé</span></div>
-                                <div class="grid grid-cols-4 py-1"><span class="font-bold text-slate-700">Prise de commande & Menus (QR Code / Tables)</span><span>✅ 1 seul point de vente</span><span>✅ Multi-sites</span><span>✅ Multi-sites + Prise sur borne</span></div>
-                            </div>
+                    <div class="tarifs-accordion">
+                        <button type="button" onclick="toggleAccordion('acc-caisse')" class="tarifs-accordion__trigger">
+                            <span>📂 Catégorie 1 : Gestion de Caisse & Ventes (POS)</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div id="acc-caisse" class="tarifs-accordion__panel">
+                            <div class="tarifs-compare-row tarifs-compare-row--head"><span>Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
+                            <div class="tarifs-compare-row"><strong>Gestion des encaissements & Facturation</strong><span>✅ Basique</span><span>✅ Avancée</span><span>✅ Multi-devises</span></div>
+                            <div class="tarifs-compare-row"><strong>Intégration Mobile Money (MTN & Orange)</strong><span>✅ Inclus</span><span>✅ Automatisé</span><span>✅ Automatisé</span></div>
+                            <div class="tarifs-compare-row"><strong>Prise de commande & Menus (QR Code)</strong><span>✅ 1 point de vente</span><span>✅ Multi-sites</span><span>✅ Multi-sites + borne</span></div>
                         </div>
+                    </div>
 
-                        <div class="border border-slate-200 bg-white rounded-2xl overflow-hidden">
-                            <button onclick="toggleAccordion('acc-stocks')" class="w-full flex items-center justify-between p-4 bg-slate-50 font-bold text-xs text-bloomar-navy uppercase tracking-wide">
-                                <span>📂 Catégorie 2 : Stocks & Logistique</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div id="acc-stocks" class="hidden border-t border-slate-200 p-4 text-xs space-y-3">
-                                <div class="grid grid-cols-4 py-2 border-b border-slate-100 text-slate-500 font-semibold uppercase text-[9px]"><span class="col-span-1">Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Nombre d'entrepôts / sites</span><span>1 seul site</span><span>Jusqu'à 3 sites</span><span>Illimité</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Inventaires physiques / Fiches</span><span>➖ Manuel</span><span>✅ Valorisation Auto</span><span>✅ Valorisation Auto</span></div>
-                                <div class="grid grid-cols-4 py-1"><span class="font-bold text-slate-700">Alertes de rupture & Seuils critiques</span><span>➖ Non disponible</span><span>✅ Alertes SMS / Email</span><span>✅ IA Prédictive</span></div>
-                            </div>
+                    <div class="tarifs-accordion">
+                        <button type="button" onclick="toggleAccordion('acc-stocks')" class="tarifs-accordion__trigger">
+                            <span>📂 Catégorie 2 : Stocks & Logistique</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div id="acc-stocks" class="tarifs-accordion__panel">
+                            <div class="tarifs-compare-row tarifs-compare-row--head"><span>Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
+                            <div class="tarifs-compare-row"><strong>Nombre d'entrepôts / sites</strong><span>1 site</span><span>Jusqu'à 3</span><span>Illimité</span></div>
+                            <div class="tarifs-compare-row"><strong>Inventaires physiques</strong><span>➖ Manuel</span><span>✅ Auto</span><span>✅ Auto</span></div>
+                            <div class="tarifs-compare-row"><strong>Alertes de rupture</strong><span>➖ Non</span><span>✅ SMS / Email</span><span>✅ IA Prédictive</span></div>
                         </div>
+                    </div>
 
-                        <div class="border border-slate-200 bg-white rounded-2xl overflow-hidden">
-                            <button onclick="toggleAccordion('acc-compta')" class="w-full flex items-center justify-between p-4 bg-slate-50 font-bold text-xs text-bloomar-navy uppercase tracking-wide">
-                                <span>📂 Catégorie 3 : Comptabilité & Finance (Normes Locales)</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div id="acc-compta" class="hidden border-t border-slate-200 p-4 text-xs space-y-3">
-                                <div class="grid grid-cols-4 py-2 border-b border-slate-100 text-slate-500 font-semibold uppercase text-[9px]"><span class="col-span-1">Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Journal de caisse (SYSCOHADA)</span><span>✅ Inclus</span><span>✅ Inclus</span><span>✅ Inclus</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Calcul automatisé de la TVA (19,25%)</span><span>✅ Basique</span><span>✅ Multi-taux</span><span>✅ Multi-taux + Déclarations d'acompte</span></div>
-                                <div class="grid grid-cols-4 py-1"><span class="font-bold text-slate-700">Calcul Seuil de Rentabilité en direct</span><span>➖ Non disponible</span><span>✅ Graphique de suivi</span><span>✅ Graphique + Stress-tests</span></div>
-                            </div>
+                    <div class="tarifs-accordion">
+                        <button type="button" onclick="toggleAccordion('acc-compta')" class="tarifs-accordion__trigger">
+                            <span>📂 Catégorie 3 : Comptabilité & Finance</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div id="acc-compta" class="tarifs-accordion__panel">
+                            <div class="tarifs-compare-row tarifs-compare-row--head"><span>Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
+                            <div class="tarifs-compare-row"><strong>Journal de caisse (SYSCOHADA)</strong><span>✅ Inclus</span><span>✅ Inclus</span><span>✅ Inclus</span></div>
+                            <div class="tarifs-compare-row"><strong>Calcul TVA (19,25%)</strong><span>✅ Basique</span><span>✅ Multi-taux</span><span>✅ Déclarations</span></div>
+                            <div class="tarifs-compare-row"><strong>Seuil de rentabilité en direct</strong><span>➖ Non</span><span>✅ Graphique</span><span>✅ Stress-tests</span></div>
                         </div>
+                    </div>
 
-                        <div class="border border-slate-200 bg-white rounded-2xl overflow-hidden">
-                            <button onclick="toggleAccordion('acc-metier')" class="w-full flex items-center justify-between p-4 bg-slate-50 font-bold text-xs text-bloomar-navy uppercase tracking-wide">
-                                <span>📂 Catégorie 4 : Modules Sectoriels Spécialisés</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div id="acc-metier" class="hidden border-t border-slate-200 p-4 text-xs space-y-3">
-                                <div class="grid grid-cols-4 py-2 border-b border-slate-100 text-slate-500 font-semibold uppercase text-[9px]"><span class="col-span-1">Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Restaurants : Tables & ingrédients</span><span>➖ Non disponible</span><span>✅ Inclus</span><span>✅ Inclus</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Écoles : Scolarité, classes & notes</span><span>➖ Non disponible</span><span>✅ Inclus</span><span>✅ Inclus + E-learning & RH</span></div>
-                                <div class="grid grid-cols-4 py-1"><span class="font-bold text-slate-700">Hôtels : calendrier des chambres & check-in</span><span>➖ Non disponible</span><span>✅ Inclus</span><span>✅ Inclus + tarification dynamique IA</span></div>
-                            </div>
+                    <div class="tarifs-accordion">
+                        <button type="button" onclick="toggleAccordion('acc-metier')" class="tarifs-accordion__trigger">
+                            <span>📂 Catégorie 4 : Modules Sectoriels</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div id="acc-metier" class="tarifs-accordion__panel">
+                            <div class="tarifs-compare-row tarifs-compare-row--head"><span>Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
+                            <div class="tarifs-compare-row"><strong>Restaurants : Tables & ingrédients</strong><span>➖ Non</span><span>✅ Inclus</span><span>✅ Inclus</span></div>
+                            <div class="tarifs-compare-row"><strong>Écoles : Scolarité & notes</strong><span>➖ Non</span><span>✅ Inclus</span><span>✅ E-learning</span></div>
+                            <div class="tarifs-compare-row"><strong>Hôtels : Chambres & check-in</strong><span>➖ Non</span><span>✅ Inclus</span><span>✅ Tarification IA</span></div>
                         </div>
+                    </div>
 
-                        <div class="border border-slate-200 bg-white rounded-2xl overflow-hidden">
-                            <button onclick="toggleAccordion('acc-ia')" class="w-full flex items-center justify-between p-4 bg-slate-50 font-bold text-xs text-bloomar-navy uppercase tracking-wide">
-                                <span>📂 Catégorie 5 : Automatisation & Intelligence Artificielle</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div id="acc-ia" class="hidden border-t border-slate-200 p-4 text-xs space-y-3">
-                                <div class="grid grid-cols-4 py-2 border-b border-slate-100 text-slate-500 font-semibold uppercase text-[9px]"><span class="col-span-1">Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
-                                <div class="grid grid-cols-4 py-1 border-b border-slate-100"><span class="font-bold text-slate-700">Rapports de performance générés par IA</span><span>➖ Non disponible</span><span>➖ Non disponible</span><span>✅ Hebdomadaire (Analyses & Conseils)</span></div>
-                                <div class="grid grid-cols-4 py-1"><span class="font-bold text-slate-700">Connexions automatisées (WhatsApp, n8n)</span><span>➖ Non disponible</span><span>➖ Option Add-on</span><span>✅ Inclus en natif</span></div>
-                            </div>
+                    <div class="tarifs-accordion">
+                        <button type="button" onclick="toggleAccordion('acc-ia')" class="tarifs-accordion__trigger">
+                            <span>📂 Catégorie 5 : Automatisation & IA</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div id="acc-ia" class="tarifs-accordion__panel">
+                            <div class="tarifs-compare-row tarifs-compare-row--head"><span>Fonctionnalité</span><span>Starter</span><span>Pro</span><span>Premium</span></div>
+                            <div class="tarifs-compare-row"><strong>Rapports de performance IA</strong><span>➖ Non</span><span>➖ Non</span><span>✅ Hebdomadaire</span></div>
+                            <div class="tarifs-compare-row"><strong>Connexions WhatsApp, n8n</strong><span>➖ Non</span><span>➖ Add-on</span><span>✅ Inclus</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-cta premium-reveal" style="margin-top:4rem">
+                    <div class="premium-cta__mesh" aria-hidden="true"></div>
+                    <div class="premium-cta__content">
+                        <h2 data-i18n="home.cta.title">Votre prochain projet commence ici.</h2>
+                        <p data-i18n="home.cta.desc">Parlons de vos idées et construisons ensemble la solution qui fera la différence.</p>
+                        <div class="premium-cta__btns">
+                            <a href="contact.html" class="premium-btn-primary" data-i18n="home.cta.btn1">Parlons de votre projet →</a>
+                            <a href="services.html" class="premium-btn-secondary" data-i18n="nav.services">Services</a>
                         </div>
                     </div>
                 </div>
@@ -153,9 +169,9 @@
     <div id="site-modals"></div>
     <div id="site-global-ui"></div>
 
-    <script src="assets/js/modules/canvas-animation.js"></script>
     <script src="assets/js/core/app.js"></script>
     <script src="assets/js/core/layout.js"></script>
     <script src="assets/js/core/api.js"></script>
+    <script src="assets/js/modules/tarifs-page.js"></script>
 </body>
 </html>

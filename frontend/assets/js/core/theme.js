@@ -21,6 +21,9 @@
             btn.setAttribute('aria-pressed', String(isLight));
             const labelKey = isLight ? 'theme.dark' : 'theme.light';
             btn.setAttribute('aria-label', typeof t === 'function' ? t(labelKey) : (isLight ? 'Dark mode' : 'Light mode'));
+            btn.setAttribute('title', typeof t === 'function'
+                ? t(labelKey)
+                : (isLight ? 'Activer le mode sombre' : 'Activer le mode clair'));
             const icon = btn.querySelector('[data-theme-icon]');
             if (icon && typeof lucide !== 'undefined') {
                 icon.setAttribute('data-lucide', isLight ? 'moon' : 'sun');

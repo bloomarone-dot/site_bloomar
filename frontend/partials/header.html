@@ -10,21 +10,20 @@
         <nav class="premium-nav__links" aria-label="Navigation principale">
             <a href="index.html" data-nav-page="index" class="premium-nav__link" data-i18n="nav.home">Accueil</a>
             <a href="services.html" data-nav-page="services" class="premium-nav__link" data-i18n="nav.services">Services</a>
-            <a href="index.html#ecosysteme" data-nav-page="produits" class="premium-nav__link" data-i18n="nav.products">Produits</a>
+            <a href="produits.html" data-nav-page="produits" class="premium-nav__link" data-i18n="nav.products">Produits</a>
             <a href="a-propos.html" data-nav-page="a-propos" class="premium-nav__link" data-i18n="nav.about">À propos</a>
             <a href="ressources.html" data-nav-page="ressources" class="premium-nav__link" data-i18n="nav.resources">Ressources</a>
             <a href="tarifs.html" data-nav-page="tarifs" class="premium-nav__link" data-i18n="nav.pricing">Tarifs</a>
         </nav>
 
         <div class="premium-nav__actions">
-            <button type="button" class="premium-nav__theme" data-theme-toggle onclick="toggleTheme()" aria-label="Activer le mode clair" aria-pressed="false">
+            <button type="button" class="premium-nav__theme" data-theme-toggle onclick="toggleTheme()" aria-label="Activer le mode clair" aria-pressed="false" title="Mode clair">
                 <i data-theme-icon data-lucide="sun" class="w-4 h-4"></i>
             </button>
             <div class="premium-nav__lang">
                 <button type="button" data-lang="fr" onclick="setLanguage('fr')" class="lang-btn">FR</button>
                 <button type="button" data-lang="en" onclick="setLanguage('en')" class="lang-btn">EN</button>
             </div>
-            <a href="contact.html" class="premium-btn-ghost" data-i18n="nav.login">Se connecter</a>
             <a href="contact.html" class="premium-btn-primary">
                 <span data-i18n="nav.startProject">Démarrer un projet</span>
                 <span aria-hidden="true">→</span>
@@ -39,13 +38,13 @@
     <div id="premium-mobile-menu" class="premium-mobile-menu" hidden>
         <a href="index.html" onclick="togglePremiumMenu()" data-i18n="nav.home">Accueil</a>
         <a href="services.html" onclick="togglePremiumMenu()" data-i18n="nav.services">Services</a>
-        <a href="index.html#ecosysteme" onclick="togglePremiumMenu()" data-i18n="nav.products">Produits</a>
+        <a href="produits.html" onclick="togglePremiumMenu()" data-i18n="nav.products">Produits</a>
         <a href="a-propos.html" onclick="togglePremiumMenu()" data-i18n="nav.about">À propos</a>
         <a href="ressources.html" onclick="togglePremiumMenu()" data-i18n="nav.resources">Ressources</a>
         <a href="tarifs.html" onclick="togglePremiumMenu()" data-i18n="nav.pricing">Tarifs</a>
         <div class="flex items-center justify-between pt-4 mt-2 border-t border-white/5">
             <div class="flex items-center gap-2">
-                <button type="button" class="premium-nav__theme" data-theme-toggle onclick="toggleTheme()" aria-label="Activer le mode clair">
+                <button type="button" class="premium-nav__theme" data-theme-toggle onclick="toggleTheme()" aria-label="Activer le mode clair" title="Mode clair">
                     <i data-theme-icon data-lucide="sun" class="w-4 h-4"></i>
                 </button>
                 <div class="premium-nav__lang">

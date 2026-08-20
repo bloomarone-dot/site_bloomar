@@ -34,6 +34,23 @@ function loadScript(src) {
     });
 }
 
+function initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn || btn.dataset.bound === '1') return;
+    btn.dataset.bound = '1';
+
+    btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function toggleVisibility() {
+        btn.classList.toggle('is-visible', window.scrollY > 400);
+    }
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+}
+
 async function initCookieConsent() {
     try {
         if (!window.BloomarCookieConsent) {
@@ -65,12 +82,12 @@ async function initAnalytics() {
 
 async function injectLayout() {
     try {
-        if (!window.__bloomarThemeLoaded) {
+        if (!window.__bloomarThemeLoaded && !window.getTheme) {
             await loadScript('assets/js/core/theme.js');
-            window.__bloomarThemeLoaded = true;
         }
+        window.__bloomarThemeLoaded = true;
     } catch (err) {
-        console.error('[Bloomar] Theme/i18n premium load failed', err);
+        console.error('[Bloomar] Theme load failed', err);
     }
 
     const slots = [
@@ -101,8 +118,26 @@ async function injectLayout() {
     }
 
     if (typeof applyTranslations === 'function') applyTranslations();
-    if (typeof lucide !== 'undefined') lucide.createIcons();
+    if (typeof window.togglePremiumMenu !== 'function') {
+        window.togglePremiumMenu = function togglePremiumMenu() {
+            const menu = document.getElementById('premium-mobile-menu');
+            const btn = document.getElementById('premium-menu-btn');
+            if (!menu) return;
+            const open = menu.classList.toggle('is-open');
+            menu.hidden = !open;
+            if (btn) btn.setAttribute('aria-expanded', String(open));
+            const icon = document.getElementById('premium-menu-icon');
+            if (icon && typeof lucide !== 'undefined') {
+                icon.setAttribute('data-lucide', open ? 'x' : 'menu');
+                lucide.createIcons({ nodes: [icon] });
+            }
+        };
+        window.toggleMobileMenu = window.togglePremiumMenu;
+    }
 
+    initBackToTop();
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
     await initCookieConsent();
     await initAnalytics();
 
@@ -147,6 +182,11 @@ async function injectLayout() {
     }
 
     window.dispatchEvent(new Event('layoutReady'));
+
+    if (window.BloomarCookieConsent && typeof window.BloomarCookieConsent.init === 'function') {
+        window.BloomarCookieConsent.init();
+    }
+    if (typeof applyTranslations === 'function') applyTranslations();
 }
 
 document.addEventListener('DOMContentLoaded', injectLayout);

@@ -3,7 +3,7 @@
 /* Hero (shorter than homepage) */
 .premium-hero--services {
     min-height: auto;
-    padding: calc(var(--nav-height) + 4rem) 1.25rem 3rem;
+    padding: 4rem 1.25rem 3rem;
 }
 
 .premium-hero--services .premium-hero__trust { display: none; }
@@ -782,4 +782,69 @@
     .svc-hardware-card,
     .svc-glass,
     .svc-proximity__channel { transition: none; }
+}
+
+/* B.one ProConnecte visual */
+.svc-visual-proconnecte {
+    display: grid;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--premium-surface);
+    border: 1px solid var(--premium-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-glow-violet);
+}
+
+.svc-proconnecte-channels {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.svc-proconnecte-channel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.65rem;
+    font-size: 0.8125rem;
+    color: var(--premium-text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.svc-proconnecte-channel--active {
+    color: var(--premium-violet-bright);
+    background: rgba(123, 47, 247, 0.12);
+    border-color: var(--premium-border-bright);
+}
+
+.svc-proconnecte-feed {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.svc-proconnecte-msg {
+    padding: 0.75rem 0.85rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.svc-proconnecte-msg strong {
+    display: block;
+    font-size: 0.6875rem;
+    color: var(--premium-violet-bright);
+    margin-bottom: 0.25rem;
+}
+
+.svc-proconnecte-msg p {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: var(--premium-text-muted);
+}
+
+.svc-proconnecte-msg--team {
+    background: rgba(123, 47, 247, 0.08);
+    border-color: var(--premium-border);
 }

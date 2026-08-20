@@ -6,5 +6,6 @@
 @import url('premium.css');
 @import url('theme.css');
 @import url('bloomar-chat.css');
+@import url('tarifs-page.css');
 /* home-story.css est chargé via <link> dans index.html
    pour éviter les échecs liés au cache de main.css / @import */

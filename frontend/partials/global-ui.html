@@ -1,4 +1,4 @@
-<div id="bloomar-cookie-banner" class="bloomar-cookie-banner fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-5 z-50 hidden flex-col gap-4" role="dialog" aria-live="polite" aria-label="Consentement cookies">
+<div id="bloomar-cookie-banner" class="bloomar-cookie-banner fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-5 z-[100] hidden flex-col gap-4" role="dialog" aria-live="polite" aria-label="Consentement cookies">
     <div class="text-xs text-slate-700 leading-relaxed">
         <strong data-i18n="cookie.title">Nous respectons votre vie privée</strong> —
         <span data-i18n="cookie.desc">Nous utilisons des cookies essentiels et, avec votre accord, des outils de mesure d'audience pour améliorer votre expérience.</span>
@@ -14,9 +14,13 @@
     </div>
 </div>
 
-<a href="https://wa.me/237652209175" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-40 flex items-center gap-2 px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold rounded-full shadow-lg transition-all hover:scale-105" aria-label="WhatsApp">
+<a href="https://wa.me/237652209175" target="_blank" rel="noopener noreferrer" class="bloomar-wa-float fixed bottom-24 right-6 z-40 flex items-center gap-2 px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold rounded-full shadow-lg transition-all hover:scale-105" aria-label="WhatsApp">
     <i data-lucide="message-circle" class="w-5 h-5"></i>
     <span class="hidden sm:inline">WhatsApp</span>
 </a>
 
 <div id="toast-container" class="fixed bottom-6 right-6 space-y-3 z-50"></div>
+
+<button type="button" id="back-to-top" class="back-to-top" aria-label="Retour en haut de la page" title="Retour en haut">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+</button>

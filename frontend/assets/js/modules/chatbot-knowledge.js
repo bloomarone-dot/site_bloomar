@@ -47,19 +47,19 @@
             },
             blooschool: {
                 id: "blooschool",
-                name: "BLOOSCHOOL",
+                name: "B.one school",
                 sector: "ecole",
                 summary:
                     "BLOOSCHOOL aide les établissements scolaires à gérer élèves, notes, communication parents, paiements et pilotage au quotidien.",
-                href: "index.html#blooschool",
+                href: "produits.html",
             },
             bloorestaurant: {
                 id: "bloorestaurant",
-                name: "BLOORESTAURANT",
+                name: "B.one restaurant",
                 sector: "restaurant",
                 summary:
                     "BLOORESTAURANT digitalise le restaurant : commandes, caisse, cuisine, stocks et suivi des ventes en FCFA.",
-                href: "index.html#bloorestaurant",
+                href: "produits.html",
             },
             assist: {
                 id: "assist",

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="api-base" content="">
     <title>Services | Bloomarone</title>
-    <meta name="description" content="B.one Payment, solutions Web & Mobile, accompagnement financier, SAV de proximité et matériel — Bloomarone couvre toute la chaîne de valeur numérique des PME camerounaises.">
+    <meta name="description" content="B.one Payment, solutions Web & Mobile, accompagnement, B.one ProCom et matériel — Bloomarone couvre toute la chaîne de valeur numérique des entreprises africaines.">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <script src="assets/js/config/tailwind.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/services-page.css">
     <script src="assets/js/core/i18n.js"></script>
     <script src="assets/js/core/i18n-premium.js"></script>
+    <script src="assets/js/core/theme.js"></script>
 </head>
 <body data-page="services" class="page-premium min-h-full flex flex-col overflow-x-hidden">
 
@@ -57,7 +58,7 @@
                 <a href="#bone-payment" class="svc-anchor-nav__link is-active" data-anchor="bone-payment" data-i18n="svc.anchor1">01 · B.one Payment</a>
                 <a href="#web-mobile" class="svc-anchor-nav__link" data-anchor="web-mobile" data-i18n="svc.anchor2">02 · Web & Mobile</a>
                 <a href="#accompagnement" class="svc-anchor-nav__link" data-anchor="accompagnement" data-i18n="svc.anchor3">03 · Accompagnement</a>
-                <a href="#sav" class="svc-anchor-nav__link" data-anchor="sav" data-i18n="svc.anchor4">04 · SAV</a>
+                <a href="#proconnecte" class="svc-anchor-nav__link" data-anchor="proconnecte" data-i18n="svc.anchor4">04 · B.one ProCom</a>
                 <a href="#indispensables" class="svc-anchor-nav__link" data-anchor="indispensables" data-i18n="svc.anchor5">05 · Indispensables</a>
             </div>
         </nav>
@@ -284,57 +285,65 @@
             </div>
         </article>
 
-        <!-- SERVICE 04 — SAV -->
-        <article id="sav" class="svc-block svc-block--alt premium-reveal">
+        <!-- SERVICE 04 — B.ONE PROCONNECTE -->
+        <article id="proconnecte" class="svc-block svc-block--alt premium-reveal">
             <div class="premium-container">
                 <div class="svc-block__grid">
                     <div class="svc-block__intro">
                         <div class="svc-block__head">
                             <span class="svc-block__num">04</span>
-                            <span class="svc-block__icon"><i data-lucide="headphones" class="w-5 h-5"></i></span>
+                            <span class="svc-block__icon"><i data-lucide="messages-square" class="w-5 h-5"></i></span>
                         </div>
-                        <h2 class="svc-block__title" data-i18n="svc.s4.title">Service après-vente de proximité</h2>
-                        <p class="svc-block__desc" data-i18n="svc.s4.desc">Une équipe humaine basée à Yaoundé vous accompagne au quotidien : assistance technique, formation sur site, maintenance préventive et conseil stratégique. Pas de ticket perdu dans une file d'attente internationale.</p>
+                        <h2 class="svc-block__title" data-i18n="svc.s4.title">B.one ProCom</h2>
+                        <p class="svc-block__desc" data-i18n="svc.s4.desc">Solution de communication interne pour connecter vos équipes, filiales et services en temps réel — annonces, discussions et coordination sans outils dispersés.</p>
                         <div class="svc-block__cta">
-                            <a href="contact.html" class="premium-btn-primary" data-i18n="svc.s4.cta">Contacter le SAV →</a>
+                            <a href="contact.html" class="premium-btn-primary" data-i18n="svc.s4.cta">Demander une démo →</a>
+                        </div>
+                        <div class="svc-audience">
+                            <span class="svc-audience__icon"><i data-lucide="building-2" class="w-4 h-4"></i></span>
+                            <div>
+                                <strong data-i18n="svc.s4.box2">Pour qui ?</strong>
+                                <p data-i18n="svc.s4.who">PME, grandes entreprises et organisations multi-sites qui veulent fluidifier la communication interne.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="svc-block__details">
                         <div class="svc-glass">
+                            <span class="svc-glass__label" data-i18n="svc.s4.box1">Ce que vous gagnez</span>
                             <ul class="svc-checklist">
-                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li1">Support en cas de panne ou dysfonctionnement (WhatsApp, téléphone, sur site)</span></li>
-                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li2">Formation et prise en main de vos équipes à Yaoundé et Douala</span></li>
-                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li3">Mises à jour logicielles et correctifs de sécurité</span></li>
-                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li4">Conseil stratégique et recommandations d'évolution de vos outils</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li1">Messagerie interne sécurisée entre collaborateurs</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li2">Groupes par service, site ou filiale</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li3">Annonces, notifications et partage de fichiers</span></li>
+                                <li><i data-lucide="check" class="w-4 h-4"></i><span data-i18n="svc.s4.li4">Intégration à l'écosystème Bloomarone (RH, opérations, direction)</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="svc-block__visual">
-                        <div class="svc-visual-sav">
-                            <div class="svc-chat">
-                                <div class="svc-chat__head">
-                                    <span class="svc-chat__avatar">BO</span>
-                                    <div>
-                                        <strong>Support Bloomarone</strong>
-                                        <span>En ligne · Yaoundé</span>
-                                    </div>
+                        <div class="svc-visual-proconnecte">
+                            <div class="svc-proconnecte-channels">
+                                <div class="svc-proconnecte-channel svc-proconnecte-channel--active">
+                                    <i data-lucide="hash" class="w-4 h-4"></i>
+                                    <span data-i18n="svc.s4.channel1">Direction générale</span>
                                 </div>
-                                <div class="svc-chat__bubble svc-chat__bubble--user" data-i18n="svc.s4.chat.user">Bonjour, notre caisse ne synchronise plus les ventes.</div>
-                                <div class="svc-chat__bubble svc-chat__bubble--agent" data-i18n="svc.s4.chat.agent1">Bonjour ! Je prends en charge votre demande. Pouvez-vous me confirmer le nom de l'établissement ?</div>
-                                <div class="svc-chat__bubble svc-chat__bubble--agent" data-i18n="svc.s4.chat.agent2">Un technicien peut intervenir demain matin à Yaoundé si besoin.</div>
+                                <div class="svc-proconnecte-channel">
+                                    <i data-lucide="hash" class="w-4 h-4"></i>
+                                    <span data-i18n="svc.s4.channel2">Commercial</span>
+                                </div>
+                                <div class="svc-proconnecte-channel">
+                                    <i data-lucide="hash" class="w-4 h-4"></i>
+                                    <span data-i18n="svc.s4.channel3">Support & opérations</span>
+                                </div>
                             </div>
-                            <div class="svc-proximity">
-                                <h4 data-i18n="svc.s4.proximity">Support de proximité</h4>
-                                <div class="svc-proximity__meta">
-                                    <span><i data-lucide="map-pin" class="w-4 h-4"></i> Yaoundé · Douala</span>
-                                    <span><i data-lucide="clock" class="w-4 h-4"></i> <span data-i18n="svc.s4.hours">Lundi – Vendredi, 8h00 – 17h00 · Quartier Omnisports, Yaoundé</span></span>
+                            <div class="svc-proconnecte-feed">
+                                <div class="svc-proconnecte-msg">
+                                    <strong>Direction</strong>
+                                    <p data-i18n="svc.s4.feed1">Réunion stratégique demain 9h — merci de confirmer votre présence.</p>
                                 </div>
-                                <div class="svc-proximity__channels">
-                                    <div class="svc-proximity__channel"><i data-lucide="message-circle" class="w-5 h-5"></i><span data-i18n="svc.s4.wa">WhatsApp</span></div>
-                                    <div class="svc-proximity__channel"><i data-lucide="phone" class="w-5 h-5"></i><span data-i18n="svc.s4.phone">Téléphone</span></div>
-                                    <div class="svc-proximity__channel"><i data-lucide="map-pin" class="w-5 h-5"></i><span data-i18n="svc.s4.onsite">Sur site</span></div>
+                                <div class="svc-proconnecte-msg svc-proconnecte-msg--team">
+                                    <strong>Équipe Yaoundé</strong>
+                                    <p data-i18n="svc.s4.feed2">Objectif hebdo atteint. Félicitations à toute l'équipe !</p>
                                 </div>
                             </div>
                         </div>

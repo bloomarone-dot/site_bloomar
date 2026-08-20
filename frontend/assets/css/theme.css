@@ -273,8 +273,159 @@
     color: var(--premium-text-muted);
 }
 
+[data-theme="light"] .premium-eco-header__title {
+    color: var(--premium-heading);
+}
+
+[data-theme="light"] .premium-footer h4 {
+    color: #fff;
+}
+
+[data-theme="light"] .premium-hero__badge,
+[data-theme="light"] .premium-section__label,
+[data-theme="light"] .premium-eco-card__tag {
+    background: rgba(123, 47, 247, 0.08);
+    border-color: var(--premium-border);
+}
+
+[data-theme="light"] .premium-hero__bg {
+    background: var(--premium-bg);
+}
+
+[data-theme="light"] #hero-particles {
+    opacity: 0.35;
+}
+
+[data-theme="light"] .premium-stats__glow {
+    background: radial-gradient(ellipse, rgba(123, 47, 247, 0.1), transparent 70%);
+}
+
+[data-theme="light"] body:not(.page-premium) {
+    background: var(--bloomar-bg);
+    color: var(--bloomar-text);
+}
+
+[data-theme="light"] .premium-cta {
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(123, 47, 247, 0.12), transparent),
+        linear-gradient(160deg, #ffffff, #f4f2fa);
+    box-shadow: 0 8px 40px rgba(11, 18, 50, 0.08);
+}
+
+/* Pages services / à propos / ressources — titres codés en dur */
+[data-theme="light"] .svc-hero__title,
+[data-theme="light"] .svc-block__title,
+[data-theme="light"] .about-hero__title,
+[data-theme="light"] .about-section__title,
+[data-theme="light"] .about-value-card h3,
+[data-theme="light"] .about-timeline__card h3,
+[data-theme="light"] .about-proximity-card h3,
+[data-theme="light"] .about-vision__headline,
+[data-theme="light"] .res-hero__title,
+[data-theme="light"] .res-section__title,
+[data-theme="light"] .res-card__body h3,
+[data-theme="light"] .res-why-card h3,
+[data-theme="light"] .res-cta__title,
+[data-theme="light"] .svc-mock__header,
+[data-theme="light"] .svc-hardware-card h4,
+[data-theme="light"] .svc-glass h4,
+[data-theme="light"] .svc-float-card strong {
+    color: var(--premium-heading) !important;
+}
+
+[data-theme="light"] .svc-hero,
+[data-theme="light"] .about-hero,
+[data-theme="light"] .res-hero {
+    background: var(--premium-bg);
+}
+
+[data-theme="light"] .svc-block,
+[data-theme="light"] .about-section,
+[data-theme="light"] .res-section {
+    background: transparent;
+    color: var(--premium-text);
+}
+
 [data-theme="light"] .premium-mobile-menu .border-white\/5 {
     border-color: rgba(123, 47, 247, 0.1) !important;
+}
+
+[data-theme="light"] .premium-stat strong {
+    color: var(--premium-heading);
+}
+
+[data-theme="light"] .premium-stat span {
+    color: var(--premium-text-muted);
+}
+
+[data-theme="light"] .premium-eco-card h2,
+[data-theme="light"] .premium-eco-card h3 {
+    color: var(--premium-heading);
+}
+
+[data-theme="light"] .premium-eco-card__cta,
+[data-theme="light"] .premium-service-card__link {
+    color: var(--premium-violet-deep, #6d28d9);
+}
+
+[data-theme="light"] .svc-proconnecte-channel,
+[data-theme="light"] .svc-proconnecte-msg,
+[data-theme="light"] .svc-proconnecte-msg p,
+[data-theme="light"] .svc-proconnecte-msg strong {
+    color: var(--premium-text);
+}
+
+[data-theme="light"] .svc-proconnecte-channel {
+    background: var(--premium-surface);
+    border-color: var(--premium-border);
+}
+
+[data-theme="light"] .svc-proconnecte-channel--active {
+    background: rgba(123, 47, 247, 0.1);
+    border-color: rgba(139, 92, 246, 0.4);
+    color: var(--premium-violet-deep, #6d28d9);
+}
+
+[data-theme="light"] .premium-eco-proconnecte-mock {
+    color: var(--premium-violet-bright);
+}
+
+[data-theme="light"] .section-badge,
+[data-theme="light"] .section-desc,
+[data-theme="light"] .page-hero__title {
+    color: inherit;
+}
+
+[data-theme="light"] .page-hero--image .page-hero__title,
+[data-theme="light"] .page-hero--image .section-desc,
+[data-theme="light"] .page-hero--image .section-badge {
+    color: #fff;
+}
+
+[data-theme="light"] .section-shell,
+[data-theme="light"] .section-shell--muted {
+    background: var(--premium-bg);
+    color: var(--premium-text);
+}
+
+[data-theme="light"] .section-shell .text-bloomar-navy,
+[data-theme="light"] .section-shell .text-slate-700,
+[data-theme="light"] .section-shell .text-slate-600 {
+    color: var(--premium-text) !important;
+}
+
+[data-theme="light"] .section-shell .text-slate-500,
+[data-theme="light"] .section-shell .text-slate-400 {
+    color: var(--premium-text-muted) !important;
+}
+
+[data-theme="light"] .section-shell .bg-white {
+    background: var(--premium-card-bg) !important;
+    border-color: var(--premium-border) !important;
+}
+
+[data-theme="light"] .section-shell .bg-slate-50 {
+    background: var(--premium-surface) !important;
 }
 
 .premium-nav__theme {

@@ -836,7 +836,7 @@
 
 /* ── Heroes avec image de fond (Unsplash) ── */
 .page-hero {
-    padding-top: 8rem;
+    padding-top: 2rem;
     padding-bottom: 4rem;
     background: linear-gradient(180deg, #fff 0%, var(--bloomar-bg) 100%);
     border-bottom: 1px solid var(--bloomar-border);

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/bloomar-chat.css">
     <script src="assets/js/core/i18n.js"></script>
     <script src="assets/js/core/i18n-premium.js"></script>
+    <script src="assets/js/core/theme.js"></script>
 </head>
 <body data-page="index" class="page-premium min-h-full flex flex-col overflow-x-hidden">
 
@@ -48,7 +49,7 @@
                         <span data-i18n="nav.startProject">Démarrer un projet</span>
                         <span aria-hidden="true">→</span>
                     </a>
-                    <a href="#ecosysteme" class="premium-btn-secondary">
+                    <a href="produits.html" class="premium-btn-secondary">
                         <span data-i18n="hero.cta2">Découvrir nos solutions</span>
                     </a>
                 </div>
@@ -135,18 +136,18 @@
 
                     <article class="premium-service-card premium-service-card--navy">
                         <div class="premium-service-card__head">
-                            <div class="premium-service-card__icon"><i data-lucide="headphones" class="w-5 h-5"></i></div>
+                            <div class="premium-service-card__icon"><i data-lucide="messages-square" class="w-5 h-5"></i></div>
                             <span class="premium-service-card__num">04</span>
                         </div>
-                        <h3 data-i18n="home.svc4.title">Service après-vente (SAV)</h3>
-                        <p data-i18n="home.svc4.desc">Un support réactif pour vous accompagner durablement.</p>
+                        <h3 data-i18n="home.svc4.title">B.one ProCom</h3>
+                        <p data-i18n="home.svc4.desc">Communication interne pour connecter vos équipes et services.</p>
                         <ul>
-                            <li><i data-lucide="check"></i><span data-i18n="home.svc4.li1"> Assistance WhatsApp / téléphone / site</span></li>
-                            <li><i data-lucide="check"></i><span data-i18n="home.svc4.li2"> Formations Yaoundé & Douala</span></li>
-                            <li><i data-lucide="check"></i><span data-i18n="home.svc4.li3"> Mises à jour</span></li>
-                            <li><i data-lucide="check"></i><span data-i18n="home.svc4.li4"> Conseil stratégique</span></li>
+                            <li><i data-lucide="check"></i><span data-i18n="home.svc4.li1"> Messagerie interne sécurisée</span></li>
+                            <li><i data-lucide="check"></i><span data-i18n="home.svc4.li2"> Groupes par service ou filiale</span></li>
+                            <li><i data-lucide="check"></i><span data-i18n="home.svc4.li3"> Annonces & notifications</span></li>
+                            <li><i data-lucide="check"></i><span data-i18n="home.svc4.li4"> Partage de fichiers d'équipe</span></li>
                         </ul>
-                        <a href="services.html#sav" class="premium-service-card__link" data-i18n="home.svc4.link">Découvrir notre SAV →</a>
+                        <a href="services.html#proconnecte" class="premium-service-card__link" data-i18n="home.svc4.link">Découvrir ProCom →</a>
                     </article>
 
                     <article class="premium-service-card premium-service-card--gold">
@@ -171,28 +172,28 @@
         <!-- ÉCOSYSTÈME -->
         <section id="ecosysteme" class="premium-section premium-reveal">
             <div class="premium-container">
-                <div class="premium-eco-header">
+                <div class="premium-eco-header premium-eco-header--centered">
                     <div class="premium-eco-header__copy">
-                        <span class="premium-section__label" style="text-align:left" data-i18n="home.eco.label">Notre écosystème</span>
+                        <span class="premium-section__label" data-i18n="home.eco.label">Notre écosystème</span>
                         <h2 class="premium-eco-header__title" data-i18n-html="home.eco.titleHtml">
                             Un écosystème.<br>
                             Plusieurs solutions.<br>
                             <span class="gradient-text">Une seule vision.</span>
                         </h2>
                         <p class="premium-eco-header__desc" data-i18n="home.eco.desc">Des produits SaaS puissants et interconnectés pour répondre aux besoins des organisations.</p>
-                        <a href="contact.html" class="premium-btn-primary" data-i18n="home.eco.cta">Découvrir tous nos produits →</a>
+                        <a href="produits.html" class="premium-btn-primary" data-i18n="home.eco.cta">Découvrir tous nos produits →</a>
                     </div>
                 </div>
 
                 <div class="premium-eco-scroll" tabindex="0" aria-label="Produits SaaS Bloomarone">
                     <article class="premium-eco-card">
                         <div class="premium-eco-card__preview">
-                            <img src="assets/images/ecosystem/b-oneschool.png" alt="B.oneschool — gestion scolaire" class="premium-eco-card__photo" width="640" height="360" loading="lazy" decoding="async">
+                            <img src="assets/images/ecosystem/b-oneschool.png" alt="B.one school — gestion scolaire" class="premium-eco-card__photo" width="640" height="360" loading="lazy" decoding="async">
                             <div class="premium-eco-card__overlay"></div>
                             <span class="premium-eco-card__icon"><i data-lucide="graduation-cap" class="w-4 h-4"></i></span>
                         </div>
                         <div class="premium-eco-card__body">
-                            <h3>B.oneschool</h3>
+                            <h3>B.one school</h3>
                             <p data-i18n="home.eco.school.desc">Gestion académique, administrative et financière des écoles.</p>
                             <a href="contact.html" class="premium-eco-card__cta" data-i18n="home.eco.school.cta">Demander une démo →</a>
                         </div>
@@ -200,12 +201,12 @@
 
                     <article class="premium-eco-card">
                         <div class="premium-eco-card__preview">
-                            <img src="assets/images/ecosystem/b-onerestaurant.png" alt="B.onerestaurant — caisse restaurant" class="premium-eco-card__photo" width="640" height="360" loading="lazy" decoding="async">
+                            <img src="assets/images/ecosystem/b-onerestaurant.png" alt="B.one restaurant — caisse restaurant" class="premium-eco-card__photo" width="640" height="360" loading="lazy" decoding="async">
                             <div class="premium-eco-card__overlay"></div>
                             <span class="premium-eco-card__icon"><i data-lucide="utensils" class="w-4 h-4"></i></span>
                         </div>
                         <div class="premium-eco-card__body">
-                            <h3>B.onerestaurant</h3>
+                            <h3>B.one restaurant</h3>
                             <p data-i18n="home.eco.resto.desc">Commandes, caisse, cuisine, stocks et rapports avancés.</p>
                             <a href="realisations.html" class="premium-eco-card__cta" data-i18n="home.eco.resto.cta">Découvrir →</a>
                         </div>
@@ -238,15 +239,17 @@
                     </article>
 
                     <article class="premium-eco-card">
-                        <div class="premium-eco-card__preview">
-                            <img src="assets/images/ecosystem/b-one-cloud.png" alt="B.one Cloud — infrastructure cloud" class="premium-eco-card__photo" width="640" height="360" loading="lazy" decoding="async">
+                        <div class="premium-eco-card__preview premium-eco-card__preview--proconnecte">
+                            <div class="premium-eco-proconnecte-mock" aria-hidden="true">
+                                <i data-lucide="messages-square" class="w-10 h-10"></i>
+                            </div>
                             <div class="premium-eco-card__overlay"></div>
-                            <span class="premium-eco-card__icon"><i data-lucide="cloud" class="w-4 h-4"></i></span>
+                            <span class="premium-eco-card__icon"><i data-lucide="messages-square" class="w-4 h-4"></i></span>
                         </div>
                         <div class="premium-eco-card__body">
-                            <h3>B.one Cloud</h3>
-                            <p data-i18n="home.eco.cloud.desc">Hébergement, stockage et infrastructure cloud sécurisée.</p>
-                            <a href="contact.html" class="premium-eco-card__cta" data-i18n="home.eco.cloud.cta">En savoir plus →</a>
+                            <h3>B.one ProCom</h3>
+                            <p data-i18n="home.eco.proconnecte.desc">Communication interne pour connecter vos équipes et services.</p>
+                            <a href="services.html#proconnecte" class="premium-eco-card__cta" data-i18n="home.eco.proconnecte.cta">Découvrir →</a>
                         </div>
                     </article>
                 </div>
@@ -299,16 +302,15 @@
         <section id="secteurs" class="premium-section premium-section--light premium-reveal">
             <div class="premium-container">
                 <span class="premium-section__label" data-i18n="home.sectors.label">Secteurs</span>
-                <h2 class="premium-section__title" data-i18n="home.sectors.title">Nous accompagnons toutes les organisations</h2>
+                <h2 class="premium-section__title" data-i18n="home.sectors.title">Nous accompagnons tous les secteurs d'activité</h2>
 
                 <div class="premium-sectors">
-                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="utensils" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r1">Restaurants</span></div>
-                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r2">Écoles</span></div>
-                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="hotel" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r3">Hôtels</span></div>
-                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="store" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r4">Boutiques</span></div>
-                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="building-2" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r5">PME / Entreprises</span></div>
+                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="utensils" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r1">Restauration</span></div>
+                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r2">Éducation</span></div>
+                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="hotel" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r3">Hôtellerie</span></div>
+                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="store" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r4">Commerce & distribution</span></div>
+                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="building-2" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r5">PME / Grande entreprise</span></div>
                     <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="briefcase" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r6">Cabinets & Professions</span></div>
-                    <div class="premium-sector"><div class="premium-sector__icon"><i data-lucide="globe" class="w-5 h-5"></i></div><span data-i18n="home.sectors.r7">Plateformes digitales</span></div>
                 </div>
             </div>
         </section>
