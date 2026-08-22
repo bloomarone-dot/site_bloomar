@@ -428,6 +428,79 @@
     background: var(--premium-surface) !important;
 }
 
+/* CTA sombres → fond clair en mode clair */
+[data-theme="light"] .premium-cta--services,
+[data-theme="light"] .premium-cta--about {
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(123, 47, 247, 0.12), transparent),
+        linear-gradient(160deg, #ffffff, #f4f2fa);
+    border-color: var(--premium-border);
+    box-shadow: 0 8px 40px rgba(11, 18, 50, 0.08);
+}
+
+[data-theme="light"] .premium-cta--services h2,
+[data-theme="light"] .premium-cta--services p,
+[data-theme="light"] .premium-cta--about h2,
+[data-theme="light"] .premium-cta--about p {
+    color: var(--premium-heading);
+}
+
+[data-theme="light"] .premium-cta--services p,
+[data-theme="light"] .premium-cta--about p {
+    color: var(--premium-text-muted);
+}
+
+[data-theme="light"] .premium-cta--services .premium-btn-primary,
+[data-theme="light"] .premium-cta--about .premium-btn-primary {
+    background: linear-gradient(135deg, #7B2FF7, #6366f1);
+    color: #fff;
+    border-color: rgba(167, 139, 250, 0.35);
+}
+
+[data-theme="light"] .res-cta__text {
+    color: var(--premium-text-muted);
+}
+
+/* Labels et liens — meilleur contraste sur fond clair */
+[data-theme="light"] .premium-section__label,
+[data-theme="light"] .premium-eco-card__tag,
+[data-theme="light"] .svc-glass__label,
+[data-theme="light"] .premium-nav__link--active {
+    color: var(--premium-violet-deep);
+}
+
+[data-theme="light"] .premium-service-card__link,
+[data-theme="light"] .premium-eco-card__cta {
+    color: var(--premium-violet-deep);
+}
+
+[data-theme="light"] .premium-stat strong {
+    background: var(--premium-gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .svc-proconnecte-channel {
+    background: rgba(123, 47, 247, 0.05);
+    border-color: var(--premium-border);
+    color: var(--premium-text-muted);
+}
+
+[data-theme="light"] .svc-proconnecte-msg {
+    background: rgba(123, 47, 247, 0.05);
+    border-color: var(--premium-border);
+}
+
+[data-theme="light"] .svc-chat__bubble {
+    background: rgba(123, 47, 247, 0.06);
+    color: var(--premium-text);
+}
+
+[data-theme="light"] .about-quote {
+    color: var(--premium-text);
+}
+
 .premium-nav__theme {
     display: inline-flex;
     align-items: center;

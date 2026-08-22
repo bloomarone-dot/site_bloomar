@@ -125,7 +125,7 @@
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 800;
     letter-spacing: -0.025em;
-    color: #fff;
+    color: var(--premium-heading);
     line-height: 1.15;
     margin-bottom: 1rem;
 }
@@ -215,7 +215,7 @@
     display: block;
     font-size: 0.8125rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--premium-heading);
     margin-bottom: 0.25rem;
 }
 
@@ -275,7 +275,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #fff;
+    color: var(--premium-text);
 }
 
 .svc-float-card--success .svc-float-card__check {
@@ -437,7 +437,7 @@
 
 .svc-method-steps li strong {
     display: block;
-    color: #fff;
+    color: var(--premium-heading);
     font-weight: 700;
     font-size: 0.8125rem;
     margin-bottom: 0.1rem;
@@ -529,7 +529,7 @@
 .svc-donut-label strong {
     display: block;
     font-size: 1.125rem;
-    color: #fff;
+    color: var(--premium-heading);
 }
 
 .svc-deliverables {
@@ -588,7 +588,7 @@
 .svc-chat__head strong {
     display: block;
     font-size: 0.8125rem;
-    color: #fff;
+    color: var(--premium-heading);
 }
 
 .svc-chat__head span {
@@ -629,7 +629,7 @@
 .svc-proximity h4 {
     font-size: 0.9375rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--premium-heading);
     margin-bottom: 0.85rem;
 }
 
@@ -746,7 +746,7 @@
 .svc-hardware-card__body h3 {
     font-size: 0.9375rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--premium-heading);
     margin-bottom: 0.45rem;
 }
 

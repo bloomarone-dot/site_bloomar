@@ -51,7 +51,7 @@
     font-size: clamp(1.75rem, 4vw, 2.35rem);
     font-weight: 800;
     letter-spacing: -0.025em;
-    color: #fff;
+    color: var(--premium-heading);
     line-height: 1.15;
     margin-bottom: 0.65rem;
 }
@@ -184,7 +184,7 @@
 .about-timeline__card h3 {
     font-size: 1rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--premium-heading);
     margin-bottom: 0.55rem;
     line-height: 1.3;
 }
@@ -276,7 +276,7 @@
 .about-value-card h3 {
     font-size: 1.0625rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--premium-heading);
     margin-bottom: 0.55rem;
 }
 
@@ -307,7 +307,7 @@
     font-size: clamp(1.65rem, 3.5vw, 2.25rem);
     font-weight: 800;
     letter-spacing: -0.025em;
-    color: #fff;
+    color: var(--premium-heading);
     line-height: 1.2;
     margin-bottom: 1.25rem;
 }
@@ -336,7 +336,7 @@
     font-size: 1.0625rem;
     font-weight: 600;
     line-height: 1.55;
-    color: #fff;
+    color: var(--premium-heading);
 }
 
 .about-quote__mark {
@@ -576,7 +576,7 @@
 .about-proximity-card h3 {
     font-size: 0.9375rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--premium-heading);
     margin-bottom: 0.4rem;
 }
 

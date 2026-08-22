@@ -462,10 +462,6 @@
     color: var(--premium-text-muted);
 }
 
-[data-theme="light"] .premium-stat strong {
-    color: var(--premium-heading);
-}
-
 [data-theme="light"] .premium-eco-card__cta,
 [data-theme="light"] .premium-service-card__link {
     color: var(--premium-violet-deep, #6d28d9);
