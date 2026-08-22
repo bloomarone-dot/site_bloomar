@@ -124,10 +124,10 @@
         ],
 
         offTopicReply:
-            "Je suis spécialisé dans les solutions et services de Bloomarone. Je ne peux malheureusement pas répondre aux questions de culture générale.",
+            "Je suis Bloomar, l’assistante de Bloomarone — je réponds sur nos produits, services, devis et rendez-vous.\n\nVotre question sort de mon périmètre : je ne peux pas répondre à ce sujet personnellement, mais je peux vous orienter vers l’équipe Bloomarone si besoin.",
 
         welcome:
-            "Bonjour 👋 Je suis Bloomar, l’assistant de Bloomarone.\n\nJe peux vous présenter nos solutions, répondre à vos questions, préparer un devis ou un rendez-vous.\n\nDites-moi simplement ce que vous cherchez.",
+            "Bonjour 👋 Je suis Bloomar, votre assistante Bloomarone.\n\nJe peux répondre à vos questions sur nos solutions, préparer un devis, un rendez-vous ou vous mettre en contact avec l’équipe.\n\nQue souhaitez-vous faire aujourd’hui ?",
     };
 
     global.BloomarChatKnowledge = knowledge;

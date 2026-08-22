@@ -1,6 +1,7 @@
 /**
  * BL∞MAR ONE — Client API
- * Connecte les formulaires au backend Python (FastAPI).
+ * Les formulaires ouvrent WhatsApp directement (sans dépendre du backend).
+ * L'API backend est tentée en arrière-plan quand elle est disponible.
  */
 
 const API_BASE =
@@ -23,6 +24,28 @@ function buildWhatsAppAuditMessage({ nom, entreprise, telephone, besoin }) {
   );
 }
 
+function buildWhatsAppCaptureMessage({ nom, structure, phone1, phone2, email, contexte }) {
+  const isEn = typeof getLang === 'function' && getLang() === 'en';
+  const ctx = contexte || 'demande';
+  if (isEn) {
+    return (
+      `Hello BL∞MAR ONE,\n\nNew request (${ctx}).\n\n` +
+      `Name: ${nom}\nCompany: ${structure}\nPhone 1: ${phone1}\nPhone 2: ${phone2 || '—'}\nEmail: ${email}`
+    );
+  }
+  return (
+    `Bonjour BL∞MAR ONE,\n\nNouvelle demande (${ctx}).\n\n` +
+    `Nom : ${nom}\nStructure : ${structure}\nTéléphone 1 : ${phone1}\nTéléphone 2 : ${phone2 || '—'}\nEmail : ${email}`
+  );
+}
+
+function buildWhatsAppDeveloperMessage({ nom, email, phone1, phone2 }) {
+  return (
+    `Bonjour BL∞MAR ONE,\n\nDemande d'accès Espace Développeurs (API Sandbox).\n\n` +
+    `Nom : ${nom}\nEmail : ${email}\nTéléphone 1 : ${phone1}\nTéléphone 2 : ${phone2 || '—'}`
+  );
+}
+
 function openWhatsAppWithMessage(text) {
   const url = `https://wa.me/${BLOOMAR_WHATSAPP}?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank', 'noopener,noreferrer');
@@ -30,7 +53,7 @@ function openWhatsAppWithMessage(text) {
 
 async function parseApiResponse(res) {
   const data = await res.json().catch(() => ({}));
-    if (!res.ok) {
+  if (!res.ok) {
     const detail = Array.isArray(data.detail)
       ? data.detail.map((d) => d.msg).join(', ')
       : (data.detail || data.message);
@@ -45,51 +68,54 @@ function trackAnalyticsEvent(name, params) {
   }
 }
 
+async function postJsonQuietly(url, body) {
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (res.ok) return await res.json().catch(() => ({}));
+  } catch (err) {
+    console.warn('[API] Background sync skipped:', err.message || err);
+  }
+  return null;
+}
+
 async function handleLeadSubmit(e) {
   e.preventDefault();
 
   const nom = document.getElementById('lead-name').value.trim();
   const entreprise = document.getElementById('lead-company').value.trim();
   const telephone = document.getElementById('lead-phone').value.trim();
-  const besoin = document.getElementById('lead-sector').value;
+  const besoinEl = document.getElementById('lead-sector');
+  const besoin = besoinEl.options[besoinEl.selectedIndex]?.text?.trim() || besoinEl.value;
 
-  try {
-    const res = await fetch(`${API_BASE}/api/lead`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nom, entreprise, telephone, besoin }),
-    });
+  const waMessage = buildWhatsAppAuditMessage({ nom, entreprise, telephone, besoin });
 
-    const data = await parseApiResponse(res);
+  const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
+  trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
+    event_category: 'form',
+    form_name: 'contact_lead',
+    form_destination: 'whatsapp',
+  });
+  trackAnalyticsEvent((ev && ev.QUOTE_REQUEST) || 'quote_request', {
+    event_category: 'lead',
+    source: 'contact_form',
+    need: besoin,
+  });
 
-    if (data.success) {
-      const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
-      trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
-        event_category: 'form',
-        form_name: 'contact_lead',
-        form_destination: 'contact',
-      });
-      trackAnalyticsEvent((ev && ev.QUOTE_REQUEST) || 'quote_request', {
-        event_category: 'lead',
-        source: 'contact_form',
-        need: besoin,
-      });
-      showToast(
-        typeof t === 'function' ? t('contact.whatsappNext') : 'Demande enregistrée. Envoyez le message WhatsApp pour finaliser.'
-      );
-      document.getElementById('lead-name').value = '';
-      document.getElementById('lead-company').value = '';
-      document.getElementById('lead-phone').value = '';
-      setTimeout(() => {
-        openWhatsAppWithMessage(buildWhatsAppAuditMessage({ nom, entreprise, telephone, besoin }));
-      }, 800);
-    } else {
-      showToast('Erreur : ' + data.message);
-    }
-  } catch (err) {
-    showToast(typeof t === 'function' ? t('toast.serverError') : 'Impossible de contacter le serveur. Réessayez.');
-    console.error('[API] handleLeadSubmit :', err);
-  }
+  showToast(
+    typeof t === 'function' ? t('contact.whatsappNext') : 'Demande prête. Envoyez le message WhatsApp pour finaliser.'
+  );
+
+  document.getElementById('lead-name').value = '';
+  document.getElementById('lead-company').value = '';
+  document.getElementById('lead-phone').value = '';
+
+  setTimeout(() => openWhatsAppWithMessage(waMessage), 600);
+
+  postJsonQuietly(`${API_BASE}/api/lead`, { nom, entreprise, telephone, besoin });
 }
 
 async function handleUniversalCaptureSubmit(e) {
@@ -97,49 +123,42 @@ async function handleUniversalCaptureSubmit(e) {
 
   const nom = document.getElementById('cap-name').value.trim();
   const structure = document.getElementById('cap-structure').value.trim();
-  const telephone = document.getElementById('cap-phone')
-    ? document.getElementById('cap-phone').value.trim()
-    : '';
+  const phone1 = document.getElementById('cap-phone1')?.value.trim() || '';
+  const phone2 = document.getElementById('cap-phone2')?.value.trim() || '';
+  const email = document.getElementById('cap-email')?.value.trim() || '';
 
-  try {
-    const res = await fetch(`${API_BASE}/api/capture`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        nom,
-        structure,
-        telephone,
-        contexte: currentDownloadContext,
-      }),
-    });
+  const waMessage = buildWhatsAppCaptureMessage({
+    nom,
+    structure,
+    phone1,
+    phone2,
+    email,
+    contexte: currentDownloadContext,
+  });
 
-    const data = await parseApiResponse(res);
+  closeUniversalCaptureModal();
 
-    closeUniversalCaptureModal();
-    showToast(data.message);
+  const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
+  trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
+    event_category: 'form',
+    form_name: 'universal_capture',
+    form_context: currentDownloadContext,
+  });
 
-    if (data.success || data.redirect) {
-      const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
-      trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
-        event_category: 'form',
-        form_name: 'universal_capture',
-        form_context: currentDownloadContext,
-      });
-      trackAnalyticsEvent((ev && ev.DOCUMENT_DOWNLOAD) || 'document_download', {
-        event_category: 'resource',
-        document_context: currentDownloadContext,
-      });
-    }
+  showToast(
+    typeof t === 'function' ? t('contact.whatsappNext') : 'Demande prête. Envoyez le message WhatsApp pour finaliser.'
+  );
 
-    if (data.redirect) {
-      setTimeout(() => window.open(data.redirect, '_blank'), 2000);
-    } else if (data.success) {
-      showToast(`${typeof t === 'function' ? t('toast.download') : 'Téléchargement initialisé pour :'} ${structure}.`);
-    }
-  } catch (err) {
-    showToast(typeof t === 'function' ? t('toast.serverError') : 'Impossible de contacter le serveur. Réessayez.');
-    console.error('[API] handleUniversalCaptureSubmit :', err);
-  }
+  setTimeout(() => openWhatsAppWithMessage(waMessage), 600);
+
+  postJsonQuietly(`${API_BASE}/api/capture`, {
+    nom,
+    structure,
+    telephone: phone1,
+    telephone2: phone2,
+    email,
+    contexte: currentDownloadContext,
+  });
 }
 
 async function handleDevLeadSubmit(e) {
@@ -147,26 +166,21 @@ async function handleDevLeadSubmit(e) {
 
   const nom = document.getElementById('dev-name').value.trim();
   const email = document.getElementById('dev-email').value.trim();
+  const phone1 = document.getElementById('dev-phone1')?.value.trim() || '';
+  const phone2 = document.getElementById('dev-phone2')?.value.trim() || '';
 
-  try {
-    const res = await fetch(`${API_BASE}/api/developpeur`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nom, email }),
-    });
+  const waMessage = buildWhatsAppDeveloperMessage({ nom, email, phone1, phone2 });
 
-    const data = await parseApiResponse(res);
-    const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
-    if (data.success) {
-      trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
-        event_category: 'form',
-        form_name: 'developer_sandbox',
-      });
-    }
-    closeDeveloperModal();
-    showToast(data.message);
-  } catch (err) {
-    showToast(typeof t === 'function' ? t('toast.serverError') : 'Impossible de contacter le serveur. Réessayez.');
-    console.error('[API] handleDevLeadSubmit :', err);
-  }
+  closeDeveloperModal();
+
+  const ev = window.BloomarAnalytics && window.BloomarAnalytics.EVENTS;
+  trackAnalyticsEvent((ev && ev.FORM_SUBMIT) || 'form_submit', {
+    event_category: 'form',
+    form_name: 'developer_sandbox',
+  });
+
+  showToast('Demande développeur prête. Envoyez le message WhatsApp pour finaliser.');
+  setTimeout(() => openWhatsAppWithMessage(waMessage), 600);
+
+  postJsonQuietly(`${API_BASE}/api/developpeur`, { nom, email, telephone: phone1, telephone2: phone2 });
 }

@@ -21,8 +21,8 @@
             appointment: { action: "appointment", label: "Prendre rendez-vous" },
             whatsapp: { action: "whatsapp", label: "WhatsApp" },
             payment: { action: "product_payment", label: "B.one Payment" },
-            school: { action: "product_school", label: "BLOOSCHOOL" },
-            restaurant: { action: "product_restaurant", label: "BLOORESTAURANT" },
+            school: { action: "product_school", label: "B.one school" },
+            restaurant: { action: "product_restaurant", label: "B.one restaurant" },
             software: { action: "need_software", label: "Sur mesure" },
         };
     }
@@ -86,21 +86,36 @@
                 "capitale du japon",
             ],
             patterns: [
-                "^qui est (?!vous\\b|tu\\b|bloomar)",
+                "^qui est (?!vous\\b|tu\\b|bloomar|bloomarone)",
                 "coupe du monde",
                 "capitale du",
                 "capitale de",
                 "elon musk",
-                "samuel etoo",
+                "samuel et",
+                "etot",
+                "etoo",
                 "\\bmessi\\b",
                 "\\bronaldo\\b",
+                "\\bmeteo\\b",
+                "\\btemps qu il fait\\b",
+                "raconte.*blague",
+                "qui a gagne",
+                "president des",
+                "president de la",
             ],
             build(ctx) {
+                const msg = String((ctx && ctx.message) || "").toLowerCase();
+                let prefix = "";
+                if (/samuel\s*et?o{1,2}|etot|etoo/.test(msg)) {
+                    prefix =
+                        "Vous parlez probablement de Samuel Eto'o — je ne peux pas répondre aux questions personnelles ou sportives.\n\n";
+                }
                 return {
                     text:
-                        (ctx.knowledge && ctx.knowledge.offTopicReply) ||
-                        "Je suis spécialisé dans les solutions et services de Bloomarone. Je ne peux malheureusement pas répondre aux questions de culture générale.",
-                    ctas: [C().products, C().services, C().quote],
+                        prefix +
+                        ((ctx.knowledge && ctx.knowledge.offTopicReply) ||
+                            "Je suis spécialisée dans Bloomarone. Recentrons sur vos besoins professionnels."),
+                    ctas: [C().products, C().services, C().quote, C().whatsapp],
                 };
             },
         },
@@ -420,7 +435,7 @@
                 ctx.memory.topic = "product:blooschool";
                 return {
                     text: p.summary + "\n\nJe peux vous accompagner pour une démo, un devis ou un rendez-vous.",
-                    ctas: [C().quote, C().appointment, { href: p.href, label: "Voir BLOOSCHOOL" }],
+                    ctas: [C().quote, C().appointment, { href: p.href, label: "Voir B.one school" }],
                 };
             },
         },
@@ -437,7 +452,7 @@
                 ctx.memory.topic = "product:bloorestaurant";
                 return {
                     text: p.summary + "\n\nSouhaitez-vous que je prépare un devis ou un rendez-vous ?",
-                    ctas: [C().quote, C().appointment, { href: p.href, label: "Voir BLOORESTAURANT" }],
+                    ctas: [C().quote, C().appointment, { href: p.href, label: "Voir B.one restaurant" }],
                 };
             },
         },

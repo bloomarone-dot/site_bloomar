@@ -25,7 +25,52 @@
         { key: "time", ask: "Et à quelle heure ? (ex. 10h30)" },
     ];
 
-    const MIN_SCORE = 24;
+    const MIN_SCORE = 18;
+
+    function looksLikeOffTopicQuestion(n) {
+        if (!n) return false;
+        if (/^(qui est|qui etait|c est qui|connais tu|connaissez vous)\b/.test(n) && !/\b(vous|bloomar|bloomarone|b\.?one)\b/.test(n)) {
+            return true;
+        }
+        if (/\b(meteo|football|coupe du monde|messi|ronaldo|elon musk|president|capitale de|capitale du|blague|raconte)\b/.test(n)) {
+            return true;
+        }
+        if (/samuel\s*et?o{1,2}|etot|etoo/.test(n)) return true;
+        return false;
+    }
+
+    function looksLikeTopicSwitch(message) {
+        const n = norm(message);
+        if (!n || n.length < 8) return false;
+        if (/\?$/.test(message.trim())) return true;
+        return /^(qui|comment|pourquoi|quand|ou|est ce|c est quoi|combien|bonjour|salut|merci|stop|annule|autre)\b/.test(n);
+    }
+
+    function buildLeadWhatsAppText(kind, slots) {
+        const s = slots || {};
+        if (kind === "quote") {
+            return (
+                "Bonjour BL∞MAR ONE,\n\nDemande de devis (via Bloomar) :\n\n" +
+                "• Nom : " + (s.name || "—") + "\n" +
+                "• Entreprise : " + (s.company || "—") + "\n" +
+                "• Projet : " + (s.projectType || "—") + "\n" +
+                "• Budget : " + (s.budget || "—") + "\n" +
+                "• Description : " + (s.description || "—") + "\n" +
+                "• Email : " + (s.email || "—") + "\n" +
+                "• Téléphone : " + (s.phone || "—")
+            );
+        }
+        return (
+            "Bonjour BL∞MAR ONE,\n\nDemande de rendez-vous (via Bloomar) :\n\n" +
+            "• Nom : " + (s.name || "—") + "\n" +
+            "• Entreprise : " + (s.company || "—") + "\n" +
+            "• Téléphone : " + (s.phone || "—") + "\n" +
+            "• Email : " + (s.email || "—") + "\n" +
+            "• Projet : " + (s.project || "—") + "\n" +
+            "• Date : " + (s.date || "—") + "\n" +
+            "• Heure : " + (s.time || "—")
+        );
+    }
 
     function norm(text) {
         return String(text || "")
@@ -121,18 +166,19 @@
         }
 
         if (!best || bestScore < MIN_SCORE) {
-            // Contexte : continuer intelligemment, jamais la phrase générique interdite
+            if (looksLikeOffTopicQuestion(n)) {
+                return global.BloomarChatIntents.getById("off_topic");
+            }
             if (memory && memory.productFocus) {
                 return global.BloomarChatIntents.getById("general");
             }
             if (memory && (memory.topic === "services" || memory.topic === "about" || memory.topic === "products")) {
                 return global.BloomarChatIntents.getById("general");
             }
-            // Question "qui est X" non capturée → hors sujet
             if (/^qui est\b/.test(n) && !/^qui etes\b/.test(n) && !/\bvous\b/.test(n)) {
                 return global.BloomarChatIntents.getById("off_topic");
             }
-            return global.BloomarChatIntents.getById("about");
+            return global.BloomarChatIntents.getById("general");
         }
 
         return best;
@@ -223,13 +269,24 @@
             ctas: [
                 { action: "confirm_" + kind, label: "Confirmer et envoyer" },
                 { action: kind === "quote" ? "quote" : "appointment", label: "Recommencer" },
-                { action: "whatsapp", label: "Envoyer sur WhatsApp" },
+                { action: "whatsapp", label: "Envoyer sur WhatsApp", waText: buildLeadWhatsAppText(kind, memory.slots) },
             ],
             lead: { kind, data: { ...s } },
         };
     }
 
     function continueFlow(message, memory, kind) {
+        const knowledge = global.BloomarChatKnowledge;
+        if (looksLikeTopicSwitch(message) && !memory.awaiting) {
+            const alt = resolveIntent(message, memory);
+            if (alt && alt.id !== "general" && alt.id !== "greeting" && alt.id !== "thanks") {
+                memory.flow = null;
+                memory.flowStep = 0;
+                memory.slots = memory.slots || {};
+                return runIntent(alt, message, memory, knowledge);
+            }
+        }
+
         const steps = kind === "quote" ? QUOTE_STEPS : APPT_STEPS;
         const step = steps[memory.flowStep];
         if (!step) return wrapSummary(memory, kind);
@@ -271,11 +328,12 @@
             if (action === "confirm_quote" || action === "confirm_appointment") {
                 const kind = action === "confirm_quote" ? "quote" : "appointment";
                 memory.awaiting = null;
+                const waText = buildLeadWhatsAppText(kind, memory.slots);
                 return {
-                    text: "Merci. Votre demande est prête. Vous pouvez l’envoyer à l’équipe via WhatsApp, ou continuer ici.",
+                    text: "Merci 🙏 Votre demande est prête. Cliquez sur WhatsApp pour l’envoyer à l’équipe — il suffit de valider le message.",
                     ctas: [
-                        { action: "whatsapp", label: "Envoyer sur WhatsApp", wa: true },
-                        { action: "services", label: "Continuer" },
+                        { action: "whatsapp", label: "Envoyer sur WhatsApp", wa: true, waText: waText },
+                        { action: "services", label: "Continuer ici" },
                     ],
                     lead: { kind, data: { ...memory.slots }, confirmed: true },
                 };

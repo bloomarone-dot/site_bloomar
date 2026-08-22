@@ -758,6 +758,17 @@ body.page-premium ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.3
 .premium-footer li { margin-bottom: 0.5rem; }
 .premium-footer a { font-size: 0.8125rem; color: var(--premium-text-muted); transition: color var(--transition); }
 .premium-footer a:hover { color: var(--premium-violet-bright); }
+.premium-footer__dev-link {
+    font-size: 0.8125rem;
+    color: var(--premium-text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    transition: color var(--transition);
+}
+.premium-footer__dev-link:hover { color: var(--premium-violet-bright); }
 
 .premium-footer__social { display: flex; gap: 0.5rem; margin-top: 1.25rem; }
 .premium-footer__social a {

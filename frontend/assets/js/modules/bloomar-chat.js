@@ -53,9 +53,10 @@
             const item = { ...c };
             if (item.action === "whatsapp" || item.wa) {
                 item.href = buildWaUrl(
-                    "Bonjour Bloomarone,\n\nRésumé de ma conversation avec Bloomar :\n" +
-                        conversationSummary() +
-                        "\n\nMerci."
+                    item.waText ||
+                        ("Bonjour Bloomarone,\n\nRésumé de ma conversation avec Bloomar :\n" +
+                            conversationSummary() +
+                            "\n\nMerci.")
                 );
                 item.wa = true;
                 delete item.action;
