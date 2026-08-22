@@ -759,6 +759,7 @@ body.page-premium ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.3
 .premium-footer a { font-size: 0.8125rem; color: var(--premium-text-muted); transition: color var(--transition); }
 .premium-footer a:hover { color: var(--premium-violet-bright); }
 .premium-footer__dev-link {
+    display: inline-block;
     font-size: 0.8125rem;
     color: var(--premium-text-muted);
     background: none;
@@ -767,8 +768,11 @@ body.page-premium ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.3
     cursor: pointer;
     text-align: left;
     transition: color var(--transition);
+    font-family: inherit;
 }
 .premium-footer__dev-link:hover { color: var(--premium-violet-bright); }
+[data-theme="light"] .premium-footer__dev-link { color: #64748b; }
+[data-theme="light"] .premium-footer__dev-link:hover { color: var(--premium-violet); }
 
 .premium-footer__social { display: flex; gap: 0.5rem; margin-top: 1.25rem; }
 .premium-footer__social a {

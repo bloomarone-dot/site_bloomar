@@ -184,3 +184,8 @@ async function handleDevLeadSubmit(e) {
 
   postJsonQuietly(`${API_BASE}/api/developpeur`, { nom, email, telephone: phone1, telephone2: phone2 });
 }
+
+window.handleLeadSubmit = handleLeadSubmit;
+window.handleUniversalCaptureSubmit = handleUniversalCaptureSubmit;
+window.handleDevLeadSubmit = handleDevLeadSubmit;
+window.openWhatsAppWithMessage = openWhatsAppWithMessage;

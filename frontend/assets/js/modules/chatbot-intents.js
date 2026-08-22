@@ -197,7 +197,7 @@
                 ctx.memory.topic = "services";
                 return {
                     text:
-                        "Nous proposons notamment B.one Payment, le développement web & mobile, des solutions ERP/CRM/SaaS, un accompagnement pour structurer votre croissance, et un support de proximité.\n\nVous cherchez plutôt un produit prêt à l’emploi, ou une solution conçue pour votre métier ?",
+                        "Nous proposons notamment B.one Payment, le développement web & mobile, B.one ProCom pour vos équipes, des solutions ERP/CRM/SaaS, et un support de proximité.\n\nVous cherchez plutôt un produit prêt à l’emploi, ou une solution conçue pour votre métier ?",
                     ctas: [C().products, C().software, C().quote],
                 };
             },

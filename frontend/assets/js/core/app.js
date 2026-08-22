@@ -144,10 +144,12 @@
         function openDeveloperModal() {
             document.getElementById('developer-modal').classList.remove('hidden');
         }
+        window.openDeveloperModal = openDeveloperModal;
 
         function closeDeveloperModal() {
             document.getElementById('developer-modal').classList.add('hidden');
         }
+        window.closeDeveloperModal = closeDeveloperModal;
 
         /* handleDevLeadSubmit et handleLeadSubmit → définis dans api.js */
 

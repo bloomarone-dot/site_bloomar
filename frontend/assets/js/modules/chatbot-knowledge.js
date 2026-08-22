@@ -88,14 +88,14 @@
                 summary: "Plateformes pour structurer ventes, clients et opérations.",
             },
             {
-                id: "advisory",
-                name: "Accompagnement & croissance",
-                summary: "Structuration, pilotage financier et feuille de route digitale.",
+                id: "procom",
+                name: "B.one ProCom",
+                summary: "Communication interne sécurisée entre équipes, filiales et services.",
             },
             {
                 id: "support",
-                name: "Support & SAV",
-                summary: "Assistance de proximité, formation et maintenance.",
+                name: "Support de proximité",
+                summary: "Assistance, formation et maintenance.",
             },
         ],
 
